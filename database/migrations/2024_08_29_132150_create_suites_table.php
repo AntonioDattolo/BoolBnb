@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::disableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
 
         Schema::create('suites', function (Blueprint $table) {
             $table->id();
@@ -27,28 +27,18 @@ return new class extends Migration
             $table->boolean('visible');
             $table->boolean('sponsor_id')->nullable();
             $table->bigInteger('tot_visuals');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id')->constrained()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
 
-        // Schema::enableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
-    {       
-       
-
-        // $table->dropForeign('projects_type_id_foreign');
-        // Schema::dropIfExists('suites');
-         Schema::table('suites', function (Blueprint $table) {
-              $table->dropForeign('suites_user_id_foreign');
-              $table->dropColumn('user_id');
-                    
-          });
-        
-       
+    {
+        Schema::dropIfExists('suites');
     }
 };

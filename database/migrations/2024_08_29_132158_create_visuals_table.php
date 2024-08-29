@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('visuals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('suite_id');
-            $table->foreign('suite_id')->references('id')->on('suites')->onDelete('cascade');
+            $table->unsignedBigInteger('suite_id')->cascadeOnDelete()->constrained();
+            $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete();
             $table->string('ip_address');
             $table->dateTime('date');
         });

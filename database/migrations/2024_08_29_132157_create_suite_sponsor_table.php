@@ -15,10 +15,10 @@ return new class extends Migration
 
         Schema::create('suite_sponsor', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('suite_id');
-            $table->foreign('suite_id')->references('id')->on('suites')->onDelete('cascade');
-            $table->unsignedBigInteger('sponsor_id');
-            $table->foreign('sponsor_id')->references('id')->on('sponsors')->onDelete('cascade');
+            $table->unsignedBigInteger('suite_id')->constrained()->nullable();
+            $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete();
+            $table->unsignedBigInteger('sponsor_id')->cascadeOnDelete();
+            $table->foreign('sponsor_id')->references('id')->on('sponsors');
             $table->string('sponsor_name');
             $table->decimal('sponsor_price');
             $table->dateTime('sponsor_start');
@@ -33,9 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-         Schema::dropIfExists('suite_sponsor');
-        // Schema::table('sponsors', function (Blueprint $table) {
-        //     $table->dropForeign('sponsors_sponsor_id_foreign');
-        // });
+        Schema::dropIfExists('suite_sponsor');
     }
 };

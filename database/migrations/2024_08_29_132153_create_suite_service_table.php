@@ -15,10 +15,10 @@ return new class extends Migration
 
         Schema::create('suite_service', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('suite_id');
-            $table->foreign('suite_id')->references('id')->on('suites')->onDelete('cascade');
-            $table->unsignedBigInteger('service_id');
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
+            $table->unsignedBigInteger('suite_id')->constrained()->nullable();
+            $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete();
+            $table->unsignedBigInteger('service_id')->constrained();
+            $table->foreign('service_id')->references('id')->on('services')->cascadeOnDelete();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -29,11 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Schema::dropIfExists('suite_service');
-        Schema::table('suite_service', function (Blueprint $table) {
-            $table->dropForeign('suite_service_suite_id_foreign');
-            $table->dropColumn('suite_id');
-                  
-        });
+        Schema::dropIfExists('suite_service');
     }
 };

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('sponsors', function (Blueprint $table) {
-            $table->id();
+            $table->id()->cascadeOnDelete();
             $table->string('name');
             $table->time('period');
             $table->decimal('price');
@@ -29,11 +29,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('sponsors');
-         Schema::table('suite_sponsor', function (Blueprint $table) {
-             $table->dropForeign('suite_sponsor_sponsor_id_foreign');
-             $table->dropColumn('sponsor_id');
-             // $table->dropIfExists('sponsors');
-         });
-       
     }
 };

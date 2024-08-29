@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->text('text');
             $table->dateTime('date');
-            $table->unsignedBigInteger('suite_id');
-            $table->foreign('suite_id')->references('id')->on('suites')->onDelete('cascade');
+            $table->unsignedBigInteger('suite_id')->constrained()->nullable();
+            $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete()->nullable();
         });
 
         Schema::enableForeignKeyConstraints();
