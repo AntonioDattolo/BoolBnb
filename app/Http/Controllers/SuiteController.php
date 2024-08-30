@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Suite;
+use App\Models\Sponsor;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,7 +36,13 @@ class SuiteController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            
+            'sponsor' => Sponsor::all(),
+            'service' => Service::all()
+            
+        ];
+        return view("admin.create", $data);
     }
 
     /**
@@ -42,7 +50,57 @@ class SuiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            "title" => "required|min:3",
+            "room" => "required|min:1",
+            "bed" => "required|min:1",
+            "bathroom" => "required|min:1",
+            "squareM" => "required|min:1",
+            "address" => "required|min:1",
+
+             "longitude" => "min:3",
+             "latitude" => "min:3",   
+
+            "img" => "required|min:3",
+            "visible" => "required",
+            "sponsor" => "required",
+            "tot_visuals" => "required|min:3",
+            "user_id" => "required"
+
+        ]);
+
+        $data = $request->all();
+        $newSuite = new Suite;
+        $newSuite->title = $data['title'];
+        $newSuite->room = $data['room'];
+        $newSuite->bed = $data['bed'];
+        $newSuite->bathroom = $data['bathroom'];
+        $newSuite->squareM = $data['squareM'];
+        $newSuite->address = $data['address'];
+        $newSuite->longitude = $data['longitude'];
+        $newSuite->latitude = $data['latitude'];
+        $newSuite->img = $data['img'];
+        $newSuite->visible = $data['visible'];
+        $newSuite->sponsor = $data['sponsor'];
+        $newSuite->tot_visual = $data['tot_visual'];
+        $newSuite->user_id = $data['user_id'];
+        // if ($request->has('img')) {
+        
+        //     $image_path = Storage::put('uploads', $data['img']);
+        //     $newSuite->img= $image_path; 
+        // }
+        // $newSuite->slug = STR::slug($newSuite->title, '-');
+        // $newSuite->type_id = $data['type_id'];
+        $newSuite->save();
+        // $tech= isset($data['technologies']);
+
+        // if (isset($data['technologies'])) {
+        //     $newSuite->technologies()->attach($tech);
+        // }else{
+        //     return redirect()->route('admin.Suite.show', $newSuite->id);
+        // }
+
+        return redirect()->route('admin.suite.show', $newSuite->id);
     }
 
     /**
@@ -50,7 +108,15 @@ class SuiteController extends Controller
      */
     public function show(Suite $suite)
     {
-        //
+        //  $selectedProject =  Project::findOrFail($id);
+        //  // $selectedTech = Technology::findOrFail();
+        //  $data = [
+        //      "project" => $selectedProject,
+        //      "technology" => $selectedProject->technologies
+        //  ];
+         return view("admin.show", 
+        //  $data
+        );
     }
 
     /**
