@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             VisualSeeder::class,
             MessageSeeder::class,
             SponsorSeeder::class,
-            ServiceSeeder::class
+            ServiceSeeder::class,
+            SuiteSponsorSeeder::class
             
         ]);
     }

@@ -17,8 +17,8 @@
                         {{ __('You are logged in!')  }} {{ Auth::user()->name}} {{ Auth::user()->birth_date}}
                         {{-- ricavare id per apartments --}}
                         {{ Auth::user()->id }}
-                       <a href="http://127.0.0.1:8000/admin/apartment">miei appartamenti</a>
-                       
+                       <a href="{{route('admin.suite.index') }}">miei appartamenti</a>
+                       {{-- route('admin.suite')  --}}
                         {{-- ------------- --}}
                     </div>
                 </div>
@@ -37,14 +37,14 @@
         @endif
         
        
-       {{-- {{dump($suite[0]->user->name)}} --}}
-            @foreach ($suite[0]->messages as $item)
+       {{dump($suite[0]->sponsors[0]->name)}}
+            {{-- @foreach ($suite[0]->messages as $item)
             <ul>
                 <li>
                     {{ $item->text }}
                 </li>
             </ul>
-            @endforeach 
+            @endforeach  --}}
                  
             
     
