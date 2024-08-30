@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Message;
 
 class MessageSeeder extends Seeder
 {
@@ -12,6 +13,10 @@ class MessageSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $newMessage = new Message();
+        $newMessage->text = "Testo molto molto molto molto molto molto molto molto molto lungo";
+        $newMessage->date = "2024/07/19";
+        $newMessage->suite_id = 1;
+        $newMessage->save();
     }
 }

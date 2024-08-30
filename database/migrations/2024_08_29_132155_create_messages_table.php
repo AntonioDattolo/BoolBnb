@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('date');
             $table->unsignedBigInteger('suite_id')->constrained()->nullable();
             $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete()->nullable();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

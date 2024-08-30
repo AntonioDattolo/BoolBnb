@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->time('period');
             $table->decimal('price');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
