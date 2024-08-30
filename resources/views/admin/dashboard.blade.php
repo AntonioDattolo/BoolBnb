@@ -38,10 +38,10 @@
         
        
        {{-- {{dump($suite[0]->user->name)}} --}}
-            @foreach ($suite[0]->messages as $item)
+            @foreach ($suite as $item)
             <ul>
                 <li>
-                    {{ $item->text }}
+                    {{ $item }}
                 </li>
             </ul>
             @endforeach 
