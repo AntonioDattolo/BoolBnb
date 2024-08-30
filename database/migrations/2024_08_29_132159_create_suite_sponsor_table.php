@@ -19,10 +19,10 @@ return new class extends Migration
             $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete();
             $table->unsignedBigInteger('sponsor_id')->cascadeOnDelete();
             $table->foreign('sponsor_id')->references('id')->on('sponsors');
-            $table->string('sponsor_name');
-            $table->decimal('sponsor_price');
-            $table->dateTime('sponsor_start');
-            $table->dateTime('sponsor_end');
+            $table->string('sponsor_name')->nullable();
+            $table->decimal('sponsor_price')->nullable();
+            $table->dateTime('sponsor_start')->nullable();
+            $table->dateTime('sponsor_end')->nullable();
             $table->timestamps();
         });
 
