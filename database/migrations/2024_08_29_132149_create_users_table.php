@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('surname')->nullable();
             $table->date('birth_date')->nullable();
+            $table->timestamps();
         });
     }
 

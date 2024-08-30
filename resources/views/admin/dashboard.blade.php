@@ -26,17 +26,25 @@
         </div>
     </div>
     <div>
-       {{-- {{$apartment[0]->user_id->name}} --}}
-       {{-- {{dump($apartment[0]->user->name)}}
-            @foreach ($apartment as $item)
+        @if ( count($suite) == 0)
+            <h1>
+                questo è l'if
+            </h1>
+        @else
+            {{dump($suite)}}
+            {{$suite[0]->user->name}}
+            questo è l'else
+        @endif
+        
+       
+       {{-- {{dump($suite[0]->user->name)}} --}}
+            @foreach ($suite as $item)
             <ul>
                 <li>
-
-                    {{ $item}}
+                    {{ $item->user->name}}
                 </li>
-
             </ul>
-            @endforeach --}}
+            @endforeach
                  
             
     

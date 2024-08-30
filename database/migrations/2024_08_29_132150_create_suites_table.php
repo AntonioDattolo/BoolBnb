@@ -29,6 +29,7 @@ return new class extends Migration
             $table->bigInteger('tot_visuals');
             $table->unsignedBigInteger('user_id')->constrained()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

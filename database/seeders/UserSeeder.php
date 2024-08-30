@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             $mainUser->password = Hash::make('adminadmin');
             $mainUser->name = "admin".$i;
             $mainUser->surname = "admin";
-            $mainUser->birth_date = "1994/07/19";
+            $mainUser->birth_date = "1994/07/19"; 
             $mainUser->save();
         }
         
