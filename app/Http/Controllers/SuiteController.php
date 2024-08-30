@@ -58,13 +58,13 @@ class SuiteController extends Controller
             "squareM" => "required|min:1",
             "address" => "required|min:1",
 
-             "longitude" => "min:3",
-             "latitude" => "min:3",   
+             "longitude" => "nullable",
+             "latitude" => "nullable",   
 
             "img" => "required|min:3",
-            "visible" => "required",
-            "sponsor" => "required",
-            "tot_visuals" => "required|min:3",
+            "visible" => "nullable",
+            "sponsor" => "nullable",
+            "tot_visuals" => "required",
             "user_id" => "required"
 
         ]);
@@ -80,9 +80,9 @@ class SuiteController extends Controller
         $newSuite->longitude = $data['longitude'];
         $newSuite->latitude = $data['latitude'];
         $newSuite->img = $data['img'];
-        $newSuite->visible = $data['visible'];
-        $newSuite->sponsor = $data['sponsor'];
-        $newSuite->tot_visual = $data['tot_visual'];
+        // $newSuite->visible = $data['visible'];
+        // $newSuite->sponsor = $data['sponsor'];
+        $newSuite->tot_visuals = $data['tot_visuals'];
         $newSuite->user_id = $data['user_id'];
         // if ($request->has('img')) {
         
