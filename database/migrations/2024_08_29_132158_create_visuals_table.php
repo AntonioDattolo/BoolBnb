@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete();
             $table->string('ip_address');
             $table->dateTime('date');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

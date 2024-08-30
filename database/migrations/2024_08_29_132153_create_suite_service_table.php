@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete();
             $table->unsignedBigInteger('service_id')->constrained();
             $table->foreign('service_id')->references('id')->on('services')->cascadeOnDelete();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
