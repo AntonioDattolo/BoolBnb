@@ -24,7 +24,7 @@ class SuiteSeeder extends Seeder
         $newSuite->latitude =  41.8902300;
         $newSuite->img = "alahahahahahahahaha";
         $newSuite->visible = true;
-        $newSuite->sponsor_id = true;
+        $newSuite->sponsor = true;
         $newSuite->tot_visuals = 20;
         $newSuite->user_id = 1;
         $newSuite->save();

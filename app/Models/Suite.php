@@ -25,7 +25,7 @@ class Suite extends Model
         'latitude',
         'img',
         'visible',
-        'sponsor_id',
+        'sponsor',
         'tot_visuals',
         'user_id'
     ];

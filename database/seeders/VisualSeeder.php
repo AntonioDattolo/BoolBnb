@@ -14,9 +14,9 @@ class VisualSeeder extends Seeder
     public function run(): void
     {
         $newVisual = new Visual();
-        $newVisual->suite_id = 'Visual 1';
+        $newVisual->suite_id =  1;
         $newVisual->ip_address = 'This address of a visual 1';
-        $newVisual->date = '30/08/2024';
+        $newVisual->date = '2024/08/30';
         $newVisual->save();
     }
 }

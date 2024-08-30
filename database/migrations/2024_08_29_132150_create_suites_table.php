@@ -25,7 +25,7 @@ return new class extends Migration
             $table->double('latitude');
             $table->string('img');
             $table->boolean('visible');
-            $table->boolean('sponsor_id')->nullable();
+            $table->boolean('sponsor')->nullable();
             $table->bigInteger('tot_visuals');
             $table->unsignedBigInteger('user_id')->constrained()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
