@@ -23,6 +23,7 @@ return new class extends Migration
             $table->decimal('sponsor_price');
             $table->dateTime('sponsor_start');
             $table->dateTime('sponsor_end');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
