@@ -19,16 +19,17 @@ class SuiteController extends Controller
         // $mainHome = apartment::select()->where('user_id',$user_id)->get();
         $data = [
             // 'apartment' => Suite::with('user')->select()->where('user_id',$user_id)->get(),
-            'suite' => Suite::with('user',
-            'messages',
-            'visuals',
-            'sponsors',
-            'services'
-            )->select()->where('user_id',$user_id)->get()
-            
+            'suite' => Suite::with(
+                'user',
+                'messages',
+                'visuals',
+                'sponsors',
+                'services'
+            )->select()->where('user_id', $user_id)->get()
+
             // 'type' => Type::all() Non è necessario in quanto recupera il nome del type attraverso la RELATIONS delle tabelle
         ];
-        return view('admin.index', $data);
+        return view('admin.suites.index', $data);
     }
 
     /**
@@ -37,12 +38,12 @@ class SuiteController extends Controller
     public function create()
     {
         $data = [
-            
+
             'sponsor' => Sponsor::all(),
             'service' => Service::all()
-            
+
         ];
-        return view("admin.create", $data);
+        return view("admin.suites.create", $data);
     }
 
     /**
@@ -58,8 +59,8 @@ class SuiteController extends Controller
             "squareM" => "required|min:1",
             "address" => "required|min:1",
 
-             "longitude" => "nullable",
-             "latitude" => "nullable",   
+            "longitude" => "nullable",
+            "latitude" => "nullable",
 
             "img" => "required|min:3",
             "visible" => "nullable",
@@ -85,7 +86,7 @@ class SuiteController extends Controller
         $newSuite->tot_visuals = $data['tot_visuals'];
         $newSuite->user_id = $data['user_id'];
         // if ($request->has('img')) {
-        
+
         //     $image_path = Storage::put('uploads', $data['img']);
         //     $newSuite->img= $image_path; 
         // }
@@ -100,7 +101,8 @@ class SuiteController extends Controller
         //     return redirect()->route('admin.Suite.show', $newSuite->id);
         // }
 
-        return redirect()->route('admin.suite.show', $newSuite->id);
+        return redirect()->route('admin.suites.show', $newSuite->id);
+        //NON ANDREBBE ADMIN.SUITES.INDEX ???
     }
 
     /**
@@ -114,8 +116,9 @@ class SuiteController extends Controller
         //      "project" => $selectedProject,
         //      "technology" => $selectedProject->technologies
         //  ];
-         return view("admin.show", 
-        //  $data
+        return view(
+            'admin.suites.show',
+            //  $data
         );
     }
 
