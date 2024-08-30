@@ -2,26 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\apartment;
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class ApartmentController extends Controller
+class SponsorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-
-    {   
-        // $main = Auth::user()->id;
-        // $mainHome = apartment::Find($main);
-        // $data = [
-        //     'apartment' => $mainHome
-        //     // 'type' => Type::all() Non è necessario in quanto recupera il nome del type attraverso la RELATIONS delle tabelle
-        // ];
-        // return view('prova', $data);
-        return view('prova');
+    {
+        //
     }
 
     /**
@@ -43,7 +34,7 @@ class ApartmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(apartment $apartment)
+    public function show(Sponsor $sponsor)
     {
         //
     }
@@ -51,7 +42,7 @@ class ApartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(apartment $apartment)
+    public function edit(Sponsor $sponsor)
     {
         //
     }
@@ -59,7 +50,7 @@ class ApartmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, apartment $apartment)
+    public function update(Request $request, Sponsor $sponsor)
     {
         //
     }
@@ -67,7 +58,7 @@ class ApartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(apartment $apartment)
+    public function destroy(Sponsor $sponsor)
     {
         //
     }

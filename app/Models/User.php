@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Suite;
 
 class User extends Authenticatable
 {
@@ -25,8 +26,8 @@ class User extends Authenticatable
         'birth_date',
     ];
 
-     public function apartments(){
-         return $this->hasMany(apartment::class);
+     public function suites(){
+         return $this->hasMany(Suite::class);
      }
 
 
