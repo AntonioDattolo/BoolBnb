@@ -37,11 +37,16 @@
         @endif
         
        
+<<<<<<< HEAD
+       {{-- {{dump($suite[0]->user->name)}} --}}
+            @foreach ($suite as $item)
+=======
        {{dump($suite[0]->sponsors[0]->name)}}
             {{-- @foreach ($suite[0]->messages as $item)
+>>>>>>> 10406d412aa2dfcf372e06707c381274d32d7f9a
             <ul>
                 <li>
-                    {{ $item->text }}
+                    {{ $item }}
                 </li>
             </ul>
             @endforeach  --}}
