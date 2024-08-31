@@ -108,18 +108,20 @@ class SuiteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Suite $suite)
+    public function show(String $id )
     {
+
         //  $selectedProject =  Project::findOrFail($id);
+        $selectedSuite = Suite::findOrFail($id);
+        $data = [
+            "selectedSuite" => $selectedSuite
+        ];
         //  // $selectedTech = Technology::findOrFail();
         //  $data = [
         //      "project" => $selectedProject,
         //      "technology" => $selectedProject->technologies
         //  ];
-        return view(
-            'admin.suites.show',
-            //  $data
-        );
+        return view('admin.suites.show', $data);
     }
 
     /**
@@ -128,6 +130,10 @@ class SuiteController extends Controller
     public function edit(Suite $suite)
     {
         //
+        $data = [
+            ''
+        ]
+        
     }
 
     /**
@@ -136,6 +142,26 @@ class SuiteController extends Controller
     public function update(Request $request, Suite $suite)
     {
         //
+        $data = $request->validate([
+            "title" => "required|min:3",
+            "room" => "required|min:1",
+            "bed" => "required|min:1",
+            "bathroom" => "required|min:1",
+            "squareM" => "required|min:1",
+            "address" => "required|min:1",
+
+            "longitude" => "nullable",
+            "latitude" => "nullable",
+
+            "img" => "required|min:3",
+            "visible" => "nullable",
+            "sponsor" => "nullable",
+            "tot_visuals" => "required",
+            "user_id" => "required"
+
+        ]);
+        $suite->update($data);
+        return redirect()->route('admin.suites.show', $suite->id);
     }
 
     /**
