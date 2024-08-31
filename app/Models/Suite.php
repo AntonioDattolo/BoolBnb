@@ -41,11 +41,23 @@ class Suite extends Model
     public function visuals(){
         return $this->hasMany(Visual::class);
     }
+
+
     // molti a molti
+    // public function sponsors()
+    // {
+    //     return $this->belongsToMany(Sponsor::class, 'suite_sponsor');
+    //     // return $this->belongsToMany('App\Models\Technology');
+    // }
+
     public function sponsors()
     {
-        return $this->belongsToMany(Sponsor::class, 'suite_sponsor');
-        // return $this->belongsToMany('App\Models\Technology');
+        return $this->belongsToMany(Sponsor::class, 'suite_sponsor' );
+    }
+
+    public function sponsor()
+    {
+        return $this->hasOne(SuiteSponsor::class, 'suite_id', 'id');
     }
 
     public function services()

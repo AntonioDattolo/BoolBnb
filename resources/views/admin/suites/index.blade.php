@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="jumbotron p-5 mb-4 bg-light rounded-3">
+<<<<<<< HEAD
    <h1>LISTA DELLE SUITE</h1>
    {{-- {{$suite}} --}}
    <div class="card" style="width: 18rem;">
@@ -13,5 +14,10 @@
         <a href="{{route('admin.suite.update') }}" class="btn btn-primary">MODIFICA</a>
       </div>
     </div>
+=======
+   ciaoooo
+ 
+   {{$suite[0]->sponsor}}
+>>>>>>> main
 </div>
 @endsection

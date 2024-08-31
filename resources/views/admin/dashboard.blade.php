@@ -31,20 +31,20 @@
                 questo è l'if
             </h1>
         @else
-            {{-- {{dump($suite)}} --}}
-            {{-- {{$suite[0]->messages[0]->text}} --}}
+             {{dump($suite[0]['title'])}}   
+            {{-- {{$suite[0]->sponsors[0]->name}}  --}}
             questo è l'else
         @endif
         
        
        {{-- {{dump($suite[0]->user->name)}} --}}
-            @foreach ($suite as $item)
+            {{-- @foreach ($suite as $item)
             <ul>
                 <li>
                     {{ $item }}
                 </li>
             </ul>
-            @endforeach
+            @endforeach --}}
                  
             
     
