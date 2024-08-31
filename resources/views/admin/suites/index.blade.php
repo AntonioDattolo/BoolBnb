@@ -11,7 +11,7 @@
       <div class="card-body">
         <h5 class="card-title">{{$suite[0]->title}} </h5>
         <p class="card-text"> Stanze:{{$suite[0]->room}}, Bagni:{{$suite[0]->bathroom}}, Letti:{{$suite[0]->bed}}, Indirizzo:{{$suite[0]->address}}  </p>
-        <a href="{{route('admin.suite.update') }}" class="btn btn-primary">MODIFICA</a>
+        <a href="{{route('admin.suite.edit') }}" class="btn btn-primary">MODIFICA</a>
       </div>
     </div>
 </div>

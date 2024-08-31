@@ -131,7 +131,7 @@ class SuiteController extends Controller
     {
         //
         $data = [
-            ''
+            'suite' => $suite
         ];
         
     }
