@@ -133,6 +133,7 @@ class SuiteController extends Controller
         $data = [
             'suite' => $suite
         ];
+        return view('admin.suites.edit', $data);
         
     }
 

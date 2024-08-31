@@ -3,7 +3,7 @@
 @section('content')
     <div class="jumbotron p-5 mb-4 bg-light rounded-3">
         ciaoooo
-        sono il create
+        sono il l'edit
         {{-- {{$suite}} --}}
     </div>
 
