@@ -14,15 +14,18 @@ class DashboardController extends Controller
         // $mainHome = apartment::select()->where('user_id',$user_id)->get();
         $data = [
             // 'apartment' => Suite::with('user')->select()->where('user_id',$user_id)->get(),
-            'suite' => Suite::with('user',
+            'suite' => 
+            Suite::with('user',
             'messages',
             'visuals',
             'sponsors',
-            'services'
-            )->select()->where('user_id',$user_id)->get()
+            'services')
+            ->select()->where('user_id',$user_id)
+            ->get(),
+            'giamaicacato' => 'il cazzen'
             
             // 'type' => Type::all() Non è necessario in quanto recupera il nome del type attraverso la RELATIONS delle tabelle
         ];
-        return view('admin.dashboard', $data);
+        return view('admin.dashboard',$data);
     }
 }
