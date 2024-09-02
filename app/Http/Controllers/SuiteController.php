@@ -100,12 +100,12 @@ class SuiteController extends Controller
             ],
         ]);
           // Decodifico la risposta JSON e recupera le coordinate geografiche
-          $geocode_data = json_decode($response->getBody(), true);
-          $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
-          $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
+        $geocode_data = json_decode($response->getBody(), true);
+        $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
+        $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
 
-            $newSuite->longitude = $longitude;
-            $newSuite->latitude = $latitude;
+        $newSuite->longitude = $longitude;
+        $newSuite->latitude = $latitude;
 // -------------------------------------------------------------------------------------
         
         // $newSuite->visible = $data['visible'];
@@ -160,7 +160,6 @@ class SuiteController extends Controller
     public function update(Request $request, String $id)
     {
         $suite = Suite::findOrFail($id);
-        Storage::delete($suite->img);
         $data = $request->validate([
             "title" => "required|min:5",
             "room" => "required|min:1|between:1,20",
@@ -171,12 +170,12 @@ class SuiteController extends Controller
             "civic"=>"required",
             "city" => "required",
             "cap" => "required",
-            "img" => "required",
+            "img" => "",
             "visible" => "nullable",
             "sponsor" => "nullable",
         ]);
         $address = $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
-        $data['address'] = $address;
+        $data['address'] = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
         
         $client = new \GuzzleHttp\Client([
             'verify' => false
@@ -187,15 +186,16 @@ class SuiteController extends Controller
                 'key' => 'UiJYX3PJ7LokqwLgjUZwNGqWefQhcDz0', // chiave API di TomTom PERSONALE
             ],
         ]);
-       
+        
         $geocode_data = json_decode($response->getBody(), true);
         $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
         $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
-
+        
         $suite->longitude=$longitude;
         $suite->latitude=$latitude;
-
+        
         if ($request->has('img')) { 
+            Storage::delete($suite->img);
             $image_path = Storage::put('uploads', $data['img']);
             $suite->img= $image_path; 
         }
