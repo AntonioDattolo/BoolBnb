@@ -7,7 +7,8 @@
         {{-- {{$suite}} --}}
     </div>
 
-    <form action="{{ route('admin.suite.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.suite.update', $suite->id) }}" method="POST" enctype="multipart/form-data">
+        @method('PUT')
         @csrf
         <div class="w-50 m-5">
             <label for="suite_title" class="form-label">Title</label>
@@ -64,28 +65,28 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_city" class="form-label">city</label>
-            <input type="text" class="form-control" id="suite_city" value="{{$suite->city}}" name="city">
+            <label for="suite_civic" class="form-label">civic</label>
+            <input type="number" class="form-control" id="suite_civic" value="{{$suite->civic}}" name="civic">
         </div>
-        @error('address')
+        @error('civic')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
+        @enderror
+        <div class="w-50 m-5">
+            <label for="suite_city" class="form-label">city</label>
+            <input type="text" class="form-control" id="suite_city"  name="city">
+        </div>
+        @error('city')
+        <span class="bg-danger" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
         @enderror
         <div class="w-50 m-5">
             <label for="suite_cap" class="form-label">CAP</label>
             <input type="text" class="form-control" id="suite_cap" name="cap">
         </div>
-        @error('address')
-            <span class="bg-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-        <div class="w-50 m-5">
-            <label for="suite_country" class="form-label">Country</label>
-            <input type="text" class="form-control" id="suite_country"  name="country">
-        </div>
-        @error('address')
+        @error('cap')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
@@ -157,6 +158,6 @@
             </div>
         </div> --}}
 
-        <button type="submit"> AGGIUNGI </button>
+        <button  type="submit"> Update </button>
     </form>
 @endsection

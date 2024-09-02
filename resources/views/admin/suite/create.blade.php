@@ -63,10 +63,29 @@
             </span>
         @enderror
         <div class="w-50 m-5">
+            <label for="suite_civic" class="form-label">civic:</label>
+            <input type="text" class="form-control" id="suite_civic" placeholder="suite civic" name="civic">
+        </div>
+        @error('civic')
+            <span class="bg-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+        
+        <div class="w-50 m-5">
             <label for="suite_city" class="form-label">City:</label>
             <input type="text" class="form-control" id="suite_city" placeholder="suite city" name="city">
         </div>
-        @error('address')
+        @error('city')
+            <span class="bg-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+        <div class="w-50 m-5">
+            <label for="suite_cap" class="form-label">cap:</label>
+            <input type="text" class="form-control" id="suite_cap" placeholder="suite cap" name="cap">
+        </div>
+        @error('cap')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>

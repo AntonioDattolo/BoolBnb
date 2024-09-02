@@ -63,10 +63,12 @@ class SuiteController extends Controller
             "bathroom" => "required|min:1|between:1,10",
             "squareM" => "required|integer|min:25",
             "address" => "required|min:8",
+            "civic"=>"required",
+            "city" => "required",
+            "cap" => "required",
             "img" => "required",
             "visible" => "nullable",
             "sponsor" => "nullable",
-            // "user_id" => "required"
         ]);
 
         $data = $request->all();
@@ -77,20 +79,21 @@ class SuiteController extends Controller
         $newSuite->bathroom = $data['bathroom'];
         $newSuite->squareM = $data['squareM'];
 
-        $newSuite->address = $data['address'];
+        $newSuite->address = $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
+        
         // ----------------->>>>GEOCODIFICA INDIRIZZO<<<<<--------------------------
         // PRIMO STEP 
         // INSTALLARE LE DIPENDENZE DA TERMINALE
         // ----> composer require geocoder-php/tomtom-provider guzzlehttp/guzzle
         // REGISTRARSI SUL SITO TOMTOM PER OTTENERE LA KEY PER L'API  ----> https://developer.tomtom.com/
-        $address =  $data['address'];
-        $city = $data['city'];
+        $address =  $newSuite->address;
         // istanza client guzzle
         $client = new \GuzzleHttp\Client([
             'verify' => false
         ]);
         // richiesta api delle coordinate
-        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . urlencode(' ') . urlencode($city) . '.json', [
+        // $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . urlencode(' ') . urlencode($city) . '.json', 
+        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
             'query' => [
                 'key' => 'UiJYX3PJ7LokqwLgjUZwNGqWefQhcDz0', // chiave API di TomTom PERSONALE
             ],
@@ -111,7 +114,7 @@ class SuiteController extends Controller
             $newSuite->img= $image_path; 
         }
 
-        $newSuite->tot_visuals = 11;
+        // $newSuite->tot_visuals = 11;
         $newSuite->user_id = Auth::user()->id;
 
         //  $newSuite->slug = STR::slug($newSuite->title, '-');
@@ -153,22 +156,58 @@ class SuiteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Suite $suite)
+    public function update(Request $request, String $id)
     {
-        //
+        $suite = Suite::findOrFail($id);
+        Storage::delete($suite->img);
         $data = $request->validate([
             "title" => "required|min:5",
             "room" => "required|min:1|between:1,20",
             "bed" => "required|min:1|between:1,20",
             "bathroom" => "required|min:1|between:1,10",
-            "squareM" => "required|min:1|between:25,600",
+            "squareM" => "required|integer|min:25",
             "address" => "required|min:8",
-            "img" => "required",
+            "civic"=>"required",
+            "city" => "required",
+            "cap" => "required",
+            // "img" => "required",
             "visible" => "nullable",
             "sponsor" => "nullable",
-            "user_id" => "required"
         ]);
+        $address = $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
+        $data['address'] = $address;
+        
+        $client = new \GuzzleHttp\Client([
+            'verify' => false
+        ]);
+        
+        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
+            'query' => [
+                'key' => 'UiJYX3PJ7LokqwLgjUZwNGqWefQhcDz0', // chiave API di TomTom PERSONALE
+            ],
+        ]);
+          // Decodifico la risposta JSON e recupera le coordinate geografiche
+          $geocode_data = json_decode($response->getBody(), true);
+          $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
+          $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
+
+            $suite->longitude=$longitude;
+            $suite->latitude=$latitude;
+// -------------------------------------------------------------------------------------
+        // // $newSuite->img = $data['img'];
+        
+        // // if ($request->has('img')) { 
+        // //     $image_path = Storage::put('uploads', $data['img']);
+        // //     $newSuite->img= $image_path; 
+        // // }
+
+        $suite->tot_visuals = 11;
+        // $newSuite->user_id = Auth::user()->id;
+
+        //  $newSuite->slug = STR::slug($newSuite->title, '-');
+        //  $newSuite->type_id = $data['type_id'];
         $suite->update($data);
+
         return redirect()->route('admin.suite.show', $suite->id);
     }
 
