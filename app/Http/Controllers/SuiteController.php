@@ -114,7 +114,6 @@ class SuiteController extends Controller
             $newSuite->img= $image_path; 
         }
 
-        // $newSuite->tot_visuals = 11;
         $newSuite->user_id = Auth::user()->id;
 
         //  $newSuite->slug = STR::slug($newSuite->title, '-');
@@ -201,7 +200,7 @@ class SuiteController extends Controller
         // //     $newSuite->img= $image_path; 
         // // }
 
-        $suite->tot_visuals = 11;
+       
         // $newSuite->user_id = Auth::user()->id;
 
         //  $newSuite->slug = STR::slug($newSuite->title, '-');

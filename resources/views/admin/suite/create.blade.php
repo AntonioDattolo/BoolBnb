@@ -63,7 +63,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_civic" class="form-label">civic:</label>
+            <label for="suite_civic" class="form-label">Civic:</label>
             <input type="text" class="form-control" id="suite_civic" placeholder="suite civic" name="civic">
         </div>
         @error('civic')
@@ -82,7 +82,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_cap" class="form-label">cap:</label>
+            <label for="suite_cap" class="form-label">CAP:</label>
             <input type="text" class="form-control" id="suite_cap" placeholder="suite cap" name="cap">
         </div>
         @error('cap')
