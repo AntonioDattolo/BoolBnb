@@ -1,16 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="jumbotron p-5 mb-4 bg-light rounded-3">
-        ciaoooo
-        sono il create
+    <div class="jumbotron p-5 bg-light rounded-3">
+        <h3>Add a suite:</h3>
         {{-- {{$suite}} --}}
     </div>
 
     <form action="{{ route('admin.suite.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="w-50 m-5">
-            <label for="suite_title" class="form-label">Title</label>
+            <label for="suite_title" class="form-label">Title:</label>
             <input type="text" class="form-control" id="suite_title" placeholder="suite Title" name="title">
         </div>
         @error('title')
@@ -19,7 +18,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_room" class="form-label">room</label>
+            <label for="suite_room" class="form-label">Rooms:</label>
             <input type="number" class="form-control" id="suite_room" placeholder="suite room" name="room" min="1" max="20">
         </div>
         @error('room')
@@ -28,7 +27,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_bed" class="form-label">bed</label>
+            <label for="suite_bed" class="form-label">Beds:</label>
             <input type="number" class="form-control" id="suite_bed" placeholder="suite bed" name="bed" min="1" max="20">
         </div>
         @error('bed')
@@ -37,7 +36,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_bathroom" class="form-label">bathroom</label>
+            <label for="suite_bathroom" class="form-label">Bathrooms:</label>
             <input type="number" class="form-control" id="suite_bathroom" placeholder="suite bathroom" name="bathroom" min="1" max="10">
         </div>
         @error('bathroom')
@@ -46,7 +45,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_squareM" class="form-label">squareM</label>
+            <label for="suite_squareM" class="form-label">Square Meters:</label>
             <input type="number" class="form-control" id="suite_squareM" placeholder="suite squareM" name="squareM" min="20">
         </div>
         @error('squareM')
@@ -55,7 +54,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_address" class="form-label">Address</label>
+            <label for="suite_address" class="form-label">Address:</label>
             <input type="text" class="form-control" id="suite_address" placeholder="suite Address" name="address">
         </div>
         @error('address')
@@ -64,7 +63,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_city" class="form-label">city</label>
+            <label for="suite_city" class="form-label">City:</label>
             <input type="text" class="form-control" id="suite_city" placeholder="suite city" name="city">
         </div>
         @error('address')
@@ -73,7 +72,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_img" class="form-label">img</label>
+            <label for="suite_img" class="form-label">Upload IMG:</label>
           
             <input type="file" class="form-control" name="img" id="suite_img" placeholder=""/>
         </div>
@@ -82,33 +81,9 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
-            <label for="suite_tot_visuals" class="form-label">tot_visuals</label>
-            <input type="number" class="form-control" id="suite_tot_visuals" placeholder="suite tot_visuals" name="tot_visuals">
-        </div>
-        @error('tot_visuals')
-            <span class="bg-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-        <div class="w-50 m-5">
-            <label for="suite_user_id" class="form-label">user_id</label>
-            <input type="number" class="form-control" id="suite_user_id" placeholder="suite user_id" name="user_id" value="{{Auth::user()->id}}">
-        </div>
-        @error('user_id')
-            <span class="bg-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
+        
 
-        {{-- <div class="w-50 m-5">
-      <label for="cover_image" class="form-label">Choose file</label>
-      <input type="file" class="form-control" name="img" id="cover_image" placeholder="" aria-describedby="coverImageHelper" />
-      <div id="coverImageHelper" class="form-text text-white">Upload an image for the curret suite</div>
-      @error('cover_image')
-      <div class="form-text text-danger">{{ $message }}</div>
-      @enderror
-  </div> --}}
+       
 
         {{-- <select name="type_id" id="">
       <option value="{{ $type[0]->id }}">{{ $type[0]->name }}</option>

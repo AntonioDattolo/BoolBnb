@@ -45,7 +45,8 @@ class SuiteController extends Controller
     {
         $data = [
             'sponsor' => Sponsor::all(),
-            'service' => Service::all()
+            'service' => Service::all(),
+            'user' => Auth::user()->id
         ];
         return view("admin.suite.create", $data);
     }
@@ -65,7 +66,7 @@ class SuiteController extends Controller
             "img" => "required",
             "visible" => "nullable",
             "sponsor" => "nullable",
-            "user_id" => "required"
+            // "user_id" => "required"
         ]);
 
         $data = $request->all();
@@ -91,7 +92,7 @@ class SuiteController extends Controller
         // richiesta api delle coordinate
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . urlencode(' ') . urlencode($city) . '.json', [
             'query' => [
-                'key' => 'TnDL6MzHE2L8a683eRoJRl9VSl7pPsqg', // chiave API di TomTom PERSONALE
+                'key' => 'UiJYX3PJ7LokqwLgjUZwNGqWefQhcDz0', // chiave API di TomTom PERSONALE
             ],
         ]);
           // Decodifico la risposta JSON e recupera le coordinate geografiche
@@ -110,8 +111,8 @@ class SuiteController extends Controller
             $newSuite->img= $image_path; 
         }
 
-        $newSuite->tot_visuals = $data['tot_visuals'];
-        $newSuite->user_id = $data['user_id'];
+        $newSuite->tot_visuals = 11;
+        $newSuite->user_id = Auth::user()->id;
 
         //  $newSuite->slug = STR::slug($newSuite->title, '-');
         //  $newSuite->type_id = $data['type_id'];
