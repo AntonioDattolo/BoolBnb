@@ -26,20 +26,20 @@
         </div>
     </div>
     <div>
-        @if ( count($suite) == 0)
+        {{-- @if ( count($suite) == 0)
             <h1>
                 questo è l'if
             </h1>
-        @else
+        @else --}}
              {{-- {{dump($suite[0]['title'])}}    --}}
-            </h1>
+            {{-- </h1>
                 questo è l'else
             <h1>
                     <p>
         
                         {{$suite[0]->sponsors[0]->price}} 
                        </p>
-        @endif
+        @endif --}}
         
        
        {{-- {{dump($suite[0]->user->name)}} --}}
