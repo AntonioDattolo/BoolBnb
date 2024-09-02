@@ -67,7 +67,7 @@ class SuiteController extends Controller
             "img" => "required|min:3",
             "visible" => "nullable",
             "sponsor" => "nullable",
-            "tot_visuals" => "required",
+            "tot_visuals" => "nullable",
             "user_id" => "required"
         ]);
 
@@ -86,14 +86,15 @@ class SuiteController extends Controller
         // ----> composer require geocoder-php/tomtom-provider guzzlehttp/guzzle
         // REGISTRARSI SUL SITO TOMTOM PER OTTENERE LA KEY PER L'API  ----> https://developer.tomtom.com/
         $address =  $data['address'];
+        $city = $data['city'];
         // istanza client guzzle
         $client = new \GuzzleHttp\Client([
             'verify' => false
         ]);
         // richiesta api delle coordinate
-        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
+        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . urlencode(' ') . urlencode($city) . '.json', [
             'query' => [
-                'key' => '', // chiave API di TomTom PERSONALE
+                'key' => 'TnDL6MzHE2L8a683eRoJRl9VSl7pPsqg', // chiave API di TomTom PERSONALE
             ],
         ]);
 

@@ -20,7 +20,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_room" class="form-label">room</label>
-            <input type="number" class="form-control" id="suite_room" placeholder="suite room" name="room">
+            <input type="number" class="form-control" id="suite_room" placeholder="suite room" name="room" min="1" max="20">
         </div>
         @error('room')
             <span class="bg-danger" role="alert">
@@ -29,7 +29,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bed" class="form-label">bed</label>
-            <input type="number" class="form-control" id="suite_bed" placeholder="suite bed" name="bed">
+            <input type="number" class="form-control" id="suite_bed" placeholder="suite bed" name="bed" min="1" max="20">
         </div>
         @error('bed')
             <span class="bg-danger" role="alert">
@@ -38,7 +38,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bathroom" class="form-label">bathroom</label>
-            <input type="number" class="form-control" id="suite_bathroom" placeholder="suite bathroom" name="bathroom">
+            <input type="number" class="form-control" id="suite_bathroom" placeholder="suite bathroom" name="bathroom" min="1" max="10">
         </div>
         @error('bathroom')
             <span class="bg-danger" role="alert">
@@ -47,7 +47,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_squareM" class="form-label">squareM</label>
-            <input type="number" class="form-control" id="suite_squareM" placeholder="suite squareM" name="squareM">
+            <input type="number" class="form-control" id="suite_squareM" placeholder="suite squareM" name="squareM" min="20">
         </div>
         @error('squareM')
             <span class="bg-danger" role="alert">
@@ -64,19 +64,10 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_longitude" class="form-label">longitude</label>
-            <input type="text" class="form-control" id="suite_longitude" placeholder="suite longitude" name="longitude">
+            <label for="suite_city" class="form-label">city</label>
+            <input type="text" class="form-control" id="suite_city" placeholder="suite city" name="city">
         </div>
-        @error('longitude')
-            <span class="bg-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-        <div class="w-50 m-5">
-            <label for="suite_latitude" class="form-label">latitude</label>
-            <input type="text" class="form-control" id="suite_latitude" placeholder="suite latitude" name="latitude">
-        </div>
-        @error('latitude')
+        @error('address')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
