@@ -56,18 +56,15 @@ class SuiteController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            "title" => "required|min:3",
-            "room" => "required|min:1",
-            "bed" => "required|min:1",
-            "bathroom" => "required|min:1",
-            "squareM" => "required|min:1",
-            "address" => "required|min:1",
-            "longitude" => "",
-            "latitude" => "",
-            "img" => "required|min:3",
+            "title" => "required|min:5",
+            "room" => "required|min:1|between:1,20",
+            "bed" => "required|min:1|between:1,20",
+            "bathroom" => "required|min:1|between:1,10",
+            "squareM" => "required|integer|min:25",
+            "address" => "required|min:8",
+            "img" => "required",
             "visible" => "nullable",
             "sponsor" => "nullable",
-            "tot_visuals" => "nullable",
             "user_id" => "required"
         ]);
 
@@ -94,10 +91,9 @@ class SuiteController extends Controller
         // richiesta api delle coordinate
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . urlencode(' ') . urlencode($city) . '.json', [
             'query' => [
-                'key' => 'TnDL6MzHE2L8a683eRoJRl9VSl7pPsqg', // chiave API di TomTom PERSONALE
+                'key' => '', // chiave API di TomTom PERSONALE
             ],
         ]);
-
           // Decodifico la risposta JSON e recupera le coordinate geografiche
           $geocode_data = json_decode($response->getBody(), true);
           $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
@@ -109,8 +105,7 @@ class SuiteController extends Controller
         $newSuite->img = $data['img'];
         // $newSuite->visible = $data['visible'];
         // $newSuite->sponsor = $data['sponsor'];
-        if ($request->has('img')) {
-            
+        if ($request->has('img')) { 
             $image_path = Storage::put('uploads', $data['img']);
             $newSuite->img= $image_path; 
         }
@@ -161,18 +156,15 @@ class SuiteController extends Controller
     {
         //
         $data = $request->validate([
-            "title" => "required|min:3",
-            "room" => "required|min:1",
-            "bed" => "required|min:1",
-            "bathroom" => "required|min:1",
-            "squareM" => "required|min:1",
-            "address" => "required|min:1",
-            "longitude" => "required|min:5",
-            "latitude" => "required|min:5",
-            "img" => "required|min:3",
+            "title" => "required|min:5",
+            "room" => "required|min:1|between:1,20",
+            "bed" => "required|min:1|between:1,20",
+            "bathroom" => "required|min:1|between:1,10",
+            "squareM" => "required|min:1|between:25,600",
+            "address" => "required|min:8",
+            "img" => "required",
             "visible" => "nullable",
             "sponsor" => "nullable",
-            "tot_visuals" => "required",
             "user_id" => "required"
         ]);
         $suite->update($data);
