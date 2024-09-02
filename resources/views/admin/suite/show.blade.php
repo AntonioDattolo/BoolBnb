@@ -34,6 +34,9 @@
                     delete
                 </button>
             </form>
+            {{-- <h5>Latitudine: {{$selectedSuite->latitude}}</h5>
+            <h5>Longitudine: {{$selectedSuite->longitude}}</h5> --}}
+            
         </div>
     </div>
 @endsection
