@@ -14,11 +14,15 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!')  }} {{ Auth::user()->name}} {{ Auth::user()->birth_date}}
+                        <p class="fs-4 fw-semibold">{{ __('Welcome')  }} {{ Auth::user()->name}}</p>
+                        
                         {{-- ricavare id per apartments --}}
-                        {{ Auth::user()->id }}
-                       <a href="{{route('admin.suite.index') }}">miei appartamenti</a>
-                       {{-- route('admin.suite')  --}}
+                        {{-- {{ Auth::user()->id }} --}}
+                        {{-- <a href="{{route('admin.suite.index') }}">miei appartamenti</a> --}}
+                        <a href="{{ route('admin.suite.create') }}" class="btn btn-warning btn-lg" type="button">Add a Suite</a>
+                        <br>
+                        <a href="{{ route('admin.suite.index') }}" class="btn btn-info btn-lg mt-4" type="button">My Suites</a>
+                        {{-- route('admin.suite')  --}}
                         {{-- ------------- --}}
                     </div>
                 </div>

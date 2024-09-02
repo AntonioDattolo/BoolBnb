@@ -1,17 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="jumbotron p-5 mb-4 bg-light rounded-3">
-        ciaoooo
-        sono il l'edit
-        {{-- {{$suite}} --}}
-    </div>
+<div class="jumbotron px-5 pt-3 bg-light rounded-3">
+    <h3>Modify {{$suite->title}}:</h3>
+</div>
 
     <form action="{{ route('admin.suite.update', $suite->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="w-50 m-5">
-            <label for="suite_title" class="form-label">Title</label>
+            <label for="suite_title" class="form-label">Title:</label>
             <input type="text" class="form-control" id="suite_title" value="{{$suite->title}}" name="title">
         </div>
         @error('title')
@@ -20,7 +18,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_room" class="form-label">room</label>
+            <label for="suite_room" class="form-label">Rooms:</label>
             <input type="number" class="form-control" id="suite_room" value="{{$suite->room}}" name="room">
         </div>
         @error('room')
@@ -29,7 +27,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_bed" class="form-label">bed</label>
+            <label for="suite_bed" class="form-label">Beds:</label>
             <input type="number" class="form-control" id="suite_bed" value="{{$suite->bed}}" name="bed">
         </div>
         @error('bed')
@@ -38,7 +36,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_bathroom" class="form-label">bathroom</label>
+            <label for="suite_bathroom" class="form-label">Bathrooms:</label>
             <input type="number" class="form-control" id="suite_bathroom" value="{{$suite->bathroom}}" name="bathroom">
         </div>
         @error('bathroom')
@@ -47,7 +45,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_squareM" class="form-label">squareM</label>
+            <label for="suite_squareM" class="form-label">Square Meters:</label>
             <input type="number" class="form-control" id="suite_squareM" value="{{$suite->squareM}}" name="squareM">
         </div>
         @error('squareM')
@@ -56,7 +54,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_address" class="form-label">Address</label>
+            <label for="suite_address" class="form-label">Address:</label>
             <input type="text" class="form-control" id="suite_address" value="{{$address[0]}}" name="address" required>
         </div>
         @error('address')
@@ -65,7 +63,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_civic" class="form-label">civic</label>
+            <label for="suite_civic" class="form-label">House Number:</label>
             <input type="number" class="form-control" id="suite_civic" value="{{$address[1]}}" name="civic">
         </div>
         @error('civic')
@@ -74,7 +72,7 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_city" class="form-label">city</label>
+            <label for="suite_city" class="form-label">City:</label>
             <input type="text" class="form-control" id="suite_city"  name="city" value="{{$address[2]}}">
         </div>
         @error('city')
@@ -83,7 +81,7 @@
         </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_cap" class="form-label">CAP</label>
+            <label for="suite_cap" class="form-label">CAP:</label>
             <input type="text" class="form-control" id="suite_cap" name="cap" value="{{$address[3]}}">
         </div>
         @error('cap')
@@ -91,14 +89,16 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5 d-flex">
-            <label for="suite_img" class="form-label">img</label>
+        <div class="w-50 m-5">
+            <div class="d-flex" style="width: 100px">
+                <span>Current IMG:</span>
+                <img class="w-100 ms-3 mb-2" src="{{ asset('/storage/' . $suite->img) }}" alt="">
+            </div>
+            <label for="suite_img" class="form-label mb-2">Update IMG:</label>
             {{-- <input type="text" class="form-control" id="suite_img" placeholder="suite img" name="img"> --}}
             <input type="file" class="form-control" name="img" id="suite_img" value="{{$suite->img}}"/>
         </div>
-        <div class="" style="width: 100px">
-            <img class="w-100" src="{{ asset('/storage/' . $suite->img) }}" alt="">
-        </div>
+        
         @error('img')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
@@ -113,7 +113,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror --}}
-        <div class="w-50 m-5">
+        {{-- <div class="w-50 m-5">
             <label for="suite_user_id" class="form-label">user_id</label>
             <input type="number" class="form-control" id="suite_user_id" placeholder="suite user_id" name="user_id" value="{{Auth::user()->id}}">
         </div>
@@ -121,7 +121,7 @@
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-        @enderror
+        @enderror --}}
 
         {{-- <div class="w-50 m-5">
       <label for="cover_image" class="form-label">Choose file</label>
@@ -158,6 +158,6 @@
             </div>
         </div> --}}
 
-        <button  type="submit"> Update </button>
+        <button  type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Modify Suit </button>
     </form>
 @endsection
