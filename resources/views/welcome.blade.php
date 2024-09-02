@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="jumbotron p-5 mb-4 bg-light rounded-3">
+<div class="jumbotron p-5 mb-4 rounded-3">
     <div class="container py-5">
         <div class="logo_laravel">
             <img src="{{asset('/img/' . 'BoolBnB.png')}}" alt="" srcset="">
