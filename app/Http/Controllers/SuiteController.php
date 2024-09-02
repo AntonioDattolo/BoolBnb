@@ -198,9 +198,9 @@ class SuiteController extends Controller
         if ($request->has('img')) { 
             Storage::delete($suite->img);
             $image_path = Storage::put('uploads', $data['img']);
-            $suite->img= $image_path; 
+            $data['img'] = $image_path; 
         }
-
+        
         $suite->update($data);
 
         return redirect()->route('admin.suite.show', $suite->id);
