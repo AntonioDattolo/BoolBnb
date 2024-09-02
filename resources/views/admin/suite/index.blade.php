@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="jumbotron m-4 bg-light rounded-3">
+    <div class="jumbotron m-4 rounded-3">
         <h1>My Suites:</h1>
         
 

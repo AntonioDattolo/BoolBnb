@@ -2,7 +2,7 @@
 
 @section('content')
   <h1 class="card-title ms-4 mt-5">{{ $selectedSuite->title }}</h1>
-    <div class="jumbotron p-3 mb-4 bg-light rounded-3 d-flex">
+    <div class="jumbotron p-3 mb-4 rounded-3 d-flex">
         <div class="col-7">
             @if (Str::startsWith($selectedSuite->img, 'http'))
                 <img class="card-img-top object-fit-contain rounded p-2" src="{{ $selectedSuite['img'] }}">

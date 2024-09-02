@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="jumbotron px-5 pt-3 bg-light rounded-3">
+<div class="jumbotron px-5 pt-3 rounded-3">
     <h3>Modify {{$suite->title}}:</h3>
 </div>
 
