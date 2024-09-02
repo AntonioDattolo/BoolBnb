@@ -79,14 +79,15 @@ class SuiteController extends Controller
         $newSuite->bathroom = $data['bathroom'];
         $newSuite->squareM = $data['squareM'];
 
-        $newSuite->address = $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
+        $newSuite->address = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
+        // explode(',',$newSuite->address);
         
         // ----------------->>>>GEOCODIFICA INDIRIZZO<<<<<--------------------------
         // PRIMO STEP 
         // INSTALLARE LE DIPENDENZE DA TERMINALE
         // ----> composer require geocoder-php/tomtom-provider guzzlehttp/guzzle
         // REGISTRARSI SUL SITO TOMTOM PER OTTENERE LA KEY PER L'API  ----> https://developer.tomtom.com/
-        $address =  $newSuite->address;
+        $address =  $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
         // istanza client guzzle
         $client = new \GuzzleHttp\Client([
             'verify' => false
@@ -106,14 +107,14 @@ class SuiteController extends Controller
             $newSuite->longitude = $longitude;
             $newSuite->latitude = $latitude;
 // -------------------------------------------------------------------------------------
-        $newSuite->img = $data['img'];
+        
         // $newSuite->visible = $data['visible'];
         // $newSuite->sponsor = $data['sponsor'];
         if ($request->has('img')) { 
             $image_path = Storage::put('uploads', $data['img']);
             $newSuite->img= $image_path; 
         }
-
+        $newSuite->img = $image_path;
         $newSuite->user_id = Auth::user()->id;
 
         //  $newSuite->slug = STR::slug($newSuite->title, '-');
@@ -147,7 +148,8 @@ class SuiteController extends Controller
     public function edit(Suite $suite)
     {
         $data = [
-            'suite' => $suite
+            'suite' => $suite,
+            'address' => explode(',',$suite->address)
         ];
         return view('admin.suite.edit', $data); 
     }
@@ -169,7 +171,7 @@ class SuiteController extends Controller
             "civic"=>"required",
             "city" => "required",
             "cap" => "required",
-            // "img" => "required",
+            "img" => "required",
             "visible" => "nullable",
             "sponsor" => "nullable",
         ]);
@@ -185,26 +187,19 @@ class SuiteController extends Controller
                 'key' => 'UiJYX3PJ7LokqwLgjUZwNGqWefQhcDz0', // chiave API di TomTom PERSONALE
             ],
         ]);
-          // Decodifico la risposta JSON e recupera le coordinate geografiche
-          $geocode_data = json_decode($response->getBody(), true);
-          $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
-          $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
-
-            $suite->longitude=$longitude;
-            $suite->latitude=$latitude;
-// -------------------------------------------------------------------------------------
-        // // $newSuite->img = $data['img'];
-        
-        // // if ($request->has('img')) { 
-        // //     $image_path = Storage::put('uploads', $data['img']);
-        // //     $newSuite->img= $image_path; 
-        // // }
-
        
-        // $newSuite->user_id = Auth::user()->id;
+        $geocode_data = json_decode($response->getBody(), true);
+        $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
+        $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
 
-        //  $newSuite->slug = STR::slug($newSuite->title, '-');
-        //  $newSuite->type_id = $data['type_id'];
+        $suite->longitude=$longitude;
+        $suite->latitude=$latitude;
+
+        if ($request->has('img')) { 
+            $image_path = Storage::put('uploads', $data['img']);
+            $suite->img= $image_path; 
+        }
+
         $suite->update($data);
 
         return redirect()->route('admin.suite.show', $suite->id);

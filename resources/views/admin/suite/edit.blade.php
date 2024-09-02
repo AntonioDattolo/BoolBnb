@@ -57,7 +57,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_address" class="form-label">Address</label>
-            <input type="text" class="form-control" id="suite_address" value="{{$suite->address}}" name="address">
+            <input type="text" class="form-control" id="suite_address" value="{{$address[0]}}" name="address" required>
         </div>
         @error('address')
             <span class="bg-danger" role="alert">
@@ -66,7 +66,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_civic" class="form-label">civic</label>
-            <input type="number" class="form-control" id="suite_civic" value="{{$suite->civic}}" name="civic">
+            <input type="number" class="form-control" id="suite_civic" value="{{$address[1]}}" name="civic">
         </div>
         @error('civic')
             <span class="bg-danger" role="alert">
@@ -75,7 +75,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_city" class="form-label">city</label>
-            <input type="text" class="form-control" id="suite_city"  name="city">
+            <input type="text" class="form-control" id="suite_city"  name="city" value="{{$address[2]}}">
         </div>
         @error('city')
         <span class="bg-danger" role="alert">
@@ -84,7 +84,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_cap" class="form-label">CAP</label>
-            <input type="text" class="form-control" id="suite_cap" name="cap">
+            <input type="text" class="form-control" id="suite_cap" name="cap" value="{{$address[3]}}">
         </div>
         @error('cap')
             <span class="bg-danger" role="alert">
