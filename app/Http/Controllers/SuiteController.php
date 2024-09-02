@@ -7,6 +7,15 @@ use App\Models\Sponsor;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
+// use Geocoder\Collection;
+// use Geocoder\IntegrationTest\BaseTestCase;
+// use Geocoder\Location;
+// use Geocoder\Provider\TomTom\TomTom;
+// use Geocoder\Query\GeocodeQuery;
+// use Geocoder\Query\ReverseQuery;
 
 class SuiteController extends Controller
 {
@@ -16,9 +25,8 @@ class SuiteController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        // $mainHome = apartment::select()->where('user_id',$user_id)->get();
+        
         $data = [
-            // 'apartment' => Suite::with('user')->select()->where('user_id',$user_id)->get(),
             'suite' => Suite::with(
                 'user',
                 'messages',
@@ -26,10 +34,8 @@ class SuiteController extends Controller
                 'sponsors',
                 'services'
             )->select()->where('user_id', $user_id)->get()
-
-            // 'type' => Type::all() Non è necessario in quanto recupera il nome del type attraverso la RELATIONS delle tabelle
         ];
-        return view('admin.suites.index', $data);
+        return view('admin.suite.index', $data);
     }
 
     /**
@@ -38,12 +44,10 @@ class SuiteController extends Controller
     public function create()
     {
         $data = [
-
             'sponsor' => Sponsor::all(),
             'service' => Service::all()
-
         ];
-        return view("admin.suites.create", $data);
+        return view("admin.suite.create", $data);
     }
 
     /**
@@ -58,16 +62,13 @@ class SuiteController extends Controller
             "bathroom" => "required|min:1",
             "squareM" => "required|min:1",
             "address" => "required|min:1",
-
-            "longitude" => "nullable",
-            "latitude" => "nullable",
-
+            "longitude" => "",
+            "latitude" => "",
             "img" => "required|min:3",
             "visible" => "nullable",
             "sponsor" => "nullable",
             "tot_visuals" => "required",
             "user_id" => "required"
-
         ]);
 
         $data = $request->all();
@@ -77,32 +78,49 @@ class SuiteController extends Controller
         $newSuite->bed = $data['bed'];
         $newSuite->bathroom = $data['bathroom'];
         $newSuite->squareM = $data['squareM'];
+
         $newSuite->address = $data['address'];
-        $newSuite->longitude = $data['longitude'];
-        $newSuite->latitude = $data['latitude'];
+        // ----------------->>>>GEOCODIFICA INDIRIZZO<<<<<--------------------------
+        // PRIMO STEP 
+        // INSTALLARE LE DIPENDENZE DA TERMINALE
+        // ----> composer require geocoder-php/tomtom-provider guzzlehttp/guzzle
+        // REGISTRARSI SUL SITO TOMTOM PER OTTENERE LA KEY PER L'API  ----> https://developer.tomtom.com/
+        $address =  $data['address'];
+        // istanza client guzzle
+        $client = new \GuzzleHttp\Client([
+            'verify' => false
+        ]);
+        // richiesta api delle coordinate
+        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
+            'query' => [
+                'key' => '', // chiave API di TomTom PERSONALE
+            ],
+        ]);
+
+          // Decodifico la risposta JSON e recupera le coordinate geografiche
+          $geocode_data = json_decode($response->getBody(), true);
+          $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
+          $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
+
+            $newSuite->longitude = $longitude;
+            $newSuite->latitude = $latitude;
+// -------------------------------------------------------------------------------------
         $newSuite->img = $data['img'];
         // $newSuite->visible = $data['visible'];
         // $newSuite->sponsor = $data['sponsor'];
+        if ($request->has('img')) {
+            
+            $image_path = Storage::put('uploads', $data['img']);
+            $newSuite->img= $image_path; 
+        }
+
         $newSuite->tot_visuals = $data['tot_visuals'];
         $newSuite->user_id = $data['user_id'];
-        // if ($request->has('img')) {
 
-        //     $image_path = Storage::put('uploads', $data['img']);
-        //     $newSuite->img= $image_path; 
-        // }
-        // $newSuite->slug = STR::slug($newSuite->title, '-');
-        // $newSuite->type_id = $data['type_id'];
+        //  $newSuite->slug = STR::slug($newSuite->title, '-');
+        //  $newSuite->type_id = $data['type_id'];
         $newSuite->save();
-        // $tech= isset($data['technologies']);
-
-        // if (isset($data['technologies'])) {
-        //     $newSuite->technologies()->attach($tech);
-        // }else{
-        //     return redirect()->route('admin.Suite.show', $newSuite->id);
-        // }
-
-        return redirect()->route('admin.suites.show', $newSuite->id);
-        //NON ANDREBBE ADMIN.SUITES.INDEX ???
+        return redirect()->route('admin.suite.show', $newSuite->id); 
     }
 
     /**
@@ -121,7 +139,7 @@ class SuiteController extends Controller
         //      "project" => $selectedProject,
         //      "technology" => $selectedProject->technologies
         //  ];
-        return view('admin.suites.show', $data);
+        return view('admin.suite.show', $data);
     }
 
     /**
@@ -129,12 +147,10 @@ class SuiteController extends Controller
      */
     public function edit(Suite $suite)
     {
-        //
         $data = [
             'suite' => $suite
         ];
-        return view('admin.suites.edit', $data);
-        
+        return view('admin.suite.edit', $data); 
     }
 
     /**
@@ -150,26 +166,27 @@ class SuiteController extends Controller
             "bathroom" => "required|min:1",
             "squareM" => "required|min:1",
             "address" => "required|min:1",
-
-            "longitude" => "nullable",
-            "latitude" => "nullable",
-
+            "longitude" => "required|min:5",
+            "latitude" => "required|min:5",
             "img" => "required|min:3",
             "visible" => "nullable",
             "sponsor" => "nullable",
             "tot_visuals" => "required",
             "user_id" => "required"
-
         ]);
         $suite->update($data);
-        return redirect()->route('admin.suites.show', $suite->id);
+        return redirect()->route('admin.suite.show', $suite->id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Suite $suite)
+    public function destroy(string $id)
     {
-        //
+        $suite =  Suite::findOrFail($id);
+        Storage::delete($suite->img);
+        $suite->delete();
+
+        return redirect()->route('admin.suite.index');
     }
 }

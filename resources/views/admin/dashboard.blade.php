@@ -31,9 +31,14 @@
                 questo è l'if
             </h1>
         @else
-             {{dump($suite[0]['title'])}}   
-            {{-- {{$suite[0]->sponsors[0]->name}}  --}}
-            questo è l'else
+             {{-- {{dump($suite[0]['title'])}}    --}}
+            </h1>
+                questo è l'else
+            <h1>
+                    <p>
+        
+                        {{$suite[0]->sponsors[0]->price}} 
+                       </p>
         @endif
         
        
@@ -46,7 +51,7 @@
             </ul>
             @endforeach --}}
                  
-            
+         
     
      </div>
 @endsection

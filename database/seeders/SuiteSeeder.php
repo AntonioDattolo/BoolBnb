@@ -13,6 +13,8 @@ class SuiteSeeder extends Seeder
      */
     public function run(): void
     {
+    for ($i=0; $i < 50 ; $i++) { 
+        # code...
         $newSuite = new Suite();
         $newSuite->title = "Appartamento fittizio";
         $newSuite->room = 2;
@@ -22,11 +24,12 @@ class SuiteSeeder extends Seeder
         $newSuite->address = "Via del porco sul tavolo, 17";
         $newSuite->longitude = 12.4922260;
         $newSuite->latitude =  41.8902300;
-        $newSuite->img = "alahahahahahahahaha";
+        $newSuite->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite->visible = true;
         $newSuite->sponsor = true;
         $newSuite->tot_visuals = 20;
         $newSuite->user_id = 1;
         $newSuite->save();
+    }
     }
 }

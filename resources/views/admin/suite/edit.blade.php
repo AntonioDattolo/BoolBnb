@@ -83,7 +83,8 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_img" class="form-label">img</label>
-            <input type="text" class="form-control" id="suite_img" placeholder="suite img" name="img">
+            {{-- <input type="text" class="form-control" id="suite_img" placeholder="suite img" name="img"> --}}
+            <input type="file" class="form-control" name="img" id="suite_img" placeholder=""/>
         </div>
         @error('img')
             <span class="bg-danger" role="alert">

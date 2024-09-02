@@ -21,8 +21,8 @@ return new class extends Migration
             $table->smallInteger('bathroom');
             $table->bigInteger('squareM');
             $table->string('address');
-            $table->double('longitude');
-            $table->double('latitude');
+            $table->string('longitude');
+            $table->string('latitude');
             $table->string('img');
             $table->boolean('visible')->nullable();
             $table->boolean('sponsor')->nullable();

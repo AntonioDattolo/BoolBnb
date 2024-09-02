@@ -1,6 +1,6 @@
 import './bootstrap';
 import '~resources/scss/app.scss';
-import * as bootstrap from 'bootstrap';
+import boostrap from "bootstrap/dist/js/bootstrap.min.js";
 import.meta.glob([
     '../img/**'
 ])
