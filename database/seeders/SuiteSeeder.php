@@ -20,7 +20,7 @@ class SuiteSeeder extends Seeder
         $newSuite1->bed = 2;
         $newSuite1->bathroom = 1;
         $newSuite1->squareM = 40;
-        $newSuite1->address = "Via Verdi, 11, Napoli, 80013";
+        $newSuite1->address = "Via Verdi,11,Napoli,80013";
         $newSuite1->longitude = 14.268124;
         $newSuite1->latitude = 40.851775;
         $newSuite1->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -36,7 +36,7 @@ class SuiteSeeder extends Seeder
         $newSuite2->bed = 3;
         $newSuite2->bathroom = 2;
         $newSuite2->squareM = 60;
-        $newSuite2->address = "Calle della Madonna, 2, Venezia, 30124";
+        $newSuite2->address = "Calle della Madonna,2,Venezia,30124";
         $newSuite2->longitude = 12.315515;
         $newSuite2->latitude = 45.440847;
         $newSuite2->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -52,7 +52,7 @@ class SuiteSeeder extends Seeder
         $newSuite3->bed = 1;
         $newSuite3->bathroom = 1;
         $newSuite3->squareM = 45;
-        $newSuite3->address = "Via del Colosseo, 10, Roma, 00184";
+        $newSuite3->address = "Via del Colosseo,10,Roma,00184";
         $newSuite3->longitude = 12.492231;
         $newSuite3->latitude = 41.890210;
         $newSuite3->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -68,7 +68,7 @@ class SuiteSeeder extends Seeder
         $newSuite4->bed = 2;
         $newSuite4->bathroom = 1;
         $newSuite4->squareM = 55;
-        $newSuite4->address = "Via de' Calzaiuoli, 7, Firenze, 50122";
+        $newSuite4->address = "Via de' Calzaiuoli,7,Firenze,50122";
         $newSuite4->longitude = 11.255814;
         $newSuite4->latitude = 43.769560;
         $newSuite4->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -84,7 +84,7 @@ class SuiteSeeder extends Seeder
         $newSuite5->bed = 2;
         $newSuite5->bathroom = 1;
         $newSuite5->squareM = 50;
-        $newSuite5->address = "Corso Buenos Aires, 14, Milano, 20124";
+        $newSuite5->address = "Corso Buenos Aires,14,Milano,20124";
         $newSuite5->longitude = 9.204269;
         $newSuite5->latitude = 45.478111;
         $newSuite5->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -100,7 +100,7 @@ class SuiteSeeder extends Seeder
         $newSuite6->bed = 3;
         $newSuite6->bathroom = 2;
         $newSuite6->squareM = 85;
-        $newSuite6->address = "Via Roma, 99, Torino, 10123";
+        $newSuite6->address = "Via Roma,99,Torino,10123";
         $newSuite6->longitude = 7.686856;
         $newSuite6->latitude = 45.070312;
         $newSuite6->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -116,7 +116,7 @@ class SuiteSeeder extends Seeder
         $newSuite7->bed = 2;
         $newSuite7->bathroom = 1;
         $newSuite7->squareM = 65;
-        $newSuite7->address = "Via di Città, 15, Siena, 53100";
+        $newSuite7->address = "Via di Città,15,Siena,53100";
         $newSuite7->longitude = 11.327653;
         $newSuite7->latitude = 43.318809;
         $newSuite7->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -132,7 +132,7 @@ class SuiteSeeder extends Seeder
         $newSuite8->bed = 2;
         $newSuite8->bathroom = 2;
         $newSuite8->squareM = 70;
-        $newSuite8->address = "Via Rizzoli, 20, Bologna, 40125";
+        $newSuite8->address = "Via Rizzoli,20,Bologna,40125";
         $newSuite8->longitude = 11.342616;
         $newSuite8->latitude = 44.494887;
         $newSuite8->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -148,7 +148,7 @@ class SuiteSeeder extends Seeder
         $newSuite9->bed = 1;
         $newSuite9->bathroom = 1;
         $newSuite9->squareM = 35;
-        $newSuite9->address = "Lungomare Nazario Sauro, 10, Bari, 70121";
+        $newSuite9->address = "Lungomare Nazario Sauro,10,Bari,70121";
         $newSuite9->longitude = 16.872788;
         $newSuite9->latitude = 41.120186;
         $newSuite9->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -164,7 +164,7 @@ class SuiteSeeder extends Seeder
         $newSuite10->bed = 4;
         $newSuite10->bathroom = 3;
         $newSuite10->squareM = 120;
-        $newSuite10->address = "Strada di Pieve, 12, San Gimignano, 53037";
+        $newSuite10->address = "Strada di Pieve,12,San Gimignano,53037";
         $newSuite10->longitude = 11.042222;
         $newSuite10->latitude = 43.467222;
         $newSuite10->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -180,7 +180,7 @@ class SuiteSeeder extends Seeder
         $newSuite11->bed = 2;
         $newSuite11->bathroom = 1;
         $newSuite11->squareM = 50;
-        $newSuite11->address = "Viale della Libertà, 1, Catania, 95129";
+        $newSuite11->address = "Viale della Libertà,1,Catania,95129";
         $newSuite11->longitude = 15.087269;
         $newSuite11->latitude = 37.502669;
         $newSuite11->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -196,7 +196,7 @@ class SuiteSeeder extends Seeder
         $newSuite12->bed = 2;
         $newSuite12->bathroom = 2;
         $newSuite12->squareM = 65;
-        $newSuite12->address = "Corso Vannucci, 22, Perugia, 06121";
+        $newSuite12->address = "Corso Vannucci,22,Perugia,06121";
         $newSuite12->longitude = 12.388784;
         $newSuite12->latitude = 43.112207;
         $newSuite12->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -212,7 +212,7 @@ class SuiteSeeder extends Seeder
         $newSuite13->bed = 2;
         $newSuite13->bathroom = 1;
         $newSuite13->squareM = 70;
-        $newSuite13->address = "Via Regina, 34, Como, 22100";
+        $newSuite13->address = "Via Regina,34,Como,22100";
         $newSuite13->longitude = 9.084466;
         $newSuite13->latitude = 45.808059;
         $newSuite13->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -228,7 +228,7 @@ class SuiteSeeder extends Seeder
         $newSuite14->bed = 3;
         $newSuite14->bathroom = 2;
         $newSuite14->squareM = 80;
-        $newSuite14->address = "Via Pasitea, 19, Positano, 84017";
+        $newSuite14->address = "Via Pasitea,19,Positano,84017";
         $newSuite14->longitude = 14.482933;
         $newSuite14->latitude = 40.628049;
         $newSuite14->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -244,7 +244,7 @@ class SuiteSeeder extends Seeder
         $newSuite15->bed = 2;
         $newSuite15->bathroom = 1;
         $newSuite15->squareM = 60;
-        $newSuite15->address = "Strada della Repubblica, 45, Parma, 43121";
+        $newSuite15->address = "Strada della Repubblica,45,Parma,43121";
         $newSuite15->longitude = 10.327903;
         $newSuite15->latitude = 44.801485;
         $newSuite15->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -260,7 +260,7 @@ class SuiteSeeder extends Seeder
         $newSuite16->bed = 2;
         $newSuite16->bathroom = 1;
         $newSuite16->squareM = 55;
-        $newSuite16->address = "Piazza dell'Unità d'Italia, 8, Trieste, 34121";
+        $newSuite16->address = "Piazza dell'Unità d'Italia,8,Trieste,34121";
         $newSuite16->longitude = 13.769117;
         $newSuite16->latitude = 45.650033;
         $newSuite16->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -276,7 +276,7 @@ class SuiteSeeder extends Seeder
         $newSuite17->bed = 3;
         $newSuite17->bathroom = 2;
         $newSuite17->squareM = 85;
-        $newSuite17->address = "Via Fillungo, 30, Lucca, 55100";
+        $newSuite17->address = "Via Fillungo,30,Lucca,55100";
         $newSuite17->longitude = 10.495944;
         $newSuite17->latitude = 43.843017;
         $newSuite17->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -292,7 +292,7 @@ class SuiteSeeder extends Seeder
         $newSuite18->bed = 1;
         $newSuite18->bathroom = 1;
         $newSuite18->squareM = 40;
-        $newSuite18->address = "Via Roma, 120, Cagliari, 09124";
+        $newSuite18->address = "Via Roma,120,Cagliari,09124";
         $newSuite18->longitude = 9.110616;
         $newSuite18->latitude = 39.217163;
         $newSuite18->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -308,7 +308,7 @@ class SuiteSeeder extends Seeder
         $newSuite19->bed = 2;
         $newSuite19->bathroom = 1;
         $newSuite19->squareM = 75;
-        $newSuite19->address = "Via Tortona, 56, Milano, 20144";
+        $newSuite19->address = "Via Tortona,56,Milano,20144";
         $newSuite19->longitude = 9.169285;
         $newSuite19->latitude = 45.454774;
         $newSuite19->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -324,7 +324,7 @@ class SuiteSeeder extends Seeder
         $newSuite20->bed = 3;
         $newSuite20->bathroom = 2;
         $newSuite20->squareM = 90;
-        $newSuite20->address = "Via della Maestranza, 100, Siracusa, 96100";
+        $newSuite20->address = "Via della Maestranza,100,Siracusa,96100";
         $newSuite20->longitude = 15.290716;
         $newSuite20->latitude = 37.073277;
         $newSuite20->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -340,7 +340,7 @@ class SuiteSeeder extends Seeder
         $newSuite21->bed = 4;
         $newSuite21->bathroom = 3;
         $newSuite21->squareM = 110;
-        $newSuite21->address = "Corso Italia, 125, Sorrento, 80067";
+        $newSuite21->address = "Corso Italia,125,Sorrento,80067";
         $newSuite21->longitude = 14.373992;
         $newSuite21->latitude = 40.626292;
         $newSuite21->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -356,7 +356,7 @@ class SuiteSeeder extends Seeder
         $newSuite22->bed = 1;
         $newSuite22->bathroom = 1;
         $newSuite22->squareM = 40;
-        $newSuite22->address = "Via Mazzini, 30, Verona, 37121";
+        $newSuite22->address = "Via Mazzini,30,Verona,37121";
         $newSuite22->longitude = 10.993258;
         $newSuite22->latitude = 45.438384;
         $newSuite22->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -372,7 +372,7 @@ class SuiteSeeder extends Seeder
         $newSuite23->bed = 4;
         $newSuite23->bathroom = 3;
         $newSuite23->squareM = 120;
-        $newSuite23->address = "Via Roma, 80, Olbia, 07026";
+        $newSuite23->address = "Via Roma,80,Olbia,07026";
         $newSuite23->longitude = 9.486846;
         $newSuite23->latitude = 40.923824;
         $newSuite23->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -388,7 +388,7 @@ class SuiteSeeder extends Seeder
         $newSuite24->bed = 2;
         $newSuite24->bathroom = 1;
         $newSuite24->squareM = 65;
-        $newSuite24->address = "Via Emilia, 10, Modena, 41121";
+        $newSuite24->address = "Via Emilia,10,Modena,41121";
         $newSuite24->longitude = 10.926154;
         $newSuite24->latitude = 44.646010;
         $newSuite24->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -404,7 +404,7 @@ class SuiteSeeder extends Seeder
         $newSuite25->bed = 2;
         $newSuite25->bathroom = 2;
         $newSuite25->squareM = 70;
-        $newSuite25->address = "Via Camerelle, 12, Capri, 80073";
+        $newSuite25->address = "Via Camerelle,12,Capri,80073";
         $newSuite25->longitude = 14.241444;
         $newSuite25->latitude = 40.551575;
         $newSuite25->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -420,7 +420,7 @@ class SuiteSeeder extends Seeder
         $newSuite26->bed = 2;
         $newSuite26->bathroom = 1;
         $newSuite26->squareM = 70;
-        $newSuite26->address = "Via Krupp, 7, Capri, 80073";
+        $newSuite26->address = "Via Krupp,7,Capri,80073";
         $newSuite26->longitude = 14.237326;
         $newSuite26->latitude = 40.546309;
         $newSuite26->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -436,7 +436,7 @@ class SuiteSeeder extends Seeder
         $newSuite27->bed = 3;
         $newSuite27->bathroom = 2;
         $newSuite27->squareM = 90;
-        $newSuite27->address = "Strada Provinciale, 104, Assisi, 06081";
+        $newSuite27->address = "Strada Provinciale,104,Assisi,06081";
         $newSuite27->longitude = 12.620033;
         $newSuite27->latitude = 43.070702;
         $newSuite27->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -452,7 +452,7 @@ class SuiteSeeder extends Seeder
         $newSuite28->bed = 4;
         $newSuite28->bathroom = 3;
         $newSuite28->squareM = 120;
-        $newSuite28->address = "Corso Italia, 35, Sorrento, 80067";
+        $newSuite28->address = "Corso Italia,35,Sorrento,80067";
         $newSuite28->longitude = 14.374294;
         $newSuite28->latitude = 40.626292;
         $newSuite28->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -468,7 +468,7 @@ class SuiteSeeder extends Seeder
         $newSuite29->bed = 2;
         $newSuite29->bathroom = 1;
         $newSuite29->squareM = 55;
-        $newSuite29->address = "Borgo Stretto, 22, Pisa, 56127";
+        $newSuite29->address = "Borgo Stretto,22,Pisa,56127";
         $newSuite29->longitude = 10.401684;
         $newSuite29->latitude = 43.715939;
         $newSuite29->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -484,7 +484,7 @@ class SuiteSeeder extends Seeder
         $newSuite30->bed = 1;
         $newSuite30->bathroom = 1;
         $newSuite30->squareM = 45;
-        $newSuite30->address = "Via Maqueda, 1, Palermo, 90133";
+        $newSuite30->address = "Via Maqueda,1,Palermo,90133";
         $newSuite30->longitude = 13.363936;
         $newSuite30->latitude = 38.115688;
         $newSuite30->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -500,7 +500,7 @@ class SuiteSeeder extends Seeder
         $newSuite31->bed = 3;
         $newSuite31->bathroom = 2;
         $newSuite31->squareM = 100;
-        $newSuite31->address = "Via Roma, 9, Urbino, 61029";
+        $newSuite31->address = "Via Roma,9,Urbino,61029";
         $newSuite31->longitude = 12.634572;
         $newSuite31->latitude = 43.726688;
         $newSuite31->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -516,7 +516,7 @@ class SuiteSeeder extends Seeder
         $newSuite32->bed = 2;
         $newSuite32->bathroom = 1;
         $newSuite32->squareM = 65;
-        $newSuite32->address = "Via Roma, 12, Garda, 37016";
+        $newSuite32->address = "Via Roma,12,Garda,37016";
         $newSuite32->longitude = 10.704060;
         $newSuite32->latitude = 45.576760;
         $newSuite32->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -532,7 +532,7 @@ class SuiteSeeder extends Seeder
         $newSuite33->bed = 4;
         $newSuite33->bathroom = 3;
         $newSuite33->squareM = 110;
-        $newSuite33->address = "Via Lorenzo d'Amalfi, 15, Amalfi, 84011";
+        $newSuite33->address = "Via Lorenzo d'Amalfi,15,Amalfi,84011";
         $newSuite33->longitude = 14.602922;
         $newSuite33->latitude = 40.634632;
         $newSuite33->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -548,7 +548,7 @@ class SuiteSeeder extends Seeder
         $newSuite34->bed = 2;
         $newSuite34->bathroom = 1;
         $newSuite34->squareM = 60;
-        $newSuite34->address = "Piazza delle Erbe, 3, Verona, 37121";
+        $newSuite34->address = "Piazza delle Erbe,3,Verona,37121";
         $newSuite34->longitude = 10.993327;
         $newSuite34->latitude = 45.443797;
         $newSuite34->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -564,7 +564,7 @@ class SuiteSeeder extends Seeder
         $newSuite35->bed = 3;
         $newSuite35->bathroom = 2;
         $newSuite35->squareM = 85;
-        $newSuite35->address = "Via Fiorentini, 45, Matera, 75100";
+        $newSuite35->address = "Via Fiorentini,45,Matera,75100";
         $newSuite35->longitude = 16.606837;
         $newSuite35->latitude = 40.666652;
         $newSuite35->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -580,7 +580,7 @@ class SuiteSeeder extends Seeder
         $newSuite36->bed = 1;
         $newSuite36->bathroom = 1;
         $newSuite36->squareM = 40;
-        $newSuite36->address = "Via Rizzoli, 18, Bologna, 40125";
+        $newSuite36->address = "Via Rizzoli,18,Bologna,40125";
         $newSuite36->longitude = 11.342616;
         $newSuite36->latitude = 44.494887;
         $newSuite36->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -591,12 +591,12 @@ class SuiteSeeder extends Seeder
         $newSuite36->save();
 
         $newSuite37 = new Suite();
-        $newSuite37->title = "Appartamento vicino ai Fori Imperiali, Roma";
+        $newSuite37->title = "Appartamento vicino ai Fori Imperiali,Roma";
         $newSuite37->room = 2;
         $newSuite37->bed = 1;
         $newSuite37->bathroom = 1;
         $newSuite37->squareM = 50;
-        $newSuite37->address = "Via dei Fori Imperiali, 23, Roma, 00184";
+        $newSuite37->address = "Via dei Fori Imperiali,23,Roma,00184";
         $newSuite37->longitude = 12.487320;
         $newSuite37->latitude = 41.891930;
         $newSuite37->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -612,7 +612,7 @@ class SuiteSeeder extends Seeder
         $newSuite38->bed = 4;
         $newSuite38->bathroom = 3;
         $newSuite38->squareM = 150;
-        $newSuite38->address = "Strada Statale, 222, Greve in Chianti, 50022";
+        $newSuite38->address = "Strada Statale,222,Greve in Chianti,50022";
         $newSuite38->longitude = 11.312303;
         $newSuite38->latitude = 43.588610;
         $newSuite38->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -628,7 +628,7 @@ class SuiteSeeder extends Seeder
         $newSuite39->bed = 2;
         $newSuite39->bathroom = 1;
         $newSuite39->squareM = 60;
-        $newSuite39->address = "Via dei Calzaiuoli, 5, Firenze, 50122";
+        $newSuite39->address = "Via dei Calzaiuoli,5,Firenze,50122";
         $newSuite39->longitude = 11.255814;
         $newSuite39->latitude = 43.769560;
         $newSuite39->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -644,7 +644,7 @@ class SuiteSeeder extends Seeder
         $newSuite40->bed = 1;
         $newSuite40->bathroom = 1;
         $newSuite40->squareM = 45;
-        $newSuite40->address = "Piazza San Marco, 3, Venezia, 30124";
+        $newSuite40->address = "Piazza San Marco,3,Venezia,30124";
         $newSuite40->longitude = 12.337847;
         $newSuite40->latitude = 45.434092;
         $newSuite40->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -660,7 +660,7 @@ class SuiteSeeder extends Seeder
         $newSuite41->bed = 2;
         $newSuite41->bathroom = 1;
         $newSuite41->squareM = 55;
-        $newSuite41->address = "Viale Regina Elena, 89, Rimini, 47921";
+        $newSuite41->address = "Viale Regina Elena,89,Rimini,47921";
         $newSuite41->longitude = 12.575211;
         $newSuite41->latitude = 44.059584;
         $newSuite41->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -676,7 +676,7 @@ class SuiteSeeder extends Seeder
         $newSuite42->bed = 3;
         $newSuite42->bathroom = 2;
         $newSuite42->squareM = 100;
-        $newSuite42->address = "Via Giuseppe Palmieri, 15, Lecce, 73100";
+        $newSuite42->address = "Via Giuseppe Palmieri,15,Lecce,73100";
         $newSuite42->longitude = 18.161781;
         $newSuite42->latitude = 40.352195;
         $newSuite42->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -692,7 +692,7 @@ class SuiteSeeder extends Seeder
         $newSuite43->bed = 3;
         $newSuite43->bathroom = 2;
         $newSuite43->squareM = 85;
-        $newSuite43->address = "Via San Tomaso, 3, Bergamo, 24121";
+        $newSuite43->address = "Via San Tomaso,3,Bergamo,24121";
         $newSuite43->longitude = 9.661860;
         $newSuite43->latitude = 45.698264;
         $newSuite43->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
@@ -708,7 +708,7 @@ class SuiteSeeder extends Seeder
         $newSuite44->bed = 4;
         $newSuite44->bathroom = 3;
         $newSuite44->squareM = 130;
-        $newSuite44->address = "Via delle Terme, 15, Olbia, 07026";
+        $newSuite44->address = "Via delle Terme,15,Olbia,07026";
         $newSuite44->longitude = 9.500403;
         $newSuite44->latitude = 40.923165;
         $newSuite44->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";

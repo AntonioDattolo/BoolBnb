@@ -132,7 +132,8 @@ class SuiteController extends Controller
         //  $selectedProject =  Project::findOrFail($id);
         $selectedSuite = Suite::findOrFail($id);
         $data = [
-            "selectedSuite" => $selectedSuite
+            "selectedSuite" => $selectedSuite,
+            'address' => explode(',',$selectedSuite->address)
         ];
         //  // $selectedTech = Technology::findOrFail();
         //  $data = [
