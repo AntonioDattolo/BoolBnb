@@ -11,7 +11,7 @@
         @csrf
         <div class="w-50 m-5">
             <label for="suite_title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="suite_title" placeholder="suite Title" name="title">
+            <input type="text" class="form-control" id="suite_title" value="{{$suite->title}}" name="title">
         </div>
         @error('title')
             <span class="bg-danger" role="alert">
@@ -20,7 +20,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_room" class="form-label">room</label>
-            <input type="number" class="form-control" id="suite_room" placeholder="suite room" name="room">
+            <input type="number" class="form-control" id="suite_room" value="{{$suite->room}}" name="room">
         </div>
         @error('room')
             <span class="bg-danger" role="alert">
@@ -29,7 +29,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bed" class="form-label">bed</label>
-            <input type="number" class="form-control" id="suite_bed" placeholder="suite bed" name="bed">
+            <input type="number" class="form-control" id="suite_bed" value="{{$suite->bed}}" name="bed">
         </div>
         @error('bed')
             <span class="bg-danger" role="alert">
@@ -38,7 +38,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bathroom" class="form-label">bathroom</label>
-            <input type="number" class="form-control" id="suite_bathroom" placeholder="suite bathroom" name="bathroom">
+            <input type="number" class="form-control" id="suite_bathroom" value="{{$suite->bathroom}}" name="bathroom">
         </div>
         @error('bathroom')
             <span class="bg-danger" role="alert">
@@ -47,7 +47,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_squareM" class="form-label">squareM</label>
-            <input type="number" class="form-control" id="suite_squareM" placeholder="suite squareM" name="squareM">
+            <input type="number" class="form-control" id="suite_squareM" value="{{$suite->squareM}}" name="squareM">
         </div>
         @error('squareM')
             <span class="bg-danger" role="alert">
@@ -56,7 +56,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_address" class="form-label">Address</label>
-            <input type="text" class="form-control" id="suite_address" placeholder="suite Address" name="address">
+            <input type="text" class="form-control" id="suite_address" value="{{$suite->address}}" name="address">
         </div>
         @error('address')
             <span class="bg-danger" role="alert">
@@ -64,34 +64,46 @@
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_longitude" class="form-label">longitude</label>
-            <input type="text" class="form-control" id="suite_longitude" placeholder="suite longitude" name="longitude">
+            <label for="suite_city" class="form-label">city</label>
+            <input type="text" class="form-control" id="suite_city" value="{{$suite->city}}" name="city">
         </div>
-        @error('longitude')
+        @error('address')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
         <div class="w-50 m-5">
-            <label for="suite_latitude" class="form-label">latitude</label>
-            <input type="text" class="form-control" id="suite_latitude" placeholder="suite latitude" name="latitude">
+            <label for="suite_cap" class="form-label">CAP</label>
+            <input type="text" class="form-control" id="suite_cap" name="cap">
         </div>
-        @error('latitude')
+        @error('address')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
         <div class="w-50 m-5">
+            <label for="suite_country" class="form-label">Country</label>
+            <input type="text" class="form-control" id="suite_country"  name="country">
+        </div>
+        @error('address')
+            <span class="bg-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+        <div class="w-50 m-5 d-flex">
             <label for="suite_img" class="form-label">img</label>
             {{-- <input type="text" class="form-control" id="suite_img" placeholder="suite img" name="img"> --}}
-            <input type="file" class="form-control" name="img" id="suite_img" placeholder=""/>
+            <input type="file" class="form-control" name="img" id="suite_img" value="{{$suite->img}}"/>
+        </div>
+        <div class="" style="width: 100px">
+            <img class="w-100" src="{{ asset('/storage/' . $suite->img) }}" alt="">
         </div>
         @error('img')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        {{-- <div class="w-50 m-5">
             <label for="suite_tot_visuals" class="form-label">tot_visuals</label>
             <input type="number" class="form-control" id="suite_tot_visuals" placeholder="suite tot_visuals" name="tot_visuals">
         </div>
@@ -99,7 +111,7 @@
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-        @enderror
+        @enderror --}}
         <div class="w-50 m-5">
             <label for="suite_user_id" class="form-label">user_id</label>
             <input type="number" class="form-control" id="suite_user_id" placeholder="suite user_id" name="user_id" value="{{Auth::user()->id}}">
