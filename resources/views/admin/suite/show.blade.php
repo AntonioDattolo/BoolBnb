@@ -30,7 +30,7 @@
             <form action="{{ route('admin.suite.destroy', $selectedSuite->id) }}" method="post">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger m-2">
+                <button type="submit" class="btn btn-danger m-2" onclick="return confirm('Sei sicuro?')">
                     delete
                 </button>
             </form>
