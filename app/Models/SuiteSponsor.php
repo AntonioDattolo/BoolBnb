@@ -11,7 +11,7 @@ class SuiteSponsor extends Model
     protected $table = 'suite_sponsor' ;
 
     public function sponsor(){
-        return $this->belongsTo(Sponsor::class, 'sponsor_id', 'id');
+        return $this->belongsTo(Sponsor::class, 'sponsor_id', 'id')->withPivot('sponsor_name', 'bronze');
     }
 
     public function suite(){

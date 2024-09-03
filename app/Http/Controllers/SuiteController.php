@@ -120,6 +120,15 @@ class SuiteController extends Controller
         //  $newSuite->slug = STR::slug($newSuite->title, '-');
         //  $newSuite->type_id = $data['type_id'];
         $newSuite->save();
+        $tech= isset($data['technologies']);
+
+        if (isset($data['technologies'])) {
+            $newSuite->sponsors()->attach($tech);
+            // $newSuite->getName()->attach('nome dello sponsor');
+        }else{
+            return redirect()->route('admin.suite.show', $newSuite->id);
+        }
+
         return redirect()->route('admin.suite.show', $newSuite->id); 
     }
 
