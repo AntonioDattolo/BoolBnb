@@ -119,11 +119,12 @@ class SuiteController extends Controller
 
         //  $newSuite->slug = STR::slug($newSuite->title, '-');
         //  $newSuite->type_id = $data['type_id'];
+        $sponsorship= $data['sponsorship'];
         $newSuite->save();
-        $tech= isset($data['technologies']);
-
-        if (isset($data['technologies'])) {
-            $newSuite->sponsors()->attach($tech);
+        
+        if (isset($data['sponsorship'])) {
+            $newSuite->sponsors()->attach($sponsorship);
+            // $newSuite->getNameOfCourse()->attach('gold');
             // $newSuite->getName()->attach('nome dello sponsor');
         }else{
             return redirect()->route('admin.suite.show', $newSuite->id);

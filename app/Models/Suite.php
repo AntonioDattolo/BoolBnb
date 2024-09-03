@@ -52,18 +52,24 @@ class Suite extends Model
 // technologies
     public function sponsors()
     {
-        return $this->belongsToMany(Sponsor::class, 'suite_sponsor')->withTimestamps();
+        return $this->belongsToMany(Sponsor::class, 'suite_sponsor')->withTimestamps()->withPivot('name');
     }
 
 
-    // public function sponsor()
-    // {
-    //     return $this->hasOne(SuiteSponsor::class, 'suite_id', 'id');
-    // }
+    public function sponsor()
+    {
+         return $this->hasOne(SuiteSponsor::class, 'suite_id', 'id');
+    }
     public function services()
     {
         return $this->belongsToMany(Service::class, 'suite_service');
         // return $this->belongsToMany('App\Models\Technology');
     }
 
+
+
+   
 }
+
+
+
