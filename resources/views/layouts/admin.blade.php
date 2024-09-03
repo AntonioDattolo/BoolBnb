@@ -47,14 +47,14 @@
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.suite.index' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.suite.index') }}">
 									<i class="fa-solid fa-bars fa-lg fa-fw"></i> Suite's List
 								</a>
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.suite.create' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.suite.create') }}">
 									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Create Suite
 								</a>
