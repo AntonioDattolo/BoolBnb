@@ -25,7 +25,7 @@ class SuiteController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        
+
         $data = [
             'suite' => Suite::with(
                 'user',
@@ -63,7 +63,7 @@ class SuiteController extends Controller
             "bathroom" => "required|min:1|between:1,10",
             "squareM" => "required|integer|min:25",
             "address" => "required|min:8",
-            "civic"=>"required",
+            "civic" => "required",
             "city" => "required",
             "cap" => "required",
             "img" => "required",
@@ -72,6 +72,7 @@ class SuiteController extends Controller
         ]);
 
         $data = $request->all();
+        $data['slug'] = Str::slug($request->title, '-');
         $newSuite = new Suite;
         $newSuite->title = $data['title'];
         $newSuite->room = $data['room'];
@@ -81,7 +82,7 @@ class SuiteController extends Controller
 
         $newSuite->address = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
         // explode(',',$newSuite->address);
-        
+
         // ----------------->>>>GEOCODIFICA INDIRIZZO<<<<<--------------------------
         // PRIMO STEP 
         // INSTALLARE LE DIPENDENZE DA TERMINALE
@@ -96,54 +97,54 @@ class SuiteController extends Controller
         // $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . urlencode(' ') . urlencode($city) . '.json', 
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
             'query' => [
-                'key' => 'UiJYX3PJ7LokqwLgjUZwNGqWefQhcDz0', // chiave API di TomTom PERSONALE
+                'key' => '', // chiave API di TomTom PERSONALE
             ],
         ]);
-          // Decodifico la risposta JSON e recupera le coordinate geografiche
+        // Decodifico la risposta JSON e recupera le coordinate geografiche
         $geocode_data = json_decode($response->getBody(), true);
         $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
         $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
 
         $newSuite->longitude = $longitude;
         $newSuite->latitude = $latitude;
-// -------------------------------------------------------------------------------------
-        
+        // -------------------------------------------------------------------------------------
+
         // $newSuite->visible = $data['visible'];
         // $newSuite->sponsor = $data['sponsor'];
-        if ($request->has('img')) { 
+        if ($request->has('img')) {
             $image_path = Storage::put('uploads', $data['img']);
-            $newSuite->img= $image_path; 
+            $newSuite->img = $image_path;
         }
         $newSuite->img = $image_path;
         $newSuite->user_id = Auth::user()->id;
 
         //  $newSuite->slug = STR::slug($newSuite->title, '-');
         //  $newSuite->type_id = $data['type_id'];
-        $sponsorship= $data['sponsorship'];
+        $sponsorship = $data['sponsorship'];
         $newSuite->save();
-        
+
         if (isset($data['sponsorship'])) {
             $newSuite->sponsors()->attach($sponsorship);
             // $newSuite->getNameOfCourse()->attach('gold');
             // $newSuite->getName()->attach('nome dello sponsor');
-        }else{
+        } else {
             return redirect()->route('admin.suite.show', $newSuite->id);
         }
 
-        return redirect()->route('admin.suite.show', $newSuite->id); 
+        return redirect()->route('admin.suite.show', $newSuite->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(String $id )
+    public function show(String $id)
     {
 
         //  $selectedProject =  Project::findOrFail($id);
         $selectedSuite = Suite::findOrFail($id);
         $data = [
             "selectedSuite" => $selectedSuite,
-            'address' => explode(',',$selectedSuite->address)
+            'address' => explode(',', $selectedSuite->address)
         ];
         //  // $selectedTech = Technology::findOrFail();
         //  $data = [
@@ -160,9 +161,9 @@ class SuiteController extends Controller
     {
         $data = [
             'suite' => $suite,
-            'address' => explode(',',$suite->address)
+            'address' => explode(',', $suite->address)
         ];
-        return view('admin.suite.edit', $data); 
+        return view('admin.suite.edit', $data);
     }
 
     /**
@@ -178,7 +179,7 @@ class SuiteController extends Controller
             "bathroom" => "required|min:1|between:1,10",
             "squareM" => "required|integer|min:25",
             "address" => "required|min:8",
-            "civic"=>"required",
+            "civic" => "required",
             "city" => "required",
             "cap" => "required",
             "img" => "",
@@ -187,30 +188,32 @@ class SuiteController extends Controller
         ]);
         $address = $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
         $data['address'] = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
-        
+
         $client = new \GuzzleHttp\Client([
             'verify' => false
         ]);
-        
+
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
             'query' => [
                 'key' => 'UiJYX3PJ7LokqwLgjUZwNGqWefQhcDz0', // chiave API di TomTom PERSONALE
             ],
         ]);
-        
+
         $geocode_data = json_decode($response->getBody(), true);
         $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
         $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
-        
-        $suite->longitude=$longitude;
-        $suite->latitude=$latitude;
-        
-        if ($request->has('img')) { 
+
+        $suite->longitude = $longitude;
+        $suite->latitude = $latitude;
+
+        $data['slug'] = Str::slug($request->title, '-');
+
+        if ($request->has('img')) {
             Storage::delete($suite->img);
             $image_path = Storage::put('uploads', $data['img']);
-            $data['img'] = $image_path; 
+            $data['img'] = $image_path;
         }
-        
+
         $suite->update($data);
 
         return redirect()->route('admin.suite.show', $suite->id);

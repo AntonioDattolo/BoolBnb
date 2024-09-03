@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('suites', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->nullable();
             $table->integer('room');
             $table->integer('bed');
             $table->smallInteger('bathroom');
