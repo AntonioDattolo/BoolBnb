@@ -56,14 +56,20 @@ class Suite extends Model
     }
 
 
-    // public function sponsor()
-    // {
-    //     return $this->hasOne(SuiteSponsor::class, 'suite_id', 'id');
-    // }
+    public function sponsor()
+    {
+         return $this->hasOne(SuiteSponsor::class, 'suite_id', 'id');
+    }
     public function services()
     {
         return $this->belongsToMany(Service::class, 'suite_service');
         // return $this->belongsToMany('App\Models\Technology');
     }
 
+
+
+   
 }
+
+
+

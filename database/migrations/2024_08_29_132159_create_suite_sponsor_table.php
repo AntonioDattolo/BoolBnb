@@ -15,14 +15,14 @@ return new class extends Migration
 
         Schema::create('suite_sponsor', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('suite_id')->constrained()->nullable();
+            $table->unsignedBigInteger('suite_id')->constrained();
             $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete();
-            $table->unsignedBigInteger('sponsor_id')->cascadeOnDelete();
+            $table->unsignedBigInteger('sponsor_id')->constrained()->cascadeOnDelete();
             $table->foreign('sponsor_id')->references('id')->on('sponsors');
-            $table->string('sponsor_name')->nullable();
-            $table->decimal('sponsor_price')->nullable();
-            $table->dateTime('sponsor_start')->nullable();
-            $table->dateTime('sponsor_end')->nullable();
+            // $table->string('sponsor_name')->nullable();
+            // $table->decimal('sponsor_price')->nullable();
+            // $table->dateTime('sponsor_start')->nullable();
+            // $table->dateTime('sponsor_end')->nullable();
             $table->timestamps();
         });
 
