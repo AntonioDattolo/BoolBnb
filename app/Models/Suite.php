@@ -49,17 +49,17 @@ class Suite extends Model
     //     return $this->belongsToMany(Sponsor::class, 'suite_sponsor');
     //     // return $this->belongsToMany('App\Models\Technology');
     // }
-
+// technologies
     public function sponsors()
     {
-        return $this->belongsToMany(Sponsor::class, 'suite_sponsor' );
+        return $this->belongsToMany(Sponsor::class, 'suite_sponsor')->withTimestamps();
     }
 
-    public function sponsor()
-    {
-        return $this->hasOne(SuiteSponsor::class, 'suite_id', 'id');
-    }
 
+    // public function sponsor()
+    // {
+    //     return $this->hasOne(SuiteSponsor::class, 'suite_id', 'id');
+    // }
     public function services()
     {
         return $this->belongsToMany(Service::class, 'suite_service');

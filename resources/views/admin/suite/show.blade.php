@@ -53,13 +53,65 @@
                 </h4>
                 </p>
                 <a href=" {{ route('admin.suite.edit', $selectedSuite->id) }} " class="btn btn-primary my-2">EDIT</a>
-                <form action="{{ route('admin.suite.destroy', $selectedSuite->id) }}" method="post">
+{{-- __________________________________________________________________ --}}
+<button type="button" class="badge" style="background-color: black; color: red" data-bs-toggle="modal" data-bs-target="#modal-{{$selectedSuite->id}}">
+  DELETE
+</button>
+
+
+<div class="modal fade" id="modal-{{$selectedSuite->id}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitle-{{$selectedSuite->id}}" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm " role="document">
+      <div class="modal-content bg-dark">
+          <div class="modal-header">
+              <h5 class="modal-title text-white" id="modalTitle-{{$selectedSuite->id}}">
+                  Delete current project
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body text-center">
+              <span class="text-danger">
+                  Are u sure? Do u want delete this? 
+              </span>
+              <strong class="text-white">
+                  {{$selectedSuite->title}}  
+              </strong>
+              <br>
+              <span class="text-danger">
+                  Danger, you cannot undo this operation
+              </span>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+              </button>
+
+              <form action="{{ route('admin.suite.destroy', $selectedSuite->id) }}" method="post">
+                  @csrf
+                  @method('DELETE')
+
+                  <button type="submit" class="btn btn-danger">
+                      Confirm
+                  </button>
+
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+                {{-- <form action="{{ route('admin.suite.destroy', $selectedSuite->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger " onclick="return confirm('Sei sicuro?')">
+                    <button type="submit" class="btn btn-danger ">
                         DELETE
                     </button>
-                </form>
+                </form> --}}
                 {{-- <h5>Latitudine: {{$selectedSuite->latitude}}</h5>
             <h5>Longitudine: {{$selectedSuite->longitude}}</h5> --}}
 
