@@ -72,6 +72,7 @@ class SuiteController extends Controller
         ]);
 
         $data = $request->all();
+        $data['slug'] = Str::slug($request->title, '-');
         $newSuite = new Suite;
         $newSuite->title = $data['title'];
         $newSuite->room = $data['room'];
@@ -204,6 +205,8 @@ class SuiteController extends Controller
 
         $suite->longitude = $longitude;
         $suite->latitude = $latitude;
+
+        $data['slug'] = Str::slug($request->title, '-');
 
         if ($request->has('img')) {
             Storage::delete($suite->img);

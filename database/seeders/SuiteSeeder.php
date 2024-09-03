@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Suite;
+use Illuminate\Support\Str;
 
 class SuiteSeeder extends Seeder
 {
@@ -12,10 +13,11 @@ class SuiteSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    { 
+    {
         # code...
         $newSuite1 = new Suite();
         $newSuite1->title = "Appartamento sul lungomare di Napoli";
+        $newSuite1->slug = Str::slug($newSuite1->title);
         $newSuite1->room = 2;
         $newSuite1->bed = 2;
         $newSuite1->bathroom = 1;
@@ -32,6 +34,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite2 = new Suite();
         $newSuite2->title = "Tranquillo rifugio a Venezia";
+        $newSuite2->slug = Str::slug($newSuite2->title);
         $newSuite2->room = 3;
         $newSuite2->bed = 3;
         $newSuite2->bathroom = 2;
@@ -48,6 +51,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite3 = new Suite();
         $newSuite3->title = "Suite con vista Colosseo";
+        $newSuite3->slug = Str::slug($newSuite3->title);
         $newSuite3->room = 1;
         $newSuite3->bed = 1;
         $newSuite3->bathroom = 1;
@@ -64,6 +68,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite4 = new Suite();
         $newSuite4->title = "Appartamento storico a Firenze";
+        $newSuite4->slug = Str::slug($newSuite4->title);
         $newSuite4->room = 3;
         $newSuite4->bed = 2;
         $newSuite4->bathroom = 1;
@@ -80,6 +85,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite5 = new Suite();
         $newSuite5->title = "Bilocale moderno a Milano";
+        $newSuite5->slug = Str::slug($newSuite5->title);
         $newSuite5->room = 2;
         $newSuite5->bed = 2;
         $newSuite5->bathroom = 1;
@@ -96,6 +102,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite6 = new Suite();
         $newSuite6->title = "Attico panoramico a Torino";
+        $newSuite6->slug = Str::slug($newSuite6->title);
         $newSuite6->room = 4;
         $newSuite6->bed = 3;
         $newSuite6->bathroom = 2;
@@ -112,6 +119,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite7 = new Suite();
         $newSuite7->title = "Residenza vicino al Duomo di Siena";
+        $newSuite7->slug = Str::slug($newSuite7->title);
         $newSuite7->room = 3;
         $newSuite7->bed = 2;
         $newSuite7->bathroom = 1;
@@ -128,6 +136,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite8 = new Suite();
         $newSuite8->title = "Appartamento elegante a Bologna";
+        $newSuite8->slug = Str::slug($newSuite8->title);
         $newSuite8->room = 3;
         $newSuite8->bed = 2;
         $newSuite8->bathroom = 2;
@@ -144,6 +153,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite9 = new Suite();
         $newSuite9->title = "Monolocale a pochi passi dal mare a Bari";
+        $newSuite9->slug = Str::slug($newSuite9->title);
         $newSuite9->room = 1;
         $newSuite9->bed = 1;
         $newSuite9->bathroom = 1;
@@ -160,6 +170,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite10 = new Suite();
         $newSuite10->title = "Villa rustica nella campagna Toscana";
+        $newSuite10->slug = Str::slug($newSuite10->title);
         $newSuite10->room = 5;
         $newSuite10->bed = 4;
         $newSuite10->bathroom = 3;
@@ -176,6 +187,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite11 = new Suite();
         $newSuite11->title = "Appartamento fronte mare a Catania";
+        $newSuite11->slug = Str::slug($newSuite11->title);
         $newSuite11->room = 2;
         $newSuite11->bed = 2;
         $newSuite11->bathroom = 1;
@@ -192,6 +204,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite12 = new Suite();
         $newSuite12->title = "Dimora storica nel centro di Perugia";
+        $newSuite12->slug = Str::slug($newSuite12->title);
         $newSuite12->room = 3;
         $newSuite12->bed = 2;
         $newSuite12->bathroom = 2;
@@ -208,6 +221,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite13 = new Suite();
         $newSuite13->title = "Appartamento vista lago a Como";
+        $newSuite13->slug = Str::slug($newSuite13->title);
         $newSuite13->room = 3;
         $newSuite13->bed = 2;
         $newSuite13->bathroom = 1;
@@ -224,6 +238,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite14 = new Suite();
         $newSuite14->title = "Attico esclusivo a Positano";
+        $newSuite14->slug = Str::slug($newSuite14->title);
         $newSuite14->room = 4;
         $newSuite14->bed = 3;
         $newSuite14->bathroom = 2;
@@ -240,6 +255,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite15 = new Suite();
         $newSuite15->title = "Appartamento moderno a Parma";
+        $newSuite15->slug = Str::slug($newSuite15->title);
         $newSuite15->room = 3;
         $newSuite15->bed = 2;
         $newSuite15->bathroom = 1;
@@ -256,6 +272,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite16 = new Suite();
         $newSuite16->title = "Appartamento con terrazza a Trieste";
+        $newSuite16->slug = Str::slug($newSuite16->title);
         $newSuite16->room = 3;
         $newSuite16->bed = 2;
         $newSuite16->bathroom = 1;
@@ -272,6 +289,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite17 = new Suite();
         $newSuite17->title = "Appartamento con giardino a Lucca";
+        $newSuite17->slug = Str::slug($newSuite17->title);
         $newSuite17->room = 4;
         $newSuite17->bed = 3;
         $newSuite17->bathroom = 2;
@@ -288,6 +306,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite18 = new Suite();
         $newSuite18->title = "Monolocale a Cagliari";
+        $newSuite18->slug = Str::slug($newSuite18->title);
         $newSuite18->room = 1;
         $newSuite18->bed = 1;
         $newSuite18->bathroom = 1;
@@ -304,6 +323,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite19 = new Suite();
         $newSuite19->title = "Loft industriale a Milano";
+        $newSuite19->slug = Str::slug($newSuite19->title);
         $newSuite19->room = 3;
         $newSuite19->bed = 2;
         $newSuite19->bathroom = 1;
@@ -320,6 +340,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite20 = new Suite();
         $newSuite20->title = "Casa con vista mare a Siracusa";
+        $newSuite20->slug = Str::slug($newSuite20->title);
         $newSuite20->room = 4;
         $newSuite20->bed = 3;
         $newSuite20->bathroom = 2;
@@ -336,6 +357,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite21 = new Suite();
         $newSuite21->title = "Attico con piscina a Sorrento";
+        $newSuite21->slug = Str::slug($newSuite21->title);
         $newSuite21->room = 5;
         $newSuite21->bed = 4;
         $newSuite21->bathroom = 3;
@@ -352,6 +374,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite22 = new Suite();
         $newSuite22->title = "Monolocale accogliente a Verona";
+        $newSuite22->slug = Str::slug($newSuite22->title);
         $newSuite22->room = 1;
         $newSuite22->bed = 1;
         $newSuite22->bathroom = 1;
@@ -368,6 +391,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite23 = new Suite();
         $newSuite23->title = "Villa con piscina a Olbia";
+        $newSuite23->slug = Str::slug($newSuite23->title);
         $newSuite23->room = 5;
         $newSuite23->bed = 4;
         $newSuite23->bathroom = 3;
@@ -384,6 +408,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite24 = new Suite();
         $newSuite24->title = "Appartamento in centro storico a Modena";
+        $newSuite24->slug = Str::slug($newSuite24->title);
         $newSuite24->room = 3;
         $newSuite24->bed = 2;
         $newSuite24->bathroom = 1;
@@ -400,6 +425,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite25 = new Suite();
         $newSuite25->title = "Casa vacanze a Capri";
+        $newSuite25->slug = Str::slug($newSuite25->title);
         $newSuite25->room = 3;
         $newSuite25->bed = 2;
         $newSuite25->bathroom = 2;
@@ -416,6 +442,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite26 = new Suite();
         $newSuite26->title = "Appartamento di lusso a Capri";
+        $newSuite26->slug = Str::slug($newSuite26->title);
         $newSuite26->room = 3;
         $newSuite26->bed = 2;
         $newSuite26->bathroom = 1;
@@ -432,6 +459,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite27 = new Suite();
         $newSuite27->title = "Rustico con piscina in Umbria";
+        $newSuite27->slug = Str::slug($newSuite27->title);
         $newSuite27->room = 4;
         $newSuite27->bed = 3;
         $newSuite27->bathroom = 2;
@@ -448,6 +476,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite28 = new Suite();
         $newSuite28->title = "Villa sul mare a Sorrento";
+        $newSuite28->slug = Str::slug($newSuite28->title);
         $newSuite28->room = 5;
         $newSuite28->bed = 4;
         $newSuite28->bathroom = 3;
@@ -464,6 +493,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite29 = new Suite();
         $newSuite29->title = "Appartamento in centro a Pisa";
+        $newSuite29->slug = Str::slug($newSuite29->title);
         $newSuite29->room = 3;
         $newSuite29->bed = 2;
         $newSuite29->bathroom = 1;
@@ -480,6 +510,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite30 = new Suite();
         $newSuite30->title = "Loft artistico a Palermo";
+        $newSuite30->slug = Str::slug($newSuite30->title);
         $newSuite30->room = 2;
         $newSuite30->bed = 1;
         $newSuite30->bathroom = 1;
@@ -496,6 +527,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite31 = new Suite();
         $newSuite31->title = "Casa colonica nelle Marche";
+        $newSuite31->slug = Str::slug($newSuite31->title);
         $newSuite31->room = 4;
         $newSuite31->bed = 3;
         $newSuite31->bathroom = 2;
@@ -512,6 +544,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite32 = new Suite();
         $newSuite32->title = "Appartamento con vista lago a Garda";
+        $newSuite32->slug = Str::slug($newSuite32->title);
         $newSuite32->room = 3;
         $newSuite32->bed = 2;
         $newSuite32->bathroom = 1;
@@ -528,6 +561,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite33 = new Suite();
         $newSuite33->title = "Villa panoramica ad Amalfi";
+        $newSuite33->slug = Str::slug($newSuite33->title);
         $newSuite33->room = 5;
         $newSuite33->bed = 4;
         $newSuite33->bathroom = 3;
@@ -544,6 +578,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite34 = new Suite();
         $newSuite34->title = "Appartamento centrale a Verona";
+        $newSuite34->slug = Str::slug($newSuite34->title);
         $newSuite34->room = 3;
         $newSuite34->bed = 2;
         $newSuite34->bathroom = 1;
@@ -560,6 +595,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite35 = new Suite();
         $newSuite35->title = "Residenza storica a Matera";
+        $newSuite35->slug = Str::slug($newSuite35->title);
         $newSuite35->room = 4;
         $newSuite35->bed = 3;
         $newSuite35->bathroom = 2;
@@ -576,6 +612,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite36 = new Suite();
         $newSuite36->title = "Monolocale nel cuore di Bologna";
+        $newSuite36->slug = Str::slug($newSuite36->title);
         $newSuite36->room = 1;
         $newSuite36->bed = 1;
         $newSuite36->bathroom = 1;
@@ -592,6 +629,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite37 = new Suite();
         $newSuite37->title = "Appartamento vicino ai Fori Imperiali,Roma";
+        $newSuite37->slug = Str::slug($newSuite37->title);
         $newSuite37->room = 2;
         $newSuite37->bed = 1;
         $newSuite37->bathroom = 1;
@@ -608,6 +646,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite38 = new Suite();
         $newSuite38->title = "Villa rustica in Toscana";
+        $newSuite38->slug = Str::slug($newSuite38->title);
         $newSuite38->room = 5;
         $newSuite38->bed = 4;
         $newSuite38->bathroom = 3;
@@ -624,6 +663,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite39 = new Suite();
         $newSuite39->title = "Appartamento in centro storico a Firenze";
+        $newSuite39->slug = Str::slug($newSuite39->title);
         $newSuite39->room = 3;
         $newSuite39->bed = 2;
         $newSuite39->bathroom = 1;
@@ -640,6 +680,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite40 = new Suite();
         $newSuite40->title = "Appartamento di charme a Venezia";
+        $newSuite40->slug = Str::slug($newSuite40->title);
         $newSuite40->room = 2;
         $newSuite40->bed = 1;
         $newSuite40->bathroom = 1;
@@ -656,6 +697,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite41 = new Suite();
         $newSuite41->title = "Appartamento sulla Riviera di Rimini";
+        $newSuite41->slug = Str::slug($newSuite41->title);
         $newSuite41->room = 3;
         $newSuite41->bed = 2;
         $newSuite41->bathroom = 1;
@@ -672,6 +714,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite42 = new Suite();
         $newSuite42->title = "Dimora nobiliare a Lecce";
+        $newSuite42->slug = Str::slug($newSuite42->title);
         $newSuite42->room = 4;
         $newSuite42->bed = 3;
         $newSuite42->bathroom = 2;
@@ -688,6 +731,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite43 = new Suite();
         $newSuite43->title = "Casa con giardino a Bergamo";
+        $newSuite43->slug = Str::slug($newSuite43->title);
         $newSuite43->room = 4;
         $newSuite43->bed = 3;
         $newSuite43->bathroom = 2;
@@ -704,6 +748,7 @@ class SuiteSeeder extends Seeder
 
         $newSuite44 = new Suite();
         $newSuite44->title = "Villa moderna a Olbia";
+        $newSuite44->slug = Str::slug($newSuite44->title);
         $newSuite44->room = 5;
         $newSuite44->bed = 4;
         $newSuite44->bathroom = 3;
@@ -717,8 +762,5 @@ class SuiteSeeder extends Seeder
         $newSuite44->tot_visuals = 135;
         $newSuite44->user_id = 1;
         $newSuite44->save();
-
-
-    
     }
 }
