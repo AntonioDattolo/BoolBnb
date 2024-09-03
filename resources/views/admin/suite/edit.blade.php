@@ -19,7 +19,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_room" class="form-label">Rooms:</label>
-            <input type="number" class="form-control" id="suite_room" value="{{$suite->room}}" name="room">
+            <input type="number" class="form-control" id="suite_room" value="{{$suite->room}}" name="room" min="1" max="20">
         </div>
         @error('room')
             <span class="bg-danger" role="alert">
@@ -28,7 +28,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bed" class="form-label">Beds:</label>
-            <input type="number" class="form-control" id="suite_bed" value="{{$suite->bed}}" name="bed">
+            <input type="number" class="form-control" id="suite_bed" value="{{$suite->bed}}" name="bed" min="1" max="20">
         </div>
         @error('bed')
             <span class="bg-danger" role="alert">
@@ -37,7 +37,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bathroom" class="form-label">Bathrooms:</label>
-            <input type="number" class="form-control" id="suite_bathroom" value="{{$suite->bathroom}}" name="bathroom">
+            <input type="number" class="form-control" id="suite_bathroom" value="{{$suite->bathroom}}" name="bathroom" min="1" max="10">
         </div>
         @error('bathroom')
             <span class="bg-danger" role="alert">
@@ -46,7 +46,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_squareM" class="form-label">Square Meters:</label>
-            <input type="number" class="form-control" id="suite_squareM" value="{{$suite->squareM}}" name="squareM">
+            <input type="number" class="form-control" id="suite_squareM" value="{{$suite->squareM}}" name="squareM" min="25">
         </div>
         @error('squareM')
             <span class="bg-danger" role="alert">
@@ -64,7 +64,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_civic" class="form-label">House Number:</label>
-            <input type="number" class="form-control" id="suite_civic" value="{{$address[1]}}" name="civic">
+            <input type="number" class="form-control" id="suite_civic" value="{{$address[1]}}" name="civic" min="1">
         </div>
         @error('civic')
             <span class="bg-danger" role="alert">
