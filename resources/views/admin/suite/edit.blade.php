@@ -92,7 +92,11 @@
         <div class="w-50 m-5">
             <div class="d-flex" style="width: 100px">
                 <span>Current IMG:</span>
+                @if(Str::startsWith($suite->img, 'http'))
+                <img class="w-100 ms-3 mb-2" src="{{ $suite->img }}" alt="">
+                @else
                 <img class="w-100 ms-3 mb-2" src="{{ asset('/storage/' . $suite->img) }}" alt="">
+                @endif
             </div>
             <label for="suite_img" class="form-label mb-2">Update IMG:</label>
             {{-- <input type="text" class="form-control" id="suite_img" placeholder="suite img" name="img"> --}}

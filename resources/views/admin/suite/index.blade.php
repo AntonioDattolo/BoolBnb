@@ -2,11 +2,21 @@
 
 @section('content')
     <div class="jumbotron m-4 rounded-3">
-        <h1>My Suites:</h1>
+
+        
         
 
+        @if ( count($suite) == 0)
+            <h1>
+                You don't have any suites yet
+            </h1>
+            <a href="{{ route('admin.suite.create') }}" class="btn btn-warning btn-lg" type="button">Add a Suite</a>
+        @else 
+             
+         
+        <h1>My Suites:</h1>
         <div class="d-flex">
-            <div class="row justify-content-around d-flex ">
+            <div class="row d-flex ">
 
 
                 @foreach ($suite as $item)
@@ -31,5 +41,6 @@
                 @endforeach
             </div>
         </div>
+        @endif
     </div>
 @endsection
