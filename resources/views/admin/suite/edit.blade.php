@@ -96,7 +96,7 @@
             </div>
             <label for="suite_img" class="form-label mb-2">Update IMG:</label>
             {{-- <input type="text" class="form-control" id="suite_img" placeholder="suite img" name="img"> --}}
-            <input type="file" class="form-control" name="img" id="suite_img" value="{{$suite->img}}"/>
+            <input type="file" class="form-control" name="img" id="suite_img" value="{{$suite->img}}" accept=“.png,.jpg,.jpeg,.webp,image/png”/>
         </div>
         
         @error('img')
