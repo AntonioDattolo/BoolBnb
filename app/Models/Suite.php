@@ -52,7 +52,7 @@ class Suite extends Model
 // technologies
     public function sponsors()
     {
-        return $this->belongsToMany(Sponsor::class, 'suite_sponsor')->withTimestamps()->withPivot('name');
+        return $this->belongsToMany(Sponsor::class, 'suite_sponsor')->withTimestamps();
     }
 
 
