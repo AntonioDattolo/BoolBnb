@@ -55,14 +55,14 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_address" class="form-label">Address:</label>
-            <input type="text" class="form-control" id="suite_address" value="{{$address[0]}}" name="address" required>
+            <input type="text" class="form-control" id="suite_address" value="{{$suite->address}}" name="address" required>
         </div>
         @error('address')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        {{-- <div class="w-50 m-5">
             <label for="suite_civic" class="form-label">House Number:</label>
             <input type="number" class="form-control" id="suite_civic" value="{{$address[1]}}" name="civic" min="1">
         </div>
@@ -88,7 +88,7 @@
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-        @enderror
+        @enderror --}}
         <div class="w-50 m-5">
             <div class="d-flex" style="width: 100px">
                 <span>Current IMG:</span>
