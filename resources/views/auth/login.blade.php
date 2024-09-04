@@ -15,7 +15,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="emailInput" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus oninput="validateEmailInput()">
+                                <span id="emailFeedback" style="color: red;"></span>
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -70,4 +71,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    function validateEmailInput() {
+        const emailInput = document.getElementById('emailInput').value;
+        const feedbackElement = document.getElementById('emailFeedback');
+        const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+
+        if (emailInput.includes('@') && emailInput.includes('.')) {
+                feedbackElement.textContent = ""; // Email is valid
+        } else {
+                feedbackElement.textContent = "Please enter a valid email address.";
+        }
+    }
+</script>
+
+
 @endsection
