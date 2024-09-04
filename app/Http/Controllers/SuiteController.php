@@ -166,9 +166,9 @@ class SuiteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Suite $suite)
+    public function edit(string $id)
     {
-        $suite = Suite::findOrFail($suite);
+        $suite = Suite::findOrFail($id);
         $user = auth()->user();
 
         // Verifica se l'utente autenticato è lo stesso dell'appartamento
@@ -194,7 +194,7 @@ class SuiteController extends Controller
             // Se l'utente non è autorizzato, mostra la pagina 404
             abort(403);
         }
-        
+
         $data = $request->validate([
             "title" => "required|min:5",
             "room" => "required|min:1|between:1,20",
