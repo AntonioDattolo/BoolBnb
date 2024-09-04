@@ -161,8 +161,15 @@ class SuiteController extends Controller
      */
     public function edit(Suite $suite)
     {
+        // $user_id = Auth::user()->id;
         $data = [
-            'suite' => $suite,
+            'suite' => Suite::with(
+                'user',
+                'messages',
+                'visuals',
+                'sponsors',
+                'services'
+            )->select()->where('user_id', Auth::user()->id)->get()
             // 'address' => explode(',', $suite->address)
         ];
         return view('admin.suite.edit', $data);
