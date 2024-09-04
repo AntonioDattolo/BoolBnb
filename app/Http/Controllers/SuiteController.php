@@ -80,7 +80,8 @@ class SuiteController extends Controller
         $newSuite->bathroom = $data['bathroom'];
         $newSuite->squareM = $data['squareM'];
 
-        $newSuite->address = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
+        // $newSuite->address = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
+        $newSuite->address = $data['address'] ;
         // explode(',',$newSuite->address);
 
         // ----------------->>>>GEOCODIFICA INDIRIZZO<<<<<--------------------------
@@ -88,7 +89,8 @@ class SuiteController extends Controller
         // INSTALLARE LE DIPENDENZE DA TERMINALE
         // ----> composer require geocoder-php/tomtom-provider guzzlehttp/guzzle
         // REGISTRARSI SUL SITO TOMTOM PER OTTENERE LA KEY PER L'API  ----> https://developer.tomtom.com/
-        $address =  $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
+        // $address =  $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
+        $address =  $data['address'];
         // istanza client guzzle
         $client = new \GuzzleHttp\Client([
             'verify' => false
@@ -161,7 +163,7 @@ class SuiteController extends Controller
     {
         $data = [
             'suite' => $suite,
-            'address' => explode(',', $suite->address)
+            // 'address' => explode(',', $suite->address)
         ];
         return view('admin.suite.edit', $data);
     }
@@ -186,8 +188,9 @@ class SuiteController extends Controller
             "visible" => "nullable",
             "sponsor" => "nullable",
         ]);
-        $address = $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
-        $data['address'] = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
+        //  $address = $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
+        // $data['address'] = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
+        $address =  $data['address'] ;
 
         $client = new \GuzzleHttp\Client([
             'verify' => false
@@ -228,6 +231,6 @@ class SuiteController extends Controller
         Storage::delete($suite->img);
         $suite->delete();
 
-        return redirect()->route('admin.suite.index');
+        return redirect()->route('admin.suite.index')->with('message', 'Project Deleted');
     }
 }
