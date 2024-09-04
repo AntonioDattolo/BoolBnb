@@ -36,3 +36,17 @@
     </div> --}}
 	</div>
 @endsection
+
+
+{{-- axios.get('http://localhost:8000/api/suite?page=1').then(response => {
+	//console.log(response.data.results.data)
+	let ciao = 'Via del colosseo';
+	for (let index = 0; index < response.data.results.data.length; index++) {
+
+		if (response.data.results.data[index].address.toLowerCase().includes(ciao.toLowerCase())) {
+
+			return console.log(response.data.results.data[index].address)
+		}
+	}
+
+}) --}}
