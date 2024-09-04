@@ -144,6 +144,13 @@ class SuiteController extends Controller
 
         //  $selectedProject =  Project::findOrFail($id);
         $selectedSuite = Suite::findOrFail($id);
+        $user = auth()->user();
+
+        // Verifica se l'utente autenticato è lo stesso dell'appartamento
+        if ($selectedSuite->user_id != $user->id) {
+            // Se l'utente non è autorizzato, mostra la pagina 404
+            abort(403);
+        }
         $data = [
             "selectedSuite" => $selectedSuite,
             'address' => explode(',', $selectedSuite->address)
@@ -161,6 +168,14 @@ class SuiteController extends Controller
      */
     public function edit(Suite $suite)
     {
+        $suite = Suite::findOrFail($suite);
+        $user = auth()->user();
+
+        // Verifica se l'utente autenticato è lo stesso dell'appartamento
+        if ($suite->user_id != $user->id) {
+            // Se l'utente non è autorizzato, mostra la pagina 404
+            abort(403);
+        }
         $data = [
             'suite' => $suite,
             // 'address' => explode(',', $suite->address)
@@ -174,6 +189,12 @@ class SuiteController extends Controller
     public function update(Request $request, String $id)
     {
         $suite = Suite::findOrFail($id);
+        $user = auth()->user();
+        if ($suite->user_id != $user->id) {
+            // Se l'utente non è autorizzato, mostra la pagina 404
+            abort(403);
+        }
+        
         $data = $request->validate([
             "title" => "required|min:5",
             "room" => "required|min:1|between:1,20",
