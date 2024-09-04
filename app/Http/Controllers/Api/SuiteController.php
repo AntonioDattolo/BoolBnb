@@ -13,7 +13,7 @@ class SuiteController extends Controller
         // $suites = Suite::all();
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsor')->paginate(6)
+            'results' => Suite::with('sponsor')->paginate(20)
             // 'suites' => Suite::with(['languages', 'type'])->orderByDesc('id')->paginate(6)
             //languages e type del 'with()' li prendi dal metodo del modello Project
         ]);
