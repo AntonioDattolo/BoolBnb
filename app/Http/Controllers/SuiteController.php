@@ -79,7 +79,7 @@ class SuiteController extends Controller
         $newSuite->squareM = $data['squareM'];
 
         // $newSuite->address = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
-        $newSuite->address = $data['address'] ;
+        $newSuite->address = $data['address'];
         // explode(',',$newSuite->address);
 
         // ----------------->>>>GEOCODIFICA INDIRIZZO<<<<<--------------------------
@@ -211,7 +211,7 @@ class SuiteController extends Controller
         ]);
         //  $address = $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
         // $data['address'] = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
-        $address =  $data['address'] ;
+        $address =  $data['address'];
 
         $client = new \GuzzleHttp\Client([
             'verify' => false
@@ -219,7 +219,7 @@ class SuiteController extends Controller
 
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
             'query' => [
-                'key' => 'UiJYX3PJ7LokqwLgjUZwNGqWefQhcDz0', // chiave API di TomTom PERSONALE
+                'key' => '', // chiave API di TomTom PERSONALE
             ],
         ]);
 
