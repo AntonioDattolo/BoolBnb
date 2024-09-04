@@ -12,6 +12,13 @@
             </h1>
             <a href="{{ route('admin.suite.create') }}" class="btn btn-warning btn-lg" type="button">Add a Suite</a>
         @else 
+
+        @if(session('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong>{{session('message')}}</strong>
+            </div>
+        @endif
              
          
         <h1>My Suites:</h1>
@@ -65,13 +72,51 @@
                                 
                                 <a class="btn btn-primary" href="{{route('admin.suite.show', $item->id)}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 
-                                <form class="d-inline" action="{{ route('admin.suite.destroy', $item->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </button>
-                                </form>
+        
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$item->id}}">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                  </button>
+                                <div class="modal fade" id="modal-{{$item->id}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitle-{{$item->id}}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm " role="document">
+                                        <div class="modal-content bg-dark">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-white" id="modalTitle-{{$item->id}}">
+                                                    Delete suite
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                  
+                                            <div class="modal-body text-center">
+                                                <span class="text-white">
+                                                  Are you sure you want to delete
+                                                  <br>
+                                                  <strong>
+                                                     {{$item->title}}?
+                                                  </strong>
+                                                </span>
+                                                <br>
+                                                <span class="text-danger">
+                                                    Danger, you cannot undo this operation
+                                                </span>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                  
+                                                <form action="{{ route('admin.suite.destroy', $item->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                  
+                                                    <button type="submit" class="btn btn-danger">
+                                                        Confirm
+                                                    </button>
+                                  
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
                             </td>
 
                         </tr>
