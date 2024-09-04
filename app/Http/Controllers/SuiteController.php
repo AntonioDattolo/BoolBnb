@@ -63,9 +63,7 @@ class SuiteController extends Controller
             "bathroom" => "required|min:1|between:1,10",
             "squareM" => "required|integer|min:25",
             "address" => "required|min:8",
-            "civic" => "required",
-            "city" => "required",
-            "cap" => "required",
+           
             "img" => "required",
             "visible" => "nullable",
             "sponsor" => "nullable",
@@ -99,7 +97,7 @@ class SuiteController extends Controller
         // $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . urlencode(' ') . urlencode($city) . '.json', 
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
             'query' => [
-                'key' => '', // chiave API di TomTom PERSONALE
+                'key' => 'jmRHcyl09MwwWAWkpuc1wvI3C3miUjkN', // chiave API di TomTom PERSONALE
             ],
         ]);
         // Decodifico la risposta JSON e recupera le coordinate geografiche
@@ -122,16 +120,20 @@ class SuiteController extends Controller
 
         //  $newSuite->slug = STR::slug($newSuite->title, '-');
         //  $newSuite->type_id = $data['type_id'];
-        $sponsorship = $data['sponsorship'];
+
+
+        // $sponsorship = $data['sponsorship'];
+
+
         $newSuite->save();
 
-        if (isset($data['sponsorship'])) {
-            $newSuite->sponsors()->attach($sponsorship);
-            // $newSuite->getNameOfCourse()->attach('gold');
-            // $newSuite->getName()->attach('nome dello sponsor');
-        } else {
-            return redirect()->route('admin.suite.show', $newSuite->id);
-        }
+        // if (isset($data['sponsorship'])) {
+        //     $newSuite->sponsors()->attach($sponsorship);
+        //     // $newSuite->getNameOfCourse()->attach('gold');
+        //     // $newSuite->getName()->attach('nome dello sponsor');
+        // } else {
+        //     return redirect()->route('admin.suite.show', $newSuite->id);
+        // }
 
         return redirect()->route('admin.suite.show', $newSuite->id);
     }
@@ -202,9 +204,7 @@ class SuiteController extends Controller
             "bathroom" => "required|min:1|between:1,10",
             "squareM" => "required|integer|min:25",
             "address" => "required|min:8",
-            "civic" => "required",
-            "city" => "required",
-            "cap" => "required",
+          
             "img" => "",
             "visible" => "nullable",
             "sponsor" => "nullable",

@@ -42,16 +42,9 @@
                     @endif
                 @endforeach --}}
                     <p>
-                      Address: {{ $address[0] }}, {{ $address[1] }}
+                      Address: {{ $selectedSuite->address }}
                     </p>
-                    <p>
-                      City: {{ $address[2] }}
-                    </p>
-                      CAP: {{ $address[3] }}
-                    <p>
-                    </p>
-                </h4>
-                </p>
+                    
                 <a href=" {{ route('admin.suite.edit', $selectedSuite->id) }} " class="btn btn-primary my-2">EDIT</a>
 {{-- __________________________________________________________________ --}}
 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$selectedSuite->id}}">
