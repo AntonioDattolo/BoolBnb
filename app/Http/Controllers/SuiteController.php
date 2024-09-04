@@ -231,6 +231,6 @@ class SuiteController extends Controller
         Storage::delete($suite->img);
         $suite->delete();
 
-        return redirect()->route('admin.suite.index');
+        return redirect()->route('admin.suite.index')->with('message', 'Project Deleted');
     }
 }

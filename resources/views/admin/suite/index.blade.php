@@ -12,6 +12,13 @@
             </h1>
             <a href="{{ route('admin.suite.create') }}" class="btn btn-warning btn-lg" type="button">Add a Suite</a>
         @else 
+
+        @if(session('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong>{{session('message')}}</strong>
+            </div>
+        @endif
              
          
         <h1>My Suites:</h1>
