@@ -110,15 +110,15 @@
         function autocomplete(value) {
             const base_url = "https://api.tomtom.com/search/2/search/"
 
-            
+            if (value.target.value.length == 8) {
 
 
                 let codifica = value.target.value
                 let mid_url = codifica.replace(/ /g, '%20');
                 const apiKey = `.json?key=jmRHcyl09MwwWAWkpuc1wvI3C3miUjkN&limit=5&countrySet={ITA}`
 
-                delete axios.defaults.headers.common['X-Requested-With'];
-                if (mid_url.length > 7) {
+                // delete axios.defaults.headers.common['X-Requested-With'];
+                if (mid_url.length = 7) {
 
                     axios.get(base_url + mid_url + apiKey).then(response => {
 
@@ -143,7 +143,7 @@
                     });
                 }
 
-            
+            }
 
         }
     </script>
