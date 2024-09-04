@@ -22,7 +22,7 @@
 				<a href="{{ route('admin.suite.create') }}" class="btn btn-warning btn-lg" type="button">Add a Suite</a>
 				<br>
 				<a href="{{ route('admin.suite.index') }}" class="btn btn-info btn-lg mt-4" type="button">My Suites</a>
-
+aaaa
 
 			@endguest
 			<br>
