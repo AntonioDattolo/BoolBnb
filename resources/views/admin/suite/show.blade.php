@@ -1,6 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
+
+@if(session('message'))
+            <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong>{{session('message')}}</strong>
+            </div>
+        @endif
   <h1 class="card-title ms-4 mt-5">{{ $selectedSuite->title }}</h1>
     <div class="jumbotron p-3 mb-4 rounded-3 d-flex">
         <div class="col-7">

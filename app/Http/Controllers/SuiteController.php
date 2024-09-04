@@ -134,7 +134,7 @@ class SuiteController extends Controller
         //     return redirect()->route('admin.suite.show', $newSuite->id);
         // }
 
-        return redirect()->route('admin.suite.show', $newSuite->id);
+        return redirect()->route('admin.suite.show', $newSuite->id)->with('message', 'Project Created');
     }
 
     /**
@@ -217,7 +217,7 @@ class SuiteController extends Controller
 
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
             'query' => [
-                'key' => 'saAJZBAB7obGDCgcrpeb06nOD7Zcltsi', // chiave API di TomTom PERSONALE
+                'key' => '', // chiave API di TomTom PERSONALE
             ],
         ]);
 
@@ -238,7 +238,7 @@ class SuiteController extends Controller
 
         $suite->update($data);
 
-        return redirect()->route('admin.suite.show', $suite->id);
+        return redirect()->route('admin.suite.show', $suite->id)->with('message', 'Project Updated');
     }
 
     /**
