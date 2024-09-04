@@ -63,7 +63,6 @@ class SuiteController extends Controller
             "bathroom" => "required|min:1|between:1,10",
             "squareM" => "required|integer|min:25",
             "address" => "required|min:8",
-           
             "img" => "required",
             "visible" => "nullable",
             "sponsor" => "nullable",
@@ -204,7 +203,6 @@ class SuiteController extends Controller
             "bathroom" => "required|min:1|between:1,10",
             "squareM" => "required|integer|min:25",
             "address" => "required|min:8",
-          
             "img" => "",
             "visible" => "nullable",
             "sponsor" => "nullable",
