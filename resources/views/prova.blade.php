@@ -23,7 +23,7 @@
 				<br>
 				<a href="{{ route('admin.suite.index') }}" class="btn btn-info btn-lg mt-4" type="button">My Suites</a>
 
-
+aaa
 			@endguest
 			<br>
 			{{-- <a href="/" class="btn btn-info btn-lg mt-3" type="button">Cerca appartamenti</a> --}}
