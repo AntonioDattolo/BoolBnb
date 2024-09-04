@@ -96,7 +96,7 @@ class SuiteController extends Controller
         // $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . urlencode(' ') . urlencode($city) . '.json', 
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
             'query' => [
-                'key' => 'TnDL6MzHE2L8a683eRoJRl9VSl7pPsqg', // chiave API di TomTom PERSONALE
+                'key' => 'saAJZBAB7obGDCgcrpeb06nOD7Zcltsi', // chiave API di TomTom PERSONALE
             ],
         ]);
         // Decodifico la risposta JSON e recupera le coordinate geografiche
@@ -217,7 +217,7 @@ class SuiteController extends Controller
 
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
             'query' => [
-                'key' => 'TnDL6MzHE2L8a683eRoJRl9VSl7pPsqg', // chiave API di TomTom PERSONALE
+                'key' => '', // chiave API di TomTom PERSONALE
             ],
         ]);
 
