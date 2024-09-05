@@ -18,4 +18,21 @@ class SuiteController extends Controller
             //languages e type del 'with()' li prendi dal metodo del modello Project
         ]);
     }
+
+    public function show($slug)
+    {
+        $suite = Suite::with(['sponsor'])->where('slug', $slug)->first(); //con first al posto di get, ti da il primo dato non un array
+
+        if ($suite) {
+            return response()->json([
+                'status' => true,
+                'suite' => $suite
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'suite not found...'
+            ]);
+        }
+    }
 }
