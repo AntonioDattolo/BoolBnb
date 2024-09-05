@@ -81,13 +81,15 @@
             </span>
         @enderror
 
-        {{-- <div class="mb-4 row">
+        <div class="mb-4 row">
             <label class="col-md-2 col-form-label text-md-right">Sponsor</label>
             <div class="col-md-10">
                 @foreach ($sponsor as $item)
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="sponsorship" value="{{ $item->id }}"
                             id="tech{{ $item->id }}">
+                            <input class="d-none" type="text" name="nome_sponsor" value="{{$item->name}}">
+                        
                         <label class="form-check-label" for="tech{{ $item->id }}"> {{ $item->name }}</label>
                     </div>
                 @endforeach
@@ -98,7 +100,7 @@
                 @enderror
             </div>
         </div>
-        <h1 id="prova"></h1> --}}
+        {{-- <h1 id="prova"></h1> --}}
         <button type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Add Suite </button>
     </form>
     <script>
@@ -117,7 +119,7 @@
                 let mid_url = codifica.replace(/ /g, '%20');
                 const apiKey = `.json?key=jmRHcyl09MwwWAWkpuc1wvI3C3miUjkN&limit=5&countrySet={ITA}`
 
-                // delete axios.defaults.headers.common['X-Requested-With'];
+                 delete axios.defaults.headers.common['X-Requested-With'];
                 if (mid_url.length = 7) {
 
                     axios.get(base_url + mid_url + apiKey).then(response => {

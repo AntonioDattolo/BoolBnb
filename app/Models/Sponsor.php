@@ -15,7 +15,7 @@ class Sponsor extends Model
         'price',
     ];
     
-    public function suites()
+    public function suite ()
     {
         return $this->belongsToMany(Suite::class, 'suite_sponsor');
         // return $this->belongsToMany('App\Models\Project');

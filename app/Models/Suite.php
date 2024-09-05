@@ -52,8 +52,11 @@ class Suite extends Model
 // technologies
     public function sponsors()
     {
-        return $this->belongsToMany(Sponsor::class, 'suite_sponsor')->withTimestamps();
+        return $this->belongsToMany(Sponsor::class, 'suite_sponsor')->withTimestamps()->withPivot(['sponsor_name']);
     }
+    // public function getName(){
+    //     return this->belongsToMany(Sponsor::class,'suite_sponsor')
+    // }
 
 
     public function sponsor()
@@ -68,6 +71,11 @@ class Suite extends Model
 
 
 
+
+
+    public function getNameOfCourse(){
+        return $this->belongsToMany(Sponsor::class, 'sponsor_name' , 'name');
+    }
    
 }
 
