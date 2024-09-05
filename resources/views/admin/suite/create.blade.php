@@ -12,7 +12,7 @@
         <div class="w-50 m-5">
             <label for="suite_title" class="form-label">*Title:</label>
             <input type="text" class="form-control" id="suite_title" placeholder="Suite Title" name="title"
-                value="{{ old('title') }}">
+                value="{{ old('title') }}" required>
         </div>
         @error('title')
             <span class="bg-danger" role="alert">
@@ -22,7 +22,7 @@
         <div class="w-50 m-5">
             <label for="suite_room" class="form-label">*Rooms:</label>
             <input type="number" class="form-control" id="suite_room" placeholder="Number of rooms" name="room"
-                min="1" max="20" value="{{ old('room') }}">
+                min="1" max="20" value="{{ old('room') }}" required>
         </div>
         @error('room')
             <span class="bg-danger" role="alert">
@@ -32,7 +32,7 @@
         <div class="w-50 m-5">
             <label for="suite_bed" class="form-label">*Beds:</label>
             <input type="number" class="form-control" id="suite_bed" placeholder="Number of beds" name="bed"
-                min="1" max="20"value="{{ old('bed') }}">
+                min="1" max="20"value="{{ old('bed') }}" required>
         </div>
         @error('bed')
             <span class="bg-danger" role="alert">
@@ -42,7 +42,7 @@
         <div class="w-50 m-5">
             <label for="suite_bathroom" class="form-label">*Bathrooms:</label>
             <input type="number" class="form-control" id="suite_bathroom" placeholder="Number of bathrooms" name="bathroom"
-                min="1" max="10"value="{{ old('bathroom') }}">
+                min="1" max="10"value="{{ old('bathroom') }}" required>
         </div>
         @error('bathroom')
             <span class="bg-danger" role="alert">
@@ -52,7 +52,7 @@
         <div class="w-50 m-5">
             <label for="suite_squareM" class="form-label">*Square Meters:</label>
             <input type="number" class="form-control" id="suite_squareM" placeholder="Square meters" name="squareM"
-                min="25"value="{{ old('squareM') }}">
+                min="25"value="{{ old('squareM') }}" required>
         </div>
         @error('squareM')
             <span class="bg-danger" role="alert">
@@ -62,7 +62,7 @@
         <div class="w-50 m-5">
             <label for="suite_address" class="form-label">*Address:</label>
             <input type="text" class="form-control" id="suite_address" placeholder="Address" name="address"
-                value="{{ old('address') }}">
+                value="{{ old('address') }}" required>
             <div class="position-relative">
                 <ul id="result" class="list-group position-absolute">
                     {{-- suggest here --}}
@@ -73,7 +73,7 @@
             <label for="suite_img" class="form-label">*Upload Suite Images:</label>
 
             <input type="file" accept=".png,.jpg,.jpeg,.webp,image/png" class="form-control" name="img"
-                id="Suite_img" />
+                id="Suite_img" required />
         </div>
         @error('img')
             <span class="bg-danger" role="alert">
@@ -81,7 +81,7 @@
             </span>
         @enderror
 
-        <div class="mb-4 row">
+        {{-- <div class="mb-4 row">
             <label class="col-md-2 col-form-label text-md-right">Sponsor</label>
             <div class="col-md-10">
                 @foreach ($sponsor as $item)
@@ -99,7 +99,7 @@
                     </span>
                 @enderror
             </div>
-        </div>
+        </div> --}}
         {{-- <h1 id="prova"></h1> --}}
         <button type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Add Suite </button>
     </form>
@@ -111,21 +111,18 @@
 
         function autocomplete(value) {
             const base_url = "https://api.tomtom.com/search/2/search/"
-
-            if (value.target.value.length == 8) {
-
-
+            risultati.innerHTML = null;
+            
                 let codifica = value.target.value
                 let mid_url = codifica.replace(/ /g, '%20');
-                const apiKey = `.json?key=jmRHcyl09MwwWAWkpuc1wvI3C3miUjkN&limit=5&countrySet={ITA}`
+                const apiKey = `.json?key=jmRHcyl09MwwWAWkpuc1wvI3C3miUjkN&limit=5&countrySet={IT}`
 
-                 delete axios.defaults.headers.common['X-Requested-With'];
-                if (mid_url.length = 7) {
-
+                delete axios.defaults.headers.common['X-Requested-With'];
+                
                     axios.get(base_url + mid_url + apiKey).then(response => {
 
                         result_suggest = response.data.results;
-
+                        console.log(result_suggest)
                         for (let index = 0; index <= result_suggest.length - 1; index++) {
                             let suggest = result_suggest[index].address;
                             let address_suggest = document.createElement("li");
@@ -138,15 +135,10 @@
                             address_suggest.addEventListener('click', function() {
                                 input.value = address_suggest.innerHTML;
                                 risultati.innerHTML = null;
-                                result_suggest = '';
                             })
                             risultati.append(address_suggest);
                         }
                     });
-                }
-
-            }
-
         }
     </script>
 @endsection

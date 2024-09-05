@@ -4,7 +4,7 @@
 
 <div class="jumbotron">
     <div class="img-container">
-        <div class="d-flex flex-column justify-content-end align-items-center h-100">
+        {{-- <div class="d-flex flex-column justify-content-end align-items-center h-100">
             <h1 class="display-5 fw-bold text-light">
                 Welcome to BoolBnB
             </h1>
@@ -14,7 +14,9 @@
                     <button class="btn btn-success" type="submit">Search</button>
                 </form>
             </div>
-        </div>
+        </div> --}}
+
+        <a href="http://localhost:5173/">OOOOOOO</a>
     </div>
     <div class="container pb-5">
         
@@ -25,11 +27,8 @@
         @guest
         {{-- <a href="{{ route('register') }}" class="btn btn-primary btn-lg" type="button">{{ __('Register') }}</a> --}}
         @if (Route::has('register'))
-            {{-- searchbar --}}
-            <input id="searchBar" type="text">
-            {{-- container risultati --}}
-            <div id="risultatiRicerca"></div>
-            
+        
+
         @endif
 
         @else
@@ -52,35 +51,6 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus, facilis illum rerum officiis accusamus dolores!</p>
     </div> --}}
 </div>
-<script>
-    const searchBar = document.getElementById("searchBar")
-    searchBar.addEventListener("input", getInputSearch);
-    let search_input = 'ipsum'
-    function getInputSearch(value){
-         search_input = value.target.value
-         getSearch();
-         return search_input.toLowerCase()
-    }
-
-    function getSearch(){
-       console.log(search_input)
-       let y = "via giovanni verdi, 25, Roma"
-       if(y.toLowerCase().includes(search_input.toLowerCase())){
-         return console.log("si cazzo")
-       }else{
-        return console.log('non ci hai capito una minchia')
-       }
-
-           
-
-    }
-    
-
-
-
-</script>
-
-
 
 @endsection
 
