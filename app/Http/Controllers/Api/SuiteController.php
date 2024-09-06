@@ -13,16 +13,16 @@ class SuiteController extends Controller
         // $suites = Suite::all();
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsor')->paginate(20)
-            
-            // 'suites' => Suite::with(['languages', 'type'])->orderByDesc('id')->paginate(6)
-            //languages e type del 'with()' li prendi dal metodo del modello Project
+            'results' => Suite::with('sponsor', 'services')->paginate(20)
+
+            // 'suites' => Suite::with(['sponsor', 'services'])->orderByDesc('id')->paginate(6)
+            //sponsor e services del 'with()' li prendi dal metodo del modello Suite
         ]);
     }
 
     public function show($slug)
     {
-        $suite = Suite::with(['sponsor'])->where('slug', $slug)->first(); //con first al posto di get, ti da il primo dato non un array
+        $suite = Suite::with(['sponsor', 'services'])->where('slug', $slug)->first(); //con first al posto di get, ti da il primo dato non un array
 
         if ($suite) {
             return response()->json([
