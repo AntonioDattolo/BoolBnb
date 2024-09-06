@@ -11,7 +11,7 @@
         @csrf
         <div class="w-50 m-5">
             <label for="suite_title" class="form-label">*Title:</label>
-            <input type="text" class="form-control" id="suite_title" placeholder="Suite Title" name="title"
+            <input type="text" class="form-control" id="suite_title" placeholder="Suite Title" name="title" oninput="disabledButton()"
                 value="{{ old('title') }}" required>
         </div>
         @error('title')
@@ -21,7 +21,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_room" class="form-label">*Rooms:</label>
-            <input type="number" class="form-control" id="suite_room" placeholder="Number of rooms" name="room"
+            <input type="number" class="form-control" id="suite_room" placeholder="Number of rooms" name="room" oninput="disabledButton()"
                 min="1" max="20" value="{{ old('room') }}" required>
         </div>
         @error('room')
@@ -31,7 +31,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bed" class="form-label">*Beds:</label>
-            <input type="number" class="form-control" id="suite_bed" placeholder="Number of beds" name="bed"
+            <input type="number" class="form-control" id="suite_bed" placeholder="Number of beds" name="bed" oninput="disabledButton()"
                 min="1" max="20"value="{{ old('bed') }}" required>
         </div>
         @error('bed')
@@ -41,7 +41,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bathroom" class="form-label">*Bathrooms:</label>
-            <input type="number" class="form-control" id="suite_bathroom" placeholder="Number of bathrooms" name="bathroom"
+            <input type="number" class="form-control" id="suite_bathroom" placeholder="Number of bathrooms" name="bathroom" oninput="disabledButton()"
                 min="1" max="10"value="{{ old('bathroom') }}" required>
         </div>
         @error('bathroom')
@@ -51,7 +51,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_squareM" class="form-label">*Square Meters:</label>
-            <input type="number" class="form-control" id="suite_squareM" placeholder="Square meters" name="squareM"
+            <input type="number" class="form-control" id="suite_squareM" placeholder="Square meters" name="squareM" oninput="disabledButton()"
                 min="25"value="{{ old('squareM') }}" required>
         </div>
         @error('squareM')
@@ -61,7 +61,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_address" class="form-label">*Address:</label>
-            <input type="text" class="form-control" id="suite_address" placeholder="Address" name="address"
+            <input type="text" class="form-control" id="suite_address" placeholder="Address" name="address" oninput="disabledButton()"
                 value="{{ old('address') }}" required>
             <div class="position-relative">
                 <ul id="result" class="list-group position-absolute">
@@ -123,7 +123,7 @@
 
 
         {{-- <h1 id="prova"></h1> --}}
-        <button type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Add Suite </button>
+        <button id="my-btn" type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Add Suite </button>
     </form>
     <script>
         const input = document.getElementById("suite_address");
@@ -162,5 +162,29 @@
                 }
             });
         }
+
+        // ***************************************Logica Dave's Button **********************************************************
+
+        let btn = document.getElementById("my-btn");
+        btn.classList.add("disabled");
+        let title = document.getElementById("suite_title");
+        let room = document.getElementById("suite_room");
+        let bed = document.getElementById("suite_bed");
+        let bathroom = document.getElementById("suite_bathroom");
+        let address = document.getElementById("suite_address");
+        let squareM = document.getElementById("suite_squareM");
+
+        function disabledButton() {
+            if ( (title.value != "") && (room.value != "") && (bed.value != "") && (bathroom.value != "") && (squareM.value != "") && (address.value != "") ) {
+                btn.classList.remove("disabled");
+            }else {
+                btn.classList.add("disabled");
+            }
+        }
+
+        // *************************************************************************************************
+
+
+
     </script>
 @endsection
