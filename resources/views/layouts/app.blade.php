@@ -14,6 +14,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -57,7 +60,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:5173/">Homepage</a>
+                            <a class="nav-link" href="http://localhost:5174/">Homepage</a>
                         </li>
                         
                         @guest
