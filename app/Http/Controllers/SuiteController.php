@@ -67,6 +67,8 @@ class SuiteController extends Controller
             "img" => "required",
             "visible" => "nullable",
             "sponsor" => "nullable",
+            "services" => 'array',
+            "services" => 'exists:service,id',
         ]);
 
         $data = $request->all();
@@ -118,51 +120,41 @@ class SuiteController extends Controller
         $newSuite->img = $image_path;
         $newSuite->user_id = Auth::user()->id;
 
-        //  $newSuite->slug = STR::slug($newSuite->title, '-');
-        //  $newSuite->type_id = $data['type_id'];
+        $newSuite->slug = STR::slug($newSuite->title, '-');
+        
 
 
-        $sponsorship = $data['sponsorship'];
+        //  $sponsorship = $data['sponsorship'];
 
 
         $newSuite->save();
         //prova pivot
-       
-
-
-
+        if(isset($data['service'])){
+            $service = $data['service'];
+            $newSuite->services()->attach($service);
+        };
+        
 
          
-        if (isset($data['sponsorship'])) {
-            // 'suite' => Suite::with(
-            //     'user',
-            //     'messages',
-            //     'visuals',
-            //     'sponsors',
-            //     'services'
-            // )->select()->where('user_id', $user_id)->get()
-
-
-
-
-            $sponsor = Sponsor::select('name','price', 'period')->where('id',$sponsorship)->get('name');
-            date_default_timezone_set("Europe/Rome");
-            $date = date("Y-m-d H:i:s");
+        // if (isset($data['sponsorship'])) {
+        //     $sponsor = Sponsor::select('name','price', 'period')->where('id',$sponsorship)->get('name');
+        //     date_default_timezone_set("Europe/Rome");
+        //     $date = date("Y-m-d H:i:s");
            
-            $hour_sponsor = str_replace(':00:00','',$sponsor[0]->period);
-            $end_spon = date("Y-m-d H:i:s", strtotime("+{$hour_sponsor}hours"));
+        //     $hour_sponsor = str_replace(':00:00','',$sponsor[0]->period);
+        //     $end_spon = date("Y-m-d H:i:s", strtotime("+{$hour_sponsor}hours"));
          
-            $newSuite->sponsors()->attach($sponsorship,[
-                'sponsor_name' => $sponsor[0]->name,
-                'sponsor_price' => $sponsor[0]->price,
-                'start' => $date,
-                'end' => $end_spon
-            ]);
-            // $newSuite->sponsors()->attach('')
+        //     $newSuite->sponsors()->attach($sponsorship,[
+        //         'sponsor_name' => $sponsor[0]->name,
+        //         'sponsor_price' => $sponsor[0]->price,
+        //         'start' => $date,
+        //         'end' => $end_spon
+        //     ]);
+        //     // $newSuite->sponsors()->attach('')
             
-        } else {
-            return redirect()->route('admin.suite.show', $newSuite->id);
-        }
+        // } else {
+        //     return redirect()->route('admin.suite.show', $newSuite->id);
+        // }
 
         return redirect()->route('admin.suite.show', $newSuite->id)->with('message', 'Project Created');
     }

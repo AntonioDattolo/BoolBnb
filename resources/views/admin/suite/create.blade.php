@@ -100,6 +100,18 @@
                 @enderror
             </div>
         </div> --}}
+
+        @foreach ($service as $item)
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="service[]" value="{{ $item->id }}"
+                id="tech{{ $item->id }}">
+                
+            
+            <label class="form-check-label" for="tech{{ $item->id }}"> {{ $item->name }}</label>
+        </div>
+    @endforeach
+
+
         {{-- <h1 id="prova"></h1> --}}
         <button type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Add Suite </button>
     </form>
