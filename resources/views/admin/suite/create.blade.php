@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="w-50 m-5">
-            <label for="suite_img" class="form-label">*Upload Suite Images:</label>
+            <label for="suite_img" class="form-label">*Upload Suite Imagesa:</label>
 
             <input type="file" accept=".png,.jpg,.jpeg,.webp,image/png" class="form-control" name="img"
                 id="Suite_img" required />
