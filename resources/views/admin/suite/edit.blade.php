@@ -104,7 +104,7 @@
                 delete axios.defaults.headers.common['X-Requested-With'];
                 
                     axios.get(base_url + mid_url + apiKey).then(response => {
-
+                        result_suggest = [];
                         result_suggest = response.data.results;
                         console.log(result_suggest)
                         for (let index = 0; index <= result_suggest.length - 1; index++) {
