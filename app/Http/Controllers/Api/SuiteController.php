@@ -13,7 +13,7 @@ class SuiteController extends Controller
         // $suites = Suite::all();
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsor', 'services')->paginate(20)
+            'results' => Suite::with('sponsor', 'services')->paginate(70)
 
             // 'suites' => Suite::with(['sponsor', 'services'])->orderByDesc('id')->paginate(6)
             //sponsor e services del 'with()' li prendi dal metodo del modello Suite
