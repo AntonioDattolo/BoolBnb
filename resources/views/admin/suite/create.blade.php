@@ -11,8 +11,8 @@
 		@csrf
 		<div class="w-50 m-5">
 			<label for="suite_title" class="form-label">*Title:</label>
-			<input type="text" class="form-control" id="suite_title" placeholder="Suite Title" name="title"
-				value="{{ old('title') }}" required>
+			<input onkeyup="disabledButton()" type="text" class="form-control" id="suite_title" placeholder="Suite Title"
+				name="title" value="{{ old('title') }}" required>
 		</div>
 		@error('title')
 			<span class="bg-danger" role="alert">
@@ -122,14 +122,24 @@
 		</div>
 
 
-		{{-- <h1 id="prova"></h1> --}}
-		<button type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Add Suite </button>
+		<<<<<<< HEAD {{-- <h1 id="prova"></h1> --}} <button type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Add Suite </button>
 	</form>
 	<script>
 		const input = document.getElementById("suite_address");
 		input.addEventListener("input", autocomplete);
 		let risultati = document.getElementById("result");
-		let result_suggest;
+		let result_suggest; ===
+		=== = <
+		button type = "submit"
+		id = "my-btn"
+		class = "btn btn-primary fs-5 mx-5 mb-5 disabled" > Add Suite < /button> <
+			/form> <
+			script >
+			const input = document.getElementById("suite_address");
+		input.addEventListener("input", autocomplete);
+		let risultati = document.getElementById("result");
+		let result_suggest; >>>
+		>>> > 07 fd19339984405bb998e736dabe8f88414cef63
 
 		function autocomplete(value) {
 			const base_url = "https://api.tomtom.com/search/2/search/"
@@ -154,6 +164,8 @@
 					address_suggest.classList.add("list-group-item");
 					address_suggest.innerHTML = `${suggest.freeformAddress}`;
 
+					<<
+					<< << < HEAD
 					address_suggest.addEventListener('click', function() {
 						input.value = address_suggest.innerHTML;
 						risultati.innerHTML = null;
@@ -163,4 +175,32 @@
 			});
 		}
 	</script>
+	=======
+	address_suggest.addEventListener('click', function() {
+	input.value = address_suggest.innerHTML;
+	risultati.innerHTML = null;
+	})
+	risultati.append(address_suggest);
+	}
+	});
+	}
+
+	const name = document.getElementById("suite_title");
+	const room = document.getElementById("suite_room");
+	const bed = document.getElementById("suite_bed");
+	const bathroom = document.getElementById("suite_bathroom");
+	const squareM = document.getElementById("suite_squareM");
+	const address = document.getElementById("suite_address");
+	const img = document.getElementById("suite_img");
+	function disabledButton () {
+	if (name.value == "" && room.value == "" && bed.value == "" && bathroom.value == "" && squareM.value == "" &&
+	address.value == "" && img.value == "") {
+	let btn = document.getElementById("my-btn");
+	btn.classList.remove("disabled")
+	}
+
+	}
+
+	</script>
+	>>>>>>> 07fd19339984405bb998e736dabe8f88414cef63
 @endsection
