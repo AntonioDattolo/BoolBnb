@@ -40,15 +40,32 @@ class SuiteController extends Controller
         //     ]);
         // }
     }
-    public function search(Request $request)
+    public function search(Request $request, Suite $suite)
     {   
        $data = $request->all();
+    //    $latitude1= $data['lat']; 
+    //    $longitude1= $data['lng']
+    //    $latitude2=  
+    //    $longitude2=        function getDistanceBetweenPointsNew($latitude1, $longitude1, $latitude2, $longitude2, $unit = 'kilometers') {
+    //     $theta = $longitude1 - $longitude2; 
+    //     $distance = (sin(deg2rad($latitude1)) * sin(deg2rad($latitude2))) + (cos(deg2rad($latitude1)) * cos(deg2rad($latitude2)) * cos(deg2rad($theta))); 
+    //     $distance = acos($distance); 
+    //     $distance = rad2deg($distance); 
+    //     $distance = $distance * 60 * 1.1515; 
+    //     switch($unit) { 
+    //       case 'miles': 
+    //         break; 
+    //       case 'kilometers' : 
+    //         $distance = $distance * 1.609344; 
+    //     } 
+    //     return (round($distance,2)); 
+    //   }
 
 
 
         return response()->json([
             'success' => true,
-            'results' => $data['lat']
+            'results' => $data
             // Suite::where('id',$request)->with('sponsor', 'services')->paginate(3)
 
             // 'results' => Suite::all()->where('id', '>', $data['num'])
