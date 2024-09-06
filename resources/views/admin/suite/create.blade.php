@@ -11,7 +11,7 @@
         @csrf
         <div class="w-50 m-5">
             <label for="suite_title" class="form-label">*Title:</label>
-            <input onkeyup="disabledButton()" type="text" class="form-control" id="suite_title" placeholder="Suite Title" name="title"
+            <input oninput="disabledButton()" type="text" class="form-control" id="suite_title" placeholder="Suite Title" name="title"
                 value="{{ old('title') }}" required>
         </div>
         @error('title')
@@ -21,7 +21,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_room" class="form-label">*Rooms:</label>
-            <input type="number" class="form-control" id="suite_room" placeholder="Number of rooms" name="room"
+            <input oninput="disabledButton()" type="number" class="form-control" id="suite_room" placeholder="Number of rooms" name="room"
                 min="1" max="20" value="{{ old('room') }}" required>
         </div>
         @error('room')
@@ -31,7 +31,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bed" class="form-label">*Beds:</label>
-            <input type="number" class="form-control" id="suite_bed" placeholder="Number of beds" name="bed"
+            <input oninput="disabledButton()" type="number" class="form-control" id="suite_bed" placeholder="Number of beds" name="bed"
                 min="1" max="20"value="{{ old('bed') }}" required>
         </div>
         @error('bed')
@@ -41,7 +41,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_bathroom" class="form-label">*Bathrooms:</label>
-            <input type="number" class="form-control" id="suite_bathroom" placeholder="Number of bathrooms" name="bathroom"
+            <input oninput="disabledButton()" type="number" class="form-control" id="suite_bathroom" placeholder="Number of bathrooms" name="bathroom"
                 min="1" max="10"value="{{ old('bathroom') }}" required>
         </div>
         @error('bathroom')
@@ -51,7 +51,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_squareM" class="form-label">*Square Meters:</label>
-            <input type="number" class="form-control" id="suite_squareM" placeholder="Square meters" name="squareM"
+            <input oninput="disabledButton()" type="number" class="form-control" id="suite_squareM" placeholder="Square meters" name="squareM"
                 min="25"value="{{ old('squareM') }}" required>
         </div>
         @error('squareM')
@@ -61,7 +61,7 @@
         @enderror
         <div class="w-50 m-5">
             <label for="suite_address" class="form-label">*Address:</label>
-            <input type="text" class="form-control" id="suite_address" placeholder="Address" name="address"
+            <input oninput="disabledButton()" type="text" class="form-control" id="suite_address" placeholder="Address" name="address"
                 value="{{ old('address') }}" required>
             <div class="position-relative">
                 <ul id="result" class="list-group position-absolute">
@@ -170,12 +170,16 @@
         const address = document.getElementById("suite_address");
         const img = document.getElementById("suite_img");
         function disabledButton () {
-            if (name.value == "" && room.value == "" && bed.value == "" && bathroom.value == "" && squareM.value == "" && address.value == "" && img.value == "") {
+            if ((name.value != "" )&&( room.value != "" )&&( bed.value != "" )&&( bathroom.value != "" )&& (squareM.value != "") && (address.value != "") ) {
                 let btn = document.getElementById("my-btn");
-                btn.classList.remove("disabled")
-            } 
+                btn.classList.remove("disabled");
+            } else {
+                let btn = document.getElementById("my-btn");
+                btn.classList.add("disabled");
+            }
 
         }
 
     </script>
 @endsection
+{{--  --}}
