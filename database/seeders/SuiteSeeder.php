@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Suite;
 use Illuminate\Support\Str;
 
+
 class SuiteSeeder extends Seeder
 {
     /**
@@ -18,10 +19,10 @@ class SuiteSeeder extends Seeder
         $newSuite1 = new Suite();
         $newSuite1->title = "Appartamento sul lungomare di Napoli";
         $newSuite1->slug = Str::slug($newSuite1->title);
-        $newSuite1->room = 2;
-        $newSuite1->bed = 2;
-        $newSuite1->bathroom = 1;
-        $newSuite1->squareM = 40;
+        $newSuite1->room = rand(1, 9);
+        $newSuite1->bed = rand(1, 7);
+        $newSuite1->bathroom = rand(1,3);
+        $newSuite1->squareM = rand(26, 450);
         $newSuite1->address = "Via Verdi,11,Napoli,80013";
         $newSuite1->longitude = 14.268124;
         $newSuite1->latitude = 40.851775;
@@ -29,7 +30,7 @@ class SuiteSeeder extends Seeder
         $newSuite1->visible = true;
         $newSuite1->sponsor = true;
         $newSuite1->tot_visuals = 20;
-        $newSuite1->user_id = 1;
+        $newSuite1->user_id = rand(1, 2);
         $newSuite1->save();
 
         $newSuite2 = new Suite();

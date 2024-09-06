@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        for ($i=1; $i <=2 ; $i++) { 
+        for ($i=1; $i <=5 ; $i++) { 
             # code...
             $mainUser = new User();
             $mainUser->email = "admin".$i."@dev.it";
