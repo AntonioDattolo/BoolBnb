@@ -11,7 +11,7 @@
         @csrf
         <div class="w-50 m-5">
             <label for="suite_title" class="form-label">*Title:</label>
-            <input type="text" class="form-control" id="suite_title" placeholder="Suite Title" name="title"
+            <input onkeyup="disabledButton()" type="text" class="form-control" id="suite_title" placeholder="Suite Title" name="title"
                 value="{{ old('title') }}" required>
         </div>
         @error('title')
@@ -122,8 +122,7 @@
         </div>
 
 
-        {{-- <h1 id="prova"></h1> --}}
-        <button type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Add Suite </button>
+        <button type="submit" id="my-btn" class="btn btn-primary fs-5 mx-5 mb-5 disabled"> Add Suite </button>
     </form>
     <script>
         const input = document.getElementById("suite_address");
@@ -162,5 +161,21 @@
                 }
             });
         }
+
+        const name = document.getElementById("suite_title");
+        const room = document.getElementById("suite_room");
+        const bed = document.getElementById("suite_bed");
+        const bathroom = document.getElementById("suite_bathroom");
+        const squareM = document.getElementById("suite_squareM");
+        const address = document.getElementById("suite_address");
+        const img = document.getElementById("suite_img");
+        function disabledButton () {
+            if (name.value == "" && room.value == "" && bed.value == "" && bathroom.value == "" && squareM.value == "" && address.value == "" && img.value == "") {
+                let btn = document.getElementById("my-btn");
+                btn.classList.remove("disabled")
+            } 
+
+        }
+
     </script>
 @endsection
