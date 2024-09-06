@@ -20,8 +20,18 @@
             </div>
         @endif
              
-         
-        <h1>My Suites:</h1>
+         <div class="d-flex justify-content-between align-items-center">
+            <h1>My Suites: {{count($suite)}}
+            </h1>
+            <div class="my-div">
+                <a class="btn btn-warning text-dark {{ Route::currentRouteName() == 'admin.suite.create' ? 'bg-secondary' : '' }}"
+									href="{{ route('admin.suite.create') }}">
+									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi Suite
+				</a>
+            </div>
+
+         </div>
+
         <div class="d-flex justify-content-center">
             {{-- <div class="row d-flex "> --}}
 
@@ -46,31 +56,45 @@
                         </div>
                     </div>
                 @endforeach --}}
-                <table class="text-center w-100">
-                    <tr class="border border-dark">
-                        <th class="border border-dark">Suite id</th>
-                        <th class="border border-dark">Suite title</th>
-                        <th class="border border-dark">Suite address</th>
-                        <th class="border border-dark">Suite image</th>
-                        <th class="border border-dark"></th>
-                    </tr>
+                <table class="styled-table w-100">
+                    <thead class="">
+
+                        <th>SUITE IMAGE</th>
+                        <th>SUITE TITLE</th>
+                        {{-- <th>SUITE VISUALS</th> MANCANO LE VISUALIZZAZIONI --}}
+                        <th>SUITE SPONSOR</th>
+                        <th>SUITE VISIBILITY</th>
+                        <th>ACTION</th>
+                    </thead>
+                    <tbody>
                     @foreach ($suite as $item)
-                        <tr class="border border-dark">
-                            <td class="border border-dark"> {{$item->id}} </td>
-                            <td class="border border-dark"> {{$item->title}} </td>
-                            <td class="border border-dark"> {{$item->address}} </td>
-                            <td class="border border-dark">
+                        <tr>
+                            <td>
                                 @if (Str::startsWith($item->img, 'http'))
                                 <img class="rounded p-2" src="{{ $item['img'] }}">
                                 @else
                                 <img class="rounded p-2" src="{{ asset('/storage/' . $item->img) }}">
                                 @endif
                             </td>
-                            <td class="border border-dark">
+                            
+                            <td> {{$item->title}} </td>
+                            
+                            
+                            @if ($item->sponsor == 1)
+                            <td class=" my-bg-sponsorized"> Sponsorizzato <i class="fa-solid fa-coins text-warning"></i> </td> 
+                            @else 
+                            <td> <a href="#" class="btn btn-success">Sponsorizza <i class="fa-solid fa-coins text-warning"></i></a> </td>
+                            @endif
+                            
+                            @if ($item->visible == 1)
+                            <td> <i class="fa fa-eye" aria-hidden="true"></i></td> 
+                            @else
+                            <td> <i class="fa fa-eye-slash" aria-hidden="true"></i> </td>
+                            @endif
+                            <td>
                                 <a class="btn btn-warning" href="{{route('admin.suite.edit', $item->id)}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
-
                                 
-                                <a class="btn btn-primary" href="{{route('admin.suite.show', $item->id)}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a class="btn btn-primary" href="{{route('admin.suite.show', $item->id)}}"><i class="fa-solid fa-magnifying-glass"></i></a>
                                 
         
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$item->id}}">
@@ -118,9 +142,9 @@
                                     </div>
                                   </div>
                             </td>
-
                         </tr>
-                    @endforeach   
+                        @endforeach   
+                    </tbody>
                 </table>
             {{-- </div> --}}
         </div>
@@ -132,7 +156,39 @@
     img{
         width: 5rem;
     }
-    tr:nth-child(even) {
-    background-color: lightskyblue;
+    .my-div{
+        width: rem;
     }
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+     .styled-table tbody tr {
+    /* border-bottom: 2px solid #8A9A5B; */
+    border-bottom: 1px solid #dddddd;
+    }
+    tbody tr:nth-child(even) {
+        font-weight: bold;
+        color: #009879;
+        background-color: #f3f3f3;
+    }
+    tbody tr:last-of-type {
+        border-bottom: 5px solid #009879;
+    } 
+
+
 </style>
