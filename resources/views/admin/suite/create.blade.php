@@ -5,7 +5,7 @@
         <h3>Add a suite:</h3>
         {{-- {{$suite}} --}}
     </div>
-
+ 
 
     <form action="{{ route('admin.suite.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
