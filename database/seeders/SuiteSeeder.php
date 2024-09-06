@@ -19,10 +19,10 @@ class SuiteSeeder extends Seeder
         $newSuite1 = new Suite();
         $newSuite1->title = "Appartamento sul lungomare di Napoli";
         $newSuite1->slug = Str::slug($newSuite1->title);
-        $newSuite1->room = rand(1, 9);
-        $newSuite1->bed = rand(1, 7);
+        $newSuite1->room = rand(1,9);
+        $newSuite1->bed = rand(1,7);
         $newSuite1->bathroom = rand(1,3);
-        $newSuite1->squareM = rand(26, 450);
+        $newSuite1->squareM = rand(26,450);
         $newSuite1->address = "Via Verdi,11,Napoli,80013";
         $newSuite1->longitude = 14.268124;
         $newSuite1->latitude = 40.851775;
@@ -30,7 +30,7 @@ class SuiteSeeder extends Seeder
         $newSuite1->visible = true;
         $newSuite1->sponsor = true;
         $newSuite1->tot_visuals = 20;
-        $newSuite1->user_id = rand(1, 2);
+        $newSuite1->user_id = rand(1,2);
         $newSuite1->save();
 
         $newSuite2 = new Suite();
@@ -763,5 +763,368 @@ class SuiteSeeder extends Seeder
         $newSuite44->tot_visuals = 135;
         $newSuite44->user_id = 1;
         $newSuite44->save();
+
+        // Suite 45
+        $newSuite45 = new Suite();
+        $newSuite45->title = "Appartamento nel centro storico di Napoli";
+        $newSuite45->slug = Str::slug($newSuite45->title);
+        $newSuite45->room = rand(1,9);
+        $newSuite45->bed = rand(1,7);
+        $newSuite45->bathroom = rand(1,3);
+        $newSuite45->squareM = rand(26,450);
+        $newSuite45->address = "Via Toledo,101,Napoli,80134";
+        $newSuite45->longitude = 14.246267;
+        $newSuite45->latitude = 40.846814;
+        $newSuite45->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite45->visible = true;
+        $newSuite45->sponsor = true;
+        $newSuite45->tot_visuals = 20;
+        $newSuite45->user_id = rand(1,2);
+        $newSuite45->save();
+
+        // Suite 46
+        $newSuite46 = new Suite();
+        $newSuite46->title = "Appartamento con vista su Piazza del Plebiscito";
+        $newSuite46->slug = Str::slug($newSuite46->title);
+        $newSuite46->room = rand(1,9);
+        $newSuite46->bed = rand(1,7);
+        $newSuite46->bathroom = rand(1,3);
+        $newSuite46->squareM = rand(26,450);
+        $newSuite46->address = "Piazza del Plebiscito,12,Napoli,80132";
+        $newSuite46->longitude = 14.249792;
+        $newSuite46->latitude = 40.835933;
+        $newSuite46->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite46->visible = true;
+        $newSuite46->sponsor = true;
+        $newSuite46->tot_visuals = 20;
+        $newSuite46->user_id = rand(1,2);
+        $newSuite46->save();
+
+        // Suite 47
+        $newSuite47 = new Suite();
+        $newSuite47->title = "Appartamento elegante a Mergellina";
+        $newSuite47->slug = Str::slug($newSuite47->title);
+        $newSuite47->room = rand(1,9);
+        $newSuite47->bed = rand(1,7);
+        $newSuite47->bathroom = rand(1,3);
+        $newSuite47->squareM = rand(26,450);
+        $newSuite47->address = "Via Mergellina,45,Napoli,80122";
+        $newSuite47->longitude = 14.218401;
+        $newSuite47->latitude = 40.826315;
+        $newSuite47->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite47->visible = true;
+        $newSuite47->sponsor = true;
+        $newSuite47->tot_visuals = 20;
+        $newSuite47->user_id = rand(1,2);
+        $newSuite47->save();
+
+        // Suite 48
+        $newSuite48 = new Suite();
+        $newSuite48->title = "Monolocale panoramico a Posillipo";
+        $newSuite48->slug = Str::slug($newSuite48->title);
+        $newSuite48->room = rand(1,9);
+        $newSuite48->bed = rand(1,7);
+        $newSuite48->bathroom = rand(1,3);
+        $newSuite48->squareM = rand(26,450);
+        $newSuite48->address = "Via Posillipo,27,Napoli,80123";
+        $newSuite48->longitude = 14.220583;
+        $newSuite48->latitude = 40.813982;
+        $newSuite48->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite48->visible = true;
+        $newSuite48->sponsor = true;
+        $newSuite48->tot_visuals = 20;
+        $newSuite48->user_id = rand(1,2);
+        $newSuite48->save();
+
+        // Suite 49
+        $newSuite49 = new Suite();
+        $newSuite49->title = "Appartamento spazioso nei pressi di Via Chiaia";
+        $newSuite49->slug = Str::slug($newSuite49->title);
+        $newSuite49->room = rand(1,9);
+        $newSuite49->bed = rand(1,7);
+        $newSuite49->bathroom = rand(1,3);
+        $newSuite49->squareM = rand(26,450);
+        $newSuite49->address = "Via Chiaia,123,Napoli,80132";
+        $newSuite49->longitude = 14.250425;
+        $newSuite49->latitude = 40.835234;
+        $newSuite49->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite49->visible = true;
+        $newSuite49->sponsor = true;
+        $newSuite49->tot_visuals = 20;
+        $newSuite49->user_id = rand(1,2);
+        $newSuite49->save();
+
+        // Suite 50
+        $newSuite50 = new Suite();
+        $newSuite50->title = "Loft moderno in Via dei Tribunali";
+        $newSuite50->slug = Str::slug($newSuite50->title);
+        $newSuite50->room = rand(1,9);
+        $newSuite50->bed = rand(1,7);
+        $newSuite50->bathroom = rand(1,3);
+        $newSuite50->squareM = rand(26,450);
+        $newSuite50->address = "Via dei Tribunali,86,Napoli,80138";
+        $newSuite50->longitude = 14.258931;
+        $newSuite50->latitude = 40.851588;
+        $newSuite50->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite50->visible = true;
+        $newSuite50->sponsor = true;
+        $newSuite50->tot_visuals = 20;
+        $newSuite50->user_id = rand(1,2);
+        $newSuite50->save();
+
+        // Suite 51
+        $newSuite51 = new Suite();
+        $newSuite51->title = "Appartamento luminoso in Corso Umberto I";
+        $newSuite51->slug = Str::slug($newSuite51->title);
+        $newSuite51->room = rand(1,9);
+        $newSuite51->bed = rand(1,7);
+        $newSuite51->bathroom = rand(1,3);
+        $newSuite51->squareM = rand(26,450);
+        $newSuite51->address = "Corso Umberto I,200,Napoli,80138";
+        $newSuite51->longitude = 14.271133;
+        $newSuite51->latitude = 40.853453;
+        $newSuite51->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite51->visible = true;
+        $newSuite51->sponsor = true;
+        $newSuite51->tot_visuals = 20;
+        $newSuite51->user_id = rand(1,2);
+        $newSuite51->save();
+
+        // Suite 52
+        $newSuite52 = new Suite();
+        $newSuite52->title = "Appartamento signorile in Via Duomo";
+        $newSuite52->slug = Str::slug($newSuite52->title);
+        $newSuite52->room = rand(1,9);
+        $newSuite52->bed = rand(1,7);
+        $newSuite52->bathroom = rand(1,3);
+        $newSuite52->squareM = rand(26,450);
+        $newSuite52->address = "Via Duomo,146,Napoli,80138";
+        $newSuite52->longitude = 14.259247;
+        $newSuite52->latitude = 40.853007;
+        $newSuite52->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite52->visible = true;
+        $newSuite52->sponsor = true;
+        $newSuite52->tot_visuals = 20;
+        $newSuite52->user_id = rand(1,2);
+        $newSuite52->save();
+
+        // Suite 53
+        $newSuite53 = new Suite();
+        $newSuite53->title = "Bilocale accogliente in Via San Gregorio Armeno";
+        $newSuite53->slug = Str::slug($newSuite53->title);
+        $newSuite53->room = rand(1,9);
+        $newSuite53->bed = rand(1,7);
+        $newSuite53->bathroom = rand(1,3);
+        $newSuite53->squareM = rand(26,450);
+        $newSuite53->address = "Via San Gregorio Armeno,12,Napoli,80138";
+        $newSuite53->longitude = 14.259679;
+        $newSuite53->latitude = 40.852301;
+        $newSuite53->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite53->visible = true;
+        $newSuite53->sponsor = true;
+        $newSuite53->tot_visuals = 20;
+        $newSuite53->user_id = rand(1,2);
+        $newSuite53->save();
+
+        // Suite 54
+        $newSuite54 = new Suite();
+        $newSuite54->title = "Appartamento lussuoso in Via Caracciolo";
+        $newSuite54->slug = Str::slug($newSuite54->title);
+        $newSuite54->room = rand(1,9);
+        $newSuite54->bed = rand(1,7);
+        $newSuite54->bathroom = rand(1,3);
+        $newSuite54->squareM = rand(26,450);
+        $newSuite54->address = "Via Francesco Caracciolo,35,Napoli,80122";
+        $newSuite54->longitude = 14.221484;
+        $newSuite54->latitude = 40.822344;
+        $newSuite54->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite54->visible = true;
+        $newSuite54->sponsor = true;
+        $newSuite54->tot_visuals = 20;
+        $newSuite54->user_id = rand(1,2);
+        $newSuite54->save();
+
+        // Suite 55
+        $newSuite55 = new Suite();
+        $newSuite55->title = "Attico con terrazza in Via Partenope";
+        $newSuite55->slug = Str::slug($newSuite55->title);
+        $newSuite55->room = rand(1,9);
+        $newSuite55->bed = rand(1,7);
+        $newSuite55->bathroom = rand(1,3);
+        $newSuite55->squareM = rand(26,450);
+        $newSuite55->address = "Via Partenope,32,Napoli,80121";
+        $newSuite55->longitude = 14.248547;
+        $newSuite55->latitude = 40.826031;
+        $newSuite55->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite55->visible = true;
+        $newSuite55->sponsor = true;
+        $newSuite55->tot_visuals = 20;
+        $newSuite55->user_id = rand(1,2);
+        $newSuite55->save();
+
+        // Suite 56
+        $newSuite56 = new Suite();
+        $newSuite56->title = "Appartamento in Via Foria";
+        $newSuite56->slug = Str::slug($newSuite56->title);
+        $newSuite56->room = rand(1,9);
+        $newSuite56->bed = rand(1,7);
+        $newSuite56->bathroom = rand(1,3);
+        $newSuite56->squareM = rand(26,450);
+        $newSuite56->address = "Via Foria,73,Napoli,80137";
+        $newSuite56->longitude = 14.259007;
+        $newSuite56->latitude = 40.855522;
+        $newSuite56->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite56->visible = true;
+        $newSuite56->sponsor = true;
+        $newSuite56->tot_visuals = 20;
+        $newSuite56->user_id = rand(1,2);
+        $newSuite56->save();
+
+        // Suite 57
+        $newSuite57 = new Suite();
+        $newSuite57->title = "Appartamento di design in Via Medina";
+        $newSuite57->slug = Str::slug($newSuite57->title);
+        $newSuite57->room = rand(1,9);
+        $newSuite57->bed = rand(1,7);
+        $newSuite57->bathroom = rand(1,3);
+        $newSuite57->squareM = rand(26,450);
+        $newSuite57->address = "Via Medina,68,Napoli,80133";
+        $newSuite57->longitude = 14.256712;
+        $newSuite57->latitude = 40.839544;
+        $newSuite57->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite57->visible = true;
+        $newSuite57->sponsor = true;
+        $newSuite57->tot_visuals = 20;
+        $newSuite57->user_id = rand(1,2);
+        $newSuite57->save();
+
+        // Suite 58
+        $newSuite58 = new Suite();
+        $newSuite58->title = "Appartamento classico in Via Scarlatti";
+        $newSuite58->slug = Str::slug($newSuite58->title);
+        $newSuite58->room = rand(1,9);
+        $newSuite58->bed = rand(1,7);
+        $newSuite58->bathroom = rand(1,3);
+        $newSuite58->squareM = rand(26,450);
+        $newSuite58->address = "Via Alessandro Scarlatti,56,Napoli,80129";
+        $newSuite58->longitude = 14.232484;
+        $newSuite58->latitude = 40.849942;
+        $newSuite58->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite58->visible = true;
+        $newSuite58->sponsor = true;
+        $newSuite58->tot_visuals = 20;
+        $newSuite58->user_id = rand(1,2);
+        $newSuite58->save();
+
+        // Suite 59
+        $newSuite59 = new Suite();
+        $newSuite59->title = "Monolocale moderno in Via dei Mille";
+        $newSuite59->slug = Str::slug($newSuite59->title);
+        $newSuite59->room = rand(1,9);
+        $newSuite59->bed = rand(1,7);
+        $newSuite59->bathroom = rand(1,3);
+        $newSuite59->squareM = rand(26,450);
+        $newSuite59->address = "Via dei Mille,78,Napoli,80121";
+        $newSuite59->longitude = 14.243389;
+        $newSuite59->latitude = 40.831233;
+        $newSuite59->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite59->visible = true;
+        $newSuite59->sponsor = true;
+        $newSuite59->tot_visuals = 20;
+        $newSuite59->user_id = rand(1,2);
+        $newSuite59->save();
+
+        // Suite 60
+        $newSuite60 = new Suite();
+        $newSuite60->title = "Appartamento ristrutturato in Via Santa Lucia";
+        $newSuite60->slug = Str::slug($newSuite60->title);
+        $newSuite60->room = rand(1,9);
+        $newSuite60->bed = rand(1,7);
+        $newSuite60->bathroom = rand(1,3);
+        $newSuite60->squareM = rand(26,450);
+        $newSuite60->address = "Via Santa Lucia,99,Napoli,80132";
+        $newSuite60->longitude = 14.254148;
+        $newSuite60->latitude = 40.832844;
+        $newSuite60->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite60->visible = true;
+        $newSuite60->sponsor = true;
+        $newSuite60->tot_visuals = 20;
+        $newSuite60->user_id = rand(1,2);
+        $newSuite60->save();
+
+        // Suite 61
+        $newSuite61 = new Suite();
+        $newSuite61->title = "Appartamento vicino al Vomero";
+        $newSuite61->slug = Str::slug($newSuite61->title);
+        $newSuite61->room = rand(1,9);
+        $newSuite61->bed = rand(1,7);
+        $newSuite61->bathroom = rand(1,3);
+        $newSuite61->squareM = rand(26,450);
+        $newSuite61->address = "Via Aniello Falcone,123,Napoli,80127";
+        $newSuite61->longitude = 14.227734;
+        $newSuite61->latitude = 40.841819;
+        $newSuite61->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite61->visible = true;
+        $newSuite61->sponsor = true;
+        $newSuite61->tot_visuals = 20;
+        $newSuite61->user_id = rand(1,2);
+        $newSuite61->save();
+
+        // Suite 62
+        $newSuite62 = new Suite();
+        $newSuite62->title = "Appartamento con giardino in Via Petrarca";
+        $newSuite62->slug = Str::slug($newSuite62->title);
+        $newSuite62->room = rand(1,9);
+        $newSuite62->bed = rand(1,7);
+        $newSuite62->bathroom = rand(1,3);
+        $newSuite62->squareM = rand(26,450);
+        $newSuite62->address = "Via Francesco Petrarca,34,Napoli,80122";
+        $newSuite62->longitude = 14.214498;
+        $newSuite62->latitude = 40.812922;
+        $newSuite62->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite62->visible = true;
+        $newSuite62->sponsor = true;
+        $newSuite62->tot_visuals = 20;
+        $newSuite62->user_id = rand(1,2);
+        $newSuite62->save();
+
+        // Suite 63
+        $newSuite63 = new Suite();
+        $newSuite63->title = "Appartamento accogliente in Via Salvator Rosa";
+        $newSuite63->slug = Str::slug($newSuite63->title);
+        $newSuite63->room = rand(1,9);
+        $newSuite63->bed = rand(1,7);
+        $newSuite63->bathroom = rand(1,3);
+        $newSuite63->squareM = rand(26,450);
+        $newSuite63->address = "Via Salvator Rosa,65,Napoli,80135";
+        $newSuite63->longitude = 14.244993;
+        $newSuite63->latitude = 40.849599;
+        $newSuite63->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite63->visible = true;
+        $newSuite63->sponsor = true;
+        $newSuite63->tot_visuals = 20;
+        $newSuite63->user_id = rand(1,2);
+        $newSuite63->save();
+
+        // Suite 64
+        $newSuite64 = new Suite();
+        $newSuite64->title = "Appartamento elegante in Piazza Garibaldi";
+        $newSuite64->slug = Str::slug($newSuite64->title);
+        $newSuite64->room = rand(1,9);
+        $newSuite64->bed = rand(1,7);
+        $newSuite64->bathroom = rand(1,3);
+        $newSuite64->squareM = rand(26,450);
+        $newSuite64->address = "Piazza Garibaldi,10,Napoli,80142";
+        $newSuite64->longitude = 14.271284;
+        $newSuite64->latitude = 40.853611;
+        $newSuite64->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
+        $newSuite64->visible = true;
+        $newSuite64->sponsor = true;
+        $newSuite64->tot_visuals = 20;
+        $newSuite64->user_id = rand(1,2);
+        $newSuite64->save();
+
+
+
     }
 }
