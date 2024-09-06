@@ -101,15 +101,25 @@
             </div>
         </div> --}}
 
-        @foreach ($service as $item)
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="service[]" value="{{ $item->id }}"
-                id="tech{{ $item->id }}">
-                
-            
-            <label class="form-check-label" for="tech{{ $item->id }}"> {{ $item->name }}</label>
+        <div class="mb-4 row">
+            <label class="col-md-2 col-form-label text-md-right">Service</label>
+            <div class="col-md-10">
+                @foreach ($service as $item)
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="service[]" value="{{ $item->id }}"
+                            id="tech{{ $item->id }}">
+
+
+                        <label class="form-check-label" for="tech{{ $item->id }}"> {{ $item->name }}</label>
+                    </div>
+                @endforeach
+                @error('service')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
         </div>
-    @endforeach
 
 
         {{-- <h1 id="prova"></h1> --}}
@@ -124,33 +134,33 @@
         function autocomplete(value) {
             const base_url = "https://api.tomtom.com/search/2/search/"
             risultati.innerHTML = null;
-            
-                let codifica = value.target.value
-                let mid_url = codifica.replace(/ /g, '%20');
-                const apiKey = `.json?key=jmRHcyl09MwwWAWkpuc1wvI3C3miUjkN&limit=5&countrySet={IT}`
 
-                delete axios.defaults.headers.common['X-Requested-With'];
-                
-                    axios.get(base_url + mid_url + apiKey).then(response => {
+            let codifica = value.target.value
+            let mid_url = codifica.replace(/ /g, '%20');
+            const apiKey = `.json?key=jmRHcyl09MwwWAWkpuc1wvI3C3miUjkN&limit=5&countrySet={IT}`
 
-                        result_suggest = response.data.results;
-                        console.log(result_suggest)
-                        for (let index = 0; index <= result_suggest.length - 1; index++) {
-                            let suggest = result_suggest[index].address;
-                            let address_suggest = document.createElement("li");
+            delete axios.defaults.headers.common['X-Requested-With'];
 
-                            address_suggest.classList.add("list-group-item");
-                            address_suggest.classList.add("list-group-item-action");
-                            address_suggest.classList.add("list-group-item");
-                            address_suggest.innerHTML = `${suggest.freeformAddress}`;
+            axios.get(base_url + mid_url + apiKey).then(response => {
+                result_suggest = [];
+                result_suggest = response.data.results;
+                console.log(result_suggest)
+                for (let index = 0; index <= result_suggest.length - 1; index++) {
+                    let suggest = result_suggest[index].address;
+                    let address_suggest = document.createElement("li");
 
-                            address_suggest.addEventListener('click', function() {
-                                input.value = address_suggest.innerHTML;
-                                risultati.innerHTML = null;
-                            })
-                            risultati.append(address_suggest);
-                        }
-                    });
+                    address_suggest.classList.add("list-group-item");
+                    address_suggest.classList.add("list-group-item-action");
+                    address_suggest.classList.add("list-group-item");
+                    address_suggest.innerHTML = `${suggest.freeformAddress}`;
+
+                    address_suggest.addEventListener('click', function() {
+                        input.value = address_suggest.innerHTML;
+                        risultati.innerHTML = null;
+                    })
+                    risultati.append(address_suggest);
+                }
+            });
         }
     </script>
 @endsection
