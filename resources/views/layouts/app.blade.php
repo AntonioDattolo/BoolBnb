@@ -57,7 +57,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:5173/">Homepage</a>
+                            <a class="nav-link" href="http://localhost:5174/">Homepage</a>
                         </li>
                         
                         @guest
