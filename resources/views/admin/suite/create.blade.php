@@ -154,13 +154,43 @@
                     address_suggest.classList.add("list-group-item");
                     address_suggest.innerHTML = `${suggest.freeformAddress}`;
 
-                    address_suggest.addEventListener('click', function() {
-                        input.value = address_suggest.innerHTML;
-                        risultati.innerHTML = null;
-                    })
-                    risultati.append(address_suggest);
-                }
-            });
-        }
-    </script>
+					<<
+					<< << < HEAD
+					address_suggest.addEventListener('click', function() {
+						input.value = address_suggest.innerHTML;
+						risultati.innerHTML = null;
+					})
+					risultati.append(address_suggest);
+				}
+			});
+		}
+	</script>
+	=======
+	address_suggest.addEventListener('click', function() {
+	input.value = address_suggest.innerHTML;
+	risultati.innerHTML = null;
+	})
+	risultati.append(address_suggest);
+	}
+	});
+	}
+
+	const name = document.getElementById("suite_title");
+	const room = document.getElementById("suite_room");
+	const bed = document.getElementById("suite_bed");
+	const bathroom = document.getElementById("suite_bathroom");
+	const squareM = document.getElementById("suite_squareM");
+	const address = document.getElementById("suite_address");
+	const img = document.getElementById("suite_img");
+	function disabledButton () {
+	if (name.value == "" && room.value == "" && bed.value == "" && bathroom.value == "" && squareM.value == "" &&
+	address.value == "" && img.value == "") {
+	let btn = document.getElementById("my-btn");
+	btn.classList.remove("disabled")
+	}
+
+	}
+
+	</script>
+	>>>>>>> 07fd19339984405bb998e736dabe8f88414cef63
 @endsection
