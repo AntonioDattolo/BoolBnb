@@ -19,9 +19,21 @@ class SuiteController extends Controller
         ]);
     }
 
-    public function show(Request $request)
+    public function show($slug)
     {
-        ///
+        $suite = Suite::where('slug', $slug)->first();
+
+        if ($suite) {
+            return response()->json([
+                'status' => true,
+                'progetto' => $suite
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'suite not found...'
+            ]);
+        }
     }
 
     
