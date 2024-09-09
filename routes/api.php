@@ -20,5 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/suite', [SuiteController::class, 'index']);
-Route::get('/suite/{suite:id}', [SuiteController::class, 'search']);
+Route::get('/suite/search', [SuiteController::class, 'search']);
+
+// Route::get('/suite/searchNow/', [SuiteController::class, 'search']);
 
