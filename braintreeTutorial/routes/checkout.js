@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const braintree = require("braintree");
 
-router.post("/", (req, res, next) => {
+router.post("/pincopallino", (req, res, next) => {
   const gateway = new braintree.BraintreeGateway({
     environment: braintree.Environment.Sandbox,
     // Use your own credentials from the sandbox Control Panel here

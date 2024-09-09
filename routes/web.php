@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 use App\Http\Controllers\SuiteController;
+use App\Http\Controllers\Admin\PaymentController;
 use App\Models\User;
 
 /*
@@ -31,6 +32,7 @@ Route::middleware(['auth'])
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('suite', SuiteController::class);
         Route::resource('User', User::class);
+        Route::get('/paymentSponsorship', [PaymentController::class , 'pay']);
         
     });
 
