@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\MessageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SuiteController;
@@ -25,3 +26,4 @@ Route::get('/suite/search', [SuiteController::class, 'search']);
 
 // Route::get('/suite/searchNow/', [SuiteController::class, 'search']);
 
+Route::post('/pincopallino/{suite:id}', [MessageController::class, 'store']);

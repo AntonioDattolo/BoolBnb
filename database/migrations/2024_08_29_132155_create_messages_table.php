@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->text('text');
+            $table->string('email');
+            $table->string('name')->nullable();
             $table->dateTime('date');
             $table->unsignedBigInteger('suite_id')->constrained()->nullable();
             $table->foreign('suite_id')->references('id')->on('suites')->cascadeOnDelete()->nullable();
