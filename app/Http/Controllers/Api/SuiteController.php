@@ -26,7 +26,7 @@ class SuiteController extends Controller
         if ($suite) {
             return response()->json([
                 'status' => true,
-                'progetto' => $suite
+                'results' => $suite
             ]);
         } else {
             return response()->json([
@@ -47,8 +47,8 @@ class SuiteController extends Controller
 
         function radiusSearch( $latitude_from_front, $longitude_from_front){
             $radius = 20;
-            return  Suite::where(DB::raw('111.1111 * DEGREES(ACOS(COS(RADIANS(' . $latitude_from_front . ')) * COS(RADIANS(suites.latitude)) * COS(RADIANS(' . $longitude_from_front . ' -
-                        suites.longitude)) + SIN(RADIANS(' . $latitude_from_front . ')) * SIN(RADIANS(suites.latitude))))'), '<=', $radius)
+            return  Suite::where(DB::raw('111.1111 * DEGREES(ACOS(COS(RADIANS(' . $latitude_from_front . ')) * COS(RADIANS(suites.latitude)) * COS(RADIANS(' . $longitude_from_front . ' -suites.longitude)) +
+             SIN(RADIANS(' . $latitude_from_front . ')) * SIN(RADIANS(suites.latitude))))'), '<=', $radius)
                             ->get();
         }
 
