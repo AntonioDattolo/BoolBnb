@@ -14,6 +14,7 @@ class MessageSeeder extends Seeder
     public function run(): void
     {
         $newMessage = new Message();
+        $newMessage->email = 'ciao@ciao.it';
         $newMessage->text = "Testo molto molto molto molto molto molto molto molto molto lungo";
         $newMessage->date = "2024/07/19";
         $newMessage->suite_id = 1;
