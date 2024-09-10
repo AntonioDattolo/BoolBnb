@@ -67,6 +67,7 @@
                         <th>ACTION</th>
                     </thead>
                     <tbody>
+                        {{-- {{dd($suite[0]->sponsors[0]->id)}} --}}
                     @foreach ($suite as $item)
                         <tr>
                             <td>
@@ -83,7 +84,7 @@
                             @if ($item->sponsor == 1)
                             <td class=" my-bg-sponsorized"> Sponsorizzato <i class="fa-solid fa-coins text-warning"></i> </td> 
                             @else 
-                            <td> <a href="#" class="btn btn-success">Sponsorizza <i class="fa-solid fa-coins text-warning"></i></a> </td>
+                            <td> <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">sponsorizza <i class="fa-solid fa-coins text-warning"></i></a> </td>
                             @endif
                             
                             @if ($item->visible == 1)

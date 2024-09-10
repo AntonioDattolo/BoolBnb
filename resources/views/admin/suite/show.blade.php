@@ -53,6 +53,7 @@
                     </p>
                     
                 <a href=" {{ route('admin.suite.edit', $selectedSuite->id) }} " class="btn btn-primary my-2">EDIT</a>
+                <a href="http://localhost:8000/admin/payment" class="btn btn-success">Sponsorizza <i class="fa-solid fa-coins text-warning"></i></a>
 {{-- __________________________________________________________________ --}}
 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$selectedSuite->id}}">
   DELETE

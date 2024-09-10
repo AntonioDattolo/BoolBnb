@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 use App\Http\Controllers\SuiteController;
+use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\Admin\PaymentController;
+use App\Models\Sponsor;
 use App\Models\User;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +36,22 @@ Route::middleware(['auth'])
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('suite', SuiteController::class);
         Route::resource('User', User::class);
-        Route::get('/paymentSponsorship', [PaymentController::class , 'pay']);
+        Route::resource('sponsor', SponsorController::class);
+        // Route::get('/paymentSponsorship', [PaymentController::class , 'pay']);
+        // **********************************
+
+        // Route::get('/payment/process', [PaymentController::class , 'process'])->name('admin.payment.process');
+
+        //  Route::get('/payment', [PaymentController::class,'checkout']);
+        //  });
         
-    });
+       
+        Route::get('payment/{suite_slug}/sponsor', [PaymentController::class, 'check_in'])->name('payment');
+     
+      
+        
+         
+});
+    
 
 require __DIR__ . '/auth.php';

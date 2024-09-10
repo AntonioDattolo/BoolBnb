@@ -61,12 +61,36 @@
                 <ul id="result" class="list-group position-absolute">
                     {{-- suggest here --}}
                 </ul>
+                
+              
+               
         </div>
         @error('address')
             <span class="bg-danger" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
+        <div class="mb-4 row">
+            <label class="col-md-2 col-form-label text-md-right">Sponsor</label>
+            <div class="col-md-10">
+                @foreach ($sponsor as $item)
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="sponsorship" value="{{ $item->id }}"
+                            id="sponsorship{{ $item->id }}">
+                            
+                        
+                        <label class="form-check-label" for="sponsorship{{ $item->id }}"> {{ $item->name }}</label>
+                    </div>
+                @endforeach
+                @error('sponsorship')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                
+                
+            </div>
+        </div>
         <div class="w-50 m-5">
             <div class="d-flex" style="width: 100px">
                 <span>Current IMG:</span>
