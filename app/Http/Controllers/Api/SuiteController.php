@@ -23,7 +23,7 @@ class SuiteController extends Controller
     {
         return response()->json([
             'success' => true,
-            'suites' => Suite::with('sponsors', 'services')->where('sponsor', 1)->get()
+            'results' => Suite::with('sponsors', 'services')->where('sponsor', 1)->get()
         ]);
     } 
 
