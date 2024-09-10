@@ -81,7 +81,7 @@
             </span>
         @enderror
 
-        <div class="mb-4 row">
+        {{-- <div class="mb-4 row">
             <label class="col-md-2 col-form-label text-md-right">Sponsor</label>
             <div class="col-md-10">
                 @foreach ($sponsor as $item)
@@ -100,7 +100,7 @@
                 @enderror
                 
                 
-            </div>
+            </div> --}}
 
         <div class="mb-4 row">
             <label class="col-md-2 col-form-label text-md-right">Service</label>
