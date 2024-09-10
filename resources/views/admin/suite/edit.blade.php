@@ -70,7 +70,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="mb-4 row">
+        {{-- <div class="mb-4 row">
             <label class="col-md-2 col-form-label text-md-right">Sponsor</label>
             <div class="col-md-10">
                 @foreach ($sponsor as $item)
@@ -90,7 +90,7 @@
                 
                 
             </div>
-        </div>
+        </div> --}}
         <div class="w-50 m-5">
             <div class="d-flex" style="width: 100px">
                 <span>Current IMG:</span>
@@ -109,6 +109,26 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
+
+        <div class="mb-4 row">
+            <label class="col-md-2 col-form-label text-md-right">Service</label>
+            <div class="col-md-10">
+                @foreach ($service as $item)
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="services[]" value="{{ $item->id }}"
+                            id="tech{{ $item->id }}">
+
+
+                        <label class="form-check-label" for="tech{{ $item->id }}"> {{ $item->name }}</label>
+                    </div>
+                @endforeach
+                @error('service')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
         <button  type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Modify Suit </button>
     </form>
     <script>

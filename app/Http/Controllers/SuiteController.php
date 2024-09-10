@@ -206,7 +206,8 @@ class SuiteController extends Controller
         }
         $data = [
             'suite' => $suite,
-            'sponsor' => $sponsor
+            'sponsor' => $sponsor,
+            'service' => Service::all()
             // 'address' => explode(',', $suite->address)
         ];
         return view('admin.suite.edit', $data);
@@ -235,6 +236,8 @@ class SuiteController extends Controller
              "address" => "min:8",
              "img" => "",
             "visible" => "nullable",
+            "services" => "array",
+            "services" => "exists:services,id",
             "sponsorship" => "nullable",
         ]);
        
@@ -265,16 +268,17 @@ class SuiteController extends Controller
              $image_path = Storage::put('uploads', $data['img']);
              $data['img'] = $image_path;
         }
-
+        $service = $data['services'];
+        
         //prova pivot
-        if(isset($data['service'])){
-             $service = $data['service'];
-             $suite->services()->attach($service);
+        if(isset($data['services'])){
+           
+             $suite->services()->sync($service);
         };
 
         //  dd($request);
-        $sponsorship = $data['sponsorship'];
         if (isset($data['sponsorship'])) {
+            $sponsorship = $data['sponsorship'];
             $sponsor = Sponsor::select('name','price', 'period')->where('id',$sponsorship)->get('name');
             date_default_timezone_set("Europe/Rome");
             $date = date("Y-m-d H:i:s");
