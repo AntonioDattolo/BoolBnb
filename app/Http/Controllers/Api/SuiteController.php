@@ -19,6 +19,14 @@ class SuiteController extends Controller
         ]);
     }
 
+    public function latest()
+    {
+        return response()->json([
+            'success' => true,
+            'suites' => Suite::with('sponsors', 'services')->where('sponsor', 1)->get()
+        ]);
+    } 
+
     public function show($slug)
     {
         $suite = Suite::where('slug', $slug)->first();
