@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
+
 // use Geocoder\Collection;
 // use Geocoder\IntegrationTest\BaseTestCase;
 // use Geocoder\Location;
@@ -268,10 +269,12 @@ class SuiteController extends Controller
      */
     public function destroy(string $id)
     {
+     
         $suite =  Suite::findOrFail($id);
         Storage::delete($suite->img);
         $suite->delete();
 
         return redirect()->route('admin.suite.index')->with('message', 'Project Deleted');
     }
+
 }
