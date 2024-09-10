@@ -15,7 +15,7 @@ class SuiteController extends Controller
         // $suites = Suite::all();
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsor', 'services')->paginate(70)
+            'results' => Suite::with('sponsors', 'services')->paginate(70)
         ]);
     }
 
@@ -55,7 +55,7 @@ class SuiteController extends Controller
 
         function radiusSearch( $latitude_from_front, $longitude_from_front){
             $radius = 20;
-            return  Suite::with('sponsor', 'services')
+            return  Suite::with('sponsors', 'services')
             ->where(DB::raw('111.1111 * DEGREES(ACOS(COS(RADIANS(' . $latitude_from_front . ')) * COS(RADIANS(suites.latitude)) * COS(RADIANS(' . $longitude_from_front . ' -suites.longitude)) +
              SIN(RADIANS(' . $latitude_from_front . ')) * SIN(RADIANS(suites.latitude))))'), '<=', $radius)
                             ->get();
