@@ -54,6 +54,22 @@
                     
                 <a href=" {{ route('admin.suite.edit', $selectedSuite->id) }} " class="btn btn-primary my-2">EDIT</a>
                 <a href="http://localhost:8000/admin/payment" class="btn btn-success">Sponsorizza <i class="fa-solid fa-coins text-warning"></i></a>
+                @if ($selectedSuite->messages != [])
+                    <div class="d-flex flex-wrap">
+                        @foreach ($selectedSuite->messages as $message)
+                            <div class="m-2 bg-warning p-4 border rounded">
+
+                                <p class="fs-6">
+                                    Da:{{ $message->name }}
+                                </p>
+                                <p class="fs-6">
+                                    Email:{{ $message->email }}
+                                </p>
+                                <h5>{{ $message->text }}</h5>
+                            </div>
+                    </div>
+                @endforeach
+                @endif
 {{-- __________________________________________________________________ --}}
 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$selectedSuite->id}}">
   DELETE
