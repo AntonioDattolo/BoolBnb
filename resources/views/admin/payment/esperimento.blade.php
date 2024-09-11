@@ -5,48 +5,58 @@
         enctype="multipart/form-data">
         @method('PUT')
         @csrf
-        <div class="mb-4 row">
-            <h3 class="col-md-2 col-form-label text-md-right">Hai scelto di sponsorizzare :</h3>
-            <h2>{{ $suite[0]->title }} {{ $suite[0]->id }}</h2>
-            <h4>Situato in via : {{ $suite[0]->address }}</h4>
-            <div class="col-md-10 d-flex gap-3 justify-content-center">
-                @foreach ($sponsor as $item)
-                    <div class="card col-3 mr-2">
-                        <div class="card-body">
-                            <div class="form-check text-center">
-                                <input class="form-check-input" type="radio" name="sponsorship" id="sponsor"
-                                    value="{{ $item->id }}">
-                                <label class="form-check-label" for="sponsor">
-                                    <h5 class="card-title">{{ $item->name }}</h5>
-                                </label>
+        <section class="container pt-5">
+
+            <div class="mb-4 row">
+                <h2 class="col-12 mb-3 col-form-label text-md-right">You had chosen to sponsorship :</h2>
+                <h1 class="col-12 mb-3">{{ $suite[0]->title }} {{ $suite[0]->id }}</h1>
+                <h4 class="col-12 mb-5">Situato in via : {{ $suite[0]->address }}</h4>
+                <div class="col-md-10 d-flex gap-3 justify-content-center">
+                    @foreach ($sponsor as $item)
+                        <div class="card col-3 mr-2">
+                            <div class="card-body" style="position: relative">
+                                <div class="form-check text-center">
+                                    <input class="form-check-input" type="radio" name="sponsorship" id="sponsor"
+                                        value="{{ $item->id }}" style="border: 1.5px solid rgb(48, 48, 48)">
+                                    <label class="form-check-label" for="sponsor">
+                                        <h5 class="card-title">{{ $item->name }}</h5>
+                                    </label>
+                                </div>
+
+                                <h6 class="card-subtitle mb-2 text-body-secondary">$ : {{ $item->price }} </h6>
+                                <p>FOR</p>
+                                <p class="card-text text-center">{{ str_replace(':00:00', '', $item->period) }} Hours in
+                                    sponsorization </p>
+                                    @if($item->id == 2)
+                                    <span style="width:100%px;position: relative;bottom:-15px; float :left;padding: 0 3px 0 5px; border-bottom: 35px solid red;border-right: 29px solid rgba(54, 13, 215, 0);">
+                                        <span style="display :block;position:relative;bottom: -22px ">Most Sailed</span>
+                                      
+                                    </span>
+                                    @endif
                             </div>
-
-                            <h6 class="card-subtitle mb-2 text-body-secondary">{{ $item->price }}</h6>
-                            <p class="card-text">{{ $item->period }}</p>
                         </div>
-                    </div>
-                @endforeach
-                @error('technologies')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                    @endforeach
+                    @error('technologies')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
             </div>
-        </div>
-        @if (Route::has('login'))
-            <div class="top-right links">
-                @auth
-                    <a href="{{ url('/home') }}">Home</a>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-        {{-- <button type="submit">premi</button> --}}
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+            {{-- <button type="submit">premi</button> --}}
     </form>
 
     <div class="content container justify-content-end">
@@ -70,6 +80,7 @@
     </div>
     </div>
 
+    </section>
     <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
     <script>
         var form = document.querySelector('#payment-form');
