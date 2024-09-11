@@ -94,9 +94,9 @@ class SuiteController extends Controller
 
         return response()->json([
             'success' => true,
-            'results' => [
-                count($data),
-                $data]
+            'results' => 
+                
+                $data
         ]);
     }
 }
