@@ -120,7 +120,7 @@
         const feedbackElement = document.getElementById('emailFeedback');
         const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
 
-        if (emailInput.includes('@') && emailInput.includes('.')) {
+        if (emailInput.includes('@') && emailInput.includes('.') && !emailInput.endsWith('.')) {
                 feedbackElement.textContent = ""; // Email is valid
         } else {
                 feedbackElement.textContent = "Please enter a valid email address.";
