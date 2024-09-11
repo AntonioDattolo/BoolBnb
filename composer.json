@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "braintree/braintree_php": "*",
+        "braintree/braintree_php": "^6.19",
         "geocoder-php/google-maps-provider": "^4.7",
         "geocoder-php/tomtom-provider": "^4.4",
         "guzzlehttp/guzzle": "^7.8",
