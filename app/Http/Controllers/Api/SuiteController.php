@@ -15,7 +15,7 @@ class SuiteController extends Controller
         // $suites = Suite::all();
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsors', 'services')->paginate(70)
+            'results' => Suite::with('sponsors', 'services', 'messages')->paginate(70)
         ]);
     }
 
@@ -23,7 +23,7 @@ class SuiteController extends Controller
     {
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsors', 'services')->where('sponsor', 1)->get()
+            'results' => Suite::with('sponsors', 'services', 'messages')->where('sponsor', 1)->get()
         ]);
     } 
 
