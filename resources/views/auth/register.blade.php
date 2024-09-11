@@ -52,7 +52,7 @@
                                 @enderror --}}
 
                                 
-                                <input id="birth_date" type="date" class="form-control" name="birth_date" value="{{ old('birth_date') }}" autocomplete="new-birth_date" oninput="getBirthDate()">
+                                <input id="birth_date" type="date" class="form-control" name="birth_date" value="{{ old('birth_date') }}" autocomplete="new-birth_date" oninput="getBirthDate(), getAbilited()">
                                 <span id="birthFeedback" style="color: red;"></span>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
 
                             <div class="col-md-6">
                                 {{-- <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"> --}}
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" id="emailInput" oninput="validateEmailInput()">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" id="emailInput" oninput="validateEmailInput(), getAbilited()">
                                 <span id="emailFeedback" style="color: red;"></span>
 
                                 @error('email')
@@ -79,7 +79,7 @@
                             <label for="passwordInput" class="col-md-4 col-form-label text-md-right">{{ __('*Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="passwordInput" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" oninput="validatePassword()">
+                                <input id="passwordInput" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" oninput="validatePassword(), getAbilited()">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -100,7 +100,7 @@
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="register">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -115,6 +115,10 @@
 
 <script>
 
+    const register = document.getElementById('register');
+
+
+    let abilitedMail = false;
     function validateEmailInput() {
         const emailInput = document.getElementById('emailInput').value;
         const feedbackElement = document.getElementById('emailFeedback');
@@ -122,14 +126,19 @@
 
         if (emailInput.includes('@') && emailInput.includes('.') && !emailInput.endsWith('.')) {
                 feedbackElement.textContent = ""; // Email is valid
+                abilitedMail = true
         } else {
                 feedbackElement.textContent = "Please enter a valid email address.";
+                abilitedMail = false
         }
+        getAbilited();
     }
 
     let userDate = '';
-
+    let abilitedBirth = true;
     function getBirthDate(){
+        abilitedBirth = false;
+        register.classList.add('disabled')
         let birthInput = document.getElementById('birth_date').value;
         let userDate = birthInput
         console.log(userDate)
@@ -143,20 +152,32 @@
         let minAgeDate = (year - 18) + '-' + month + '-' + date
         let feedbackBirth = document.getElementById('birthFeedback');
 
+        
+
         // Check if userDate is a valid date and is not in the future
         if (userDate > shortDate) {
-            return feedbackBirth.textContent = 'Invalid date';
+            feedbackBirth.textContent = 'Invalid date';
+            console.log(userDate>shortDate, 'oltre 2024')
+            abilitedBirth = false  
+            getAbilited(); 
         }
 
-        if (userDate > minAgeDate) {
-            return feedbackBirth.textContent = 'You must be over 18 to register';
-            // console.log('minorenne')
+        else if (userDate > minAgeDate) {
+            feedbackBirth.textContent = 'You must be over 18 to register';
+            console.log(userDate>shortDate, 'minorenne')
+            abilitedBirth = false
+            getAbilited();
         }
-        return feedbackBirth.textContent = '';
+        else{
+            feedbackBirth.textContent = '';
+            abilitedBirth = true
+            getAbilited();
+        } 
+        
     }
 
 
-
+    let abilitedPassword = false;
     function validatePassword() {
         let passwordInput = document.getElementById('passwordInput').value;
         console.log(passwordInput)
@@ -164,13 +185,41 @@
         let feedbackPassword = document.getElementById('feedbackPassword');
 
         if (passwordInput === passwordConfirm) {
-           return feedbackPassword.textContent = "";
+            abilitedPassword = true;
+            // console.log(abilitedPassword, 'verificata')
+            feedbackPassword.textContent = "";
         } else {
-           return feedbackPassword.textContent = "Your password do not match";
+            abilitedPassword = false
+            // console.log(abilitedPassword, 'invalida')
+            feedbackPassword.textContent = "Your password do not match";
         }
+        getAbilited();
     }
 
+    function getAbilited(){
+        if(abilitedPassword==false && abilitedMail==false && abilitedBirth==false){
+            register.classList.add('disabled');
+            console.log('disabilitato')
+            console.log(abilitedMail == false, 'controllo mail')
+            console.log(abilitedPassword == false, 'controllo password')
+            console.log(abilitedBirth == false, 'controllo data')
+        }
+        else if(abilitedPassword==false || abilitedMail==false || abilitedBirth==false){
+            register.classList.add('disabled');
+            console.log('disabilitato')
+            console.log(abilitedMail == false, 'controllo mail')
+            console.log(abilitedPassword == false, 'controllo password')
+            console.log(abilitedBirth == false, 'controllo data')
+        }
+        else {
+            register.classList.remove('disabled');
+            console.log('tutte buone')
+            console.log(abilitedMail == false, 'controllo mail')
+            console.log(abilitedPassword == false, 'controllo password')
+            console.log(abilitedBirth == false, 'controllo data')
 
-
+        } 
+    }
+    getAbilited();
 </script>
 @endsection
