@@ -266,10 +266,11 @@ class SuiteController extends Controller
             $image_path = Storage::put('uploads', $data['img']);
             $data['img'] = $image_path;
         }
-        $service = $data['services'];
+        // dd($request);
 
         //prova pivot
         if (isset($data['services'])) {
+            $service = $data['services'];
 
             $suite->services()->sync($service);
         };

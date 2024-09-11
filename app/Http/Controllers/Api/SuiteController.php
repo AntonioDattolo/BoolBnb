@@ -48,10 +48,10 @@ class SuiteController extends Controller
     public function search(Request $request, Suite $suite)
     {
         $data = $request->query->all();
+        // dd($data);
+        $latitude_from_front = $data['latitude'];
 
-        $latitude_from_front = $data['lat'];
-
-        $longitude_from_front =  $data['lng'];
+        $longitude_from_front =  $data['longitude'];
 
         function radiusSearch( $latitude_from_front, $longitude_from_front){
             $radius = 20;
