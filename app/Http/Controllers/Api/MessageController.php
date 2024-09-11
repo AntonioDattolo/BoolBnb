@@ -6,10 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Models\Suite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 
 class MessageController extends Controller
 {
+    public function index()
+    {
+
+        $user_id = Auth::user()->id;
+
+        $data = [
+            'suite' => Suite::with('user', 'messages',)->select()->where('user_id', $user_id)->get(),
+
+        ];
+        return view('admin.messages.index', $data);
+    }
+
     public function store(Request $request, $slug)
     {
         $suite = Suite::where('slug', $slug)->first();
