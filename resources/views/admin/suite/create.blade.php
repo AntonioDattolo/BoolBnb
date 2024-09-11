@@ -86,20 +86,21 @@
             <div class="col-md-10">
                 @foreach ($sponsor as $item)
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sponsorship" value="{{ $item->id }}"
-                            id="tech{{ $item->id }}">
-                            <input class="d-none" type="text" name="nome_sponsor" value="{{$item->name}}">
+                        <input class="form-check-input" type="checkbox" name="sponsorship" value="{{ $item->id }}"
+                            id="sponsorship{{ $item->id }}">
+                            
                         
-                        <label class="form-check-label" for="tech{{ $item->id }}"> {{ $item->name }}</label>
+                        <label class="form-check-label" for="sponsorship{{ $item->id }}"> {{ $item->name }}</label>
                     </div>
                 @endforeach
-                @error('technologies')
+                @error('sponsorship')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>
-        </div> --}}
+                
+                
+            </div> --}}
 
         <div class="mb-4 row">
             <label class="col-md-2 col-form-label text-md-right">Service</label>
@@ -121,6 +122,7 @@
             </div>
         </div>
 
+       
 
         {{-- <h1 id="prova"></h1> --}}
         <button id="my-btn" type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Add Suite </button>
@@ -165,22 +167,22 @@
 
         // ***************************************Logica Dave's Button **********************************************************
 
-        let btn = document.getElementById("my-btn");
-        btn.classList.add("disabled");
-        let title = document.getElementById("suite_title");
-        let room = document.getElementById("suite_room");
-        let bed = document.getElementById("suite_bed");
-        let bathroom = document.getElementById("suite_bathroom");
-        let address = document.getElementById("suite_address");
-        let squareM = document.getElementById("suite_squareM");
+        // let btn = document.getElementById("my-btn");
+        // btn.classList.add("disabled");
+        // let title = document.getElementById("suite_title");
+        // let room = document.getElementById("suite_room");
+        // let bed = document.getElementById("suite_bed");
+        // let bathroom = document.getElementById("suite_bathroom");
+        // let address = document.getElementById("suite_address");
+        // let squareM = document.getElementById("suite_squareM");
 
-        function disabledButton() {
-            if ( (title.value != "") && (room.value != "") && (bed.value != "") && (bathroom.value != "") && (squareM.value != "") && (address.value != "") ) {
-                btn.classList.remove("disabled");
-            }else {
-                btn.classList.add("disabled");
-            }
-        }
+        // function disabledButton() {
+        //     if ( (title.value != "") && (room.value != "") && (bed.value != "") && (bathroom.value != "") && (squareM.value != "") && (address.value != "") ) {
+        //         btn.classList.remove("disabled");
+        //     }else {
+        //         btn.classList.add("disabled");
+        //     }
+        // }
 
         // *************************************************************************************************
 

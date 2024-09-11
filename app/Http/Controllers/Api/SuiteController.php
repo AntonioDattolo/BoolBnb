@@ -15,9 +15,17 @@ class SuiteController extends Controller
         // $suites = Suite::all();
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsor', 'services')->paginate(70)
+            'results' => Suite::with('sponsors', 'services')->paginate(70)
         ]);
     }
+
+    public function latest()
+    {
+        return response()->json([
+            'success' => true,
+            'results' => Suite::with('sponsors', 'services')->where('sponsor', 1)->get()
+        ]);
+    } 
 
     public function show($slug)
     {
@@ -39,7 +47,7 @@ class SuiteController extends Controller
     
     public function search(Request $request, Suite $suite)
     {
-        $data = $request->all();
+        $data = $request->query->all();
 
         $latitude_from_front = $data['lat'];
 
@@ -47,7 +55,8 @@ class SuiteController extends Controller
 
         function radiusSearch( $latitude_from_front, $longitude_from_front){
             $radius = 20;
-            return  Suite::where(DB::raw('111.1111 * DEGREES(ACOS(COS(RADIANS(' . $latitude_from_front . ')) * COS(RADIANS(suites.latitude)) * COS(RADIANS(' . $longitude_from_front . ' -suites.longitude)) +
+            return  Suite::with('sponsors', 'services')
+            ->where(DB::raw('111.1111 * DEGREES(ACOS(COS(RADIANS(' . $latitude_from_front . ')) * COS(RADIANS(suites.latitude)) * COS(RADIANS(' . $longitude_from_front . ' -suites.longitude)) +
              SIN(RADIANS(' . $latitude_from_front . ')) * SIN(RADIANS(suites.latitude))))'), '<=', $radius)
                             ->get();
         }

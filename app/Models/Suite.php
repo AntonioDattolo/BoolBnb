@@ -9,10 +9,12 @@ use App\Models\Message;
 use App\Models\Visual;
 use App\Models\Sponsor;
 use App\Models\Service;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Suite extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable =[
         'title',
@@ -65,7 +67,7 @@ class Suite extends Model
     }
     public function services()
     {
-        return $this->belongsToMany(Service::class, 'suite_service');
+        return $this->belongsToMany(Service::class, 'suite_service')->withTimestamps();
         // return $this->belongsToMany('App\Models\Technology');
     }
 

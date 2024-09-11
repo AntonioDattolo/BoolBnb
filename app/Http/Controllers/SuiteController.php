@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
+use Braintree\Gateway;
+
+
 // use Geocoder\Collection;
 // use Geocoder\IntegrationTest\BaseTestCase;
 // use Geocoder\Location;
@@ -23,8 +26,10 @@ class SuiteController extends Controller
     /**
      * Display a listing of the resource.
      */
+    private $gateway;
     public function index()
     {
+
         $user_id = Auth::user()->id;
 
         $data = [
@@ -34,7 +39,8 @@ class SuiteController extends Controller
                 'visuals',
                 'sponsors',
                 'services'
-            )->select()->where('user_id', $user_id)->get()
+            )->select()->where('user_id', $user_id)->get(),
+            'sponsor' => Sponsor::all(),
         ];
         return view('admin.suite.index', $data);
     }
@@ -72,8 +78,8 @@ class SuiteController extends Controller
         ]);
 
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title, '-');
         $newSuite = new Suite;
+        $data['slug'] = Str::slug($request->title, '-');
         $newSuite->title = $data['title'];
         $newSuite->room = $data['room'];
         $newSuite->bed = $data['bed'];
@@ -121,13 +127,14 @@ class SuiteController extends Controller
         $newSuite->user_id = Auth::user()->id;
 
         $newSuite->slug = STR::slug($newSuite->title, '-');
-
-
-
-        //  $sponsorship = $data['sponsorship'];
-
+        $newSuite->visible = true;
+        $newSuite->sponsor = false;
 
         $newSuite->save();
+
+
+
+
         //prova pivot
         if (isset($data['service'])) {
             $service = $data['service'];
@@ -136,26 +143,25 @@ class SuiteController extends Controller
 
 
 
-        // if (isset($data['sponsorship'])) {
-        //     $sponsor = Sponsor::select('name','price', 'period')->where('id',$sponsorship)->get('name');
-        //     date_default_timezone_set("Europe/Rome");
-        //     $date = date("Y-m-d H:i:s");
+        if (isset($data['sponsorship'])) {
+            $sponsorship = $data['sponsorship'];
+            $sponsor = Sponsor::select('name', 'price', 'period')->where('id', $sponsorship)->get('name');
 
-        //     $hour_sponsor = str_replace(':00:00','',$sponsor[0]->period);
-        //     $end_spon = date("Y-m-d H:i:s", strtotime("+{$hour_sponsor}hours"));
+            date_default_timezone_set("Europe/Rome");
+            $date = date("Y-m-d H:i:s");
 
-        //     $newSuite->sponsors()->attach($sponsorship,[
-        //         'sponsor_name' => $sponsor[0]->name,
-        //         'sponsor_price' => $sponsor[0]->price,
-        //         'start' => $date,
-        //         'end' => $end_spon
-        //     ]);
-        //     // $newSuite->sponsors()->attach('')
-
-        // } else {
-        //     return redirect()->route('admin.suite.show', $newSuite->id);
-        // }
-
+            $hour_sponsor = str_replace(':00:00', '', $sponsor[0]->period);
+            $end_spon = date("Y-m-d H:i:s", strtotime("+{$hour_sponsor}hours"));
+            $newSuite->update(['sponsor' => true]);
+            $newSuite->sponsors()->attach($sponsorship, [
+                'sponsor_name' => $sponsor[0]->name,
+                'sponsor_price' => $sponsor[0]->price,
+                'start' => $date,
+                'end' => $end_spon
+            ]);
+            return redirect()->route('admin.suite.show', $newSuite->id);
+        } else {
+        }
         return redirect()->route('admin.suite.show', $newSuite->id)->with('message', 'Project Created');
     }
 
@@ -188,9 +194,9 @@ class SuiteController extends Controller
      */
     public function edit(string $id)
     {
-        $suite = Suite::findOrFail($id);
+        $suite = Suite::with('sponsors')->findOrFail($id);
         $user = auth()->user();
-
+        $sponsor = Sponsor::all();
         // Verifica se l'utente autenticato è lo stesso dell'appartamento
         if ($suite->user_id != $user->id) {
             // Se l'utente non è autorizzato, mostra la pagina 404
@@ -198,6 +204,8 @@ class SuiteController extends Controller
         }
         $data = [
             'suite' => $suite,
+            'sponsor' => $sponsor,
+            'service' => Service::all()
             // 'address' => explode(',', $suite->address)
         ];
         return view('admin.suite.edit', $data);
@@ -208,7 +216,9 @@ class SuiteController extends Controller
      */
     public function update(Request $request, String $id)
     {
-        $suite = Suite::findOrFail($id);
+        // dd($request);
+        $suite = Suite::with('sponsors')->findOrFail($id);
+        // dd($suite);
         $user = auth()->user();
         if ($suite->user_id != $user->id) {
             // Se l'utente non è autorizzato, mostra la pagina 404
@@ -216,43 +226,74 @@ class SuiteController extends Controller
         }
 
         $data = $request->validate([
-            "title" => "required|min:5",
-            "room" => "required|min:1|between:1,20",
-            "bed" => "required|min:1|between:1,20",
-            "bathroom" => "required|min:1|between:1,10",
-            "squareM" => "required|integer|min:25",
-            "address" => "required|min:8",
+            "title" => "min:5",
+            "room" => "min:1|between:1,20",
+            "bed" => "min:1|between:1,20",
+            "bathroom" => "min:1|between:1,10",
+            "squareM" => "integer|min:25",
+            "address" => "min:8",
             "img" => "",
             "visible" => "nullable",
-            "sponsor" => "nullable",
-        ]);
-        //  $address = $data['address'] . ' ' . $data['civic']  . ' ' . $data['city'] . ' ' . $data['cap'];
-        // $data['address'] = $data['address'] . ',' . $data['civic']  . ',' . $data['city'] . ',' . $data['cap'];
-        $address =  $data['address'];
-
-        $client = new \GuzzleHttp\Client([
-            'verify' => false
+            "services" => "array",
+            "services" => "exists:services,id",
+            "sponsorship" => "nullable",
         ]);
 
-        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
-            'query' => [
-                'key' => '', // chiave API di TomTom PERSONALE
-            ],
-        ]);
+        if (isset($data['address'])) {
+            $address =  $data['address'];
 
-        $geocode_data = json_decode($response->getBody(), true);
-        $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
-        $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
+            $client = new \GuzzleHttp\Client([
+                'verify' => false
+            ]);
 
-        $suite->longitude = $longitude;
-        $suite->latitude = $latitude;
+            $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
+                'query' => [
+                    'key' => 'jmRHcyl09MwwWAWkpuc1wvI3C3miUjkN', // chiave API di TomTom PERSONALE
+                ],
+            ]);
 
-        $data['slug'] = Str::slug($request->title, '-');
-
+            $geocode_data = json_decode($response->getBody(), true);
+            $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
+            $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
+            $suite->longitude = $longitude;
+            $suite->latitude = $latitude;
+        }
+        if (isset($data['slug'])) {
+            $data['slug'] = Str::slug($request->title, '-');
+        }
         if ($request->has('img')) {
             Storage::delete($suite->img);
             $image_path = Storage::put('uploads', $data['img']);
             $data['img'] = $image_path;
+        }
+        $service = $data['services'];
+
+        //prova pivot
+        if (isset($data['services'])) {
+
+            $suite->services()->sync($service);
+        };
+
+        //  dd($request);
+        if (isset($data['sponsorship'])) {
+            $sponsorship = $data['sponsorship'];
+            $sponsor = Sponsor::select('name', 'price', 'period')->where('id', $sponsorship)->get('name');
+            date_default_timezone_set("Europe/Rome");
+            $date = date("Y-m-d H:i:s");
+            $hour_sponsor = str_replace(':00:00', '', $sponsor[0]->period);
+            $end_spon = date("Y-m-d H:i:s", strtotime("+{$hour_sponsor}hours"));
+            $suite->update(['sponsor' => true]);
+
+            $suite->sponsors()->attach($sponsorship, [
+                'sponsor_name' => $sponsor[0]->name,
+                'sponsor_price' => $sponsor[0]->price,
+                'start' => $date,
+                'end' => $end_spon
+            ]);
+            return redirect()->route('admin.suite.show', $suite->id);
+            //  $newSuite->sponsors()->attach('')
+
+        } else {
         }
 
         $suite->update($data);
@@ -265,6 +306,7 @@ class SuiteController extends Controller
      */
     public function destroy(string $id)
     {
+
         $suite =  Suite::findOrFail($id);
         Storage::delete($suite->img);
         $suite->delete();

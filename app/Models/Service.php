@@ -17,7 +17,7 @@ class Service extends Model
 
     public function suites()
     {
-        return $this->belongsToMany(Suite::class, 'suite_sponsor');
+        return $this->belongsToMany(Suite::class, 'suite_sponsor')->withTimestamps();
         // return $this->belongsToMany('App\Models\Project');
     }
 }

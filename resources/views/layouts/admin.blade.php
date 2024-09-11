@@ -59,6 +59,14 @@
 									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Create Suite
 								</a>
 							</li>
+							
+							{{-- <li class="nav-item">
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsor.index' ? 'bg-secondary' : '' }}"
+								href="{{ route('admin.sponsor.index') }}">
+									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Sponsorship
+								</a>
+							</li> --}}
+							
 
 							<li class="nav-item">
 								<a class="nav-link text-white" href="{{ route('logout') }}"
