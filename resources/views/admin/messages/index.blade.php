@@ -12,8 +12,15 @@
 
 			</thead>
 			<tbody>
-				{dd{{$suite}}}
+				{{-- {{dd($suite[0]->messages[0]->text)}} --}}
 				{{-- {{dd($suite[0]->sponsors[0]->id)}} --}}
+				{{-- @foreach ($suite->messages as $key => $item)
+					{{dd($item->messages->text)}}
+					{{$item->text}}
+				@endforeach --}}
+				{{-- @for ($i = 0; $i < count($suite); $i++)
+					{{$suite[$i]->messages}}
+				@endfor --}}
 				@foreach ($suite as $item)
 					<tr>
 						
