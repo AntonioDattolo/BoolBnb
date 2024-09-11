@@ -72,7 +72,7 @@ class SuiteController extends Controller
         ]);
 
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title, '-'); 
+        $data['slug'] = Str::slug($request->title, '-');
         $newSuite = new Suite;
         $newSuite->title = $data['title'];
         $newSuite->room = $data['room'];
@@ -121,7 +121,7 @@ class SuiteController extends Controller
         $newSuite->user_id = Auth::user()->id;
 
         $newSuite->slug = STR::slug($newSuite->title, '-');
-        
+
 
 
         //  $sponsorship = $data['sponsorship'];
@@ -129,21 +129,21 @@ class SuiteController extends Controller
 
         $newSuite->save();
         //prova pivot
-        if(isset($data['service'])){
+        if (isset($data['service'])) {
             $service = $data['service'];
             $newSuite->services()->attach($service);
         };
-        
 
-         
+
+
         // if (isset($data['sponsorship'])) {
         //     $sponsor = Sponsor::select('name','price', 'period')->where('id',$sponsorship)->get('name');
         //     date_default_timezone_set("Europe/Rome");
         //     $date = date("Y-m-d H:i:s");
-           
+
         //     $hour_sponsor = str_replace(':00:00','',$sponsor[0]->period);
         //     $end_spon = date("Y-m-d H:i:s", strtotime("+{$hour_sponsor}hours"));
-         
+
         //     $newSuite->sponsors()->attach($sponsorship,[
         //         'sponsor_name' => $sponsor[0]->name,
         //         'sponsor_price' => $sponsor[0]->price,
@@ -151,7 +151,7 @@ class SuiteController extends Controller
         //         'end' => $end_spon
         //     ]);
         //     // $newSuite->sponsors()->attach('')
-            
+
         // } else {
         //     return redirect()->route('admin.suite.show', $newSuite->id);
         // }
@@ -165,24 +165,21 @@ class SuiteController extends Controller
     public function show(String $id)
     {
 
-        //  $selectedProject =  Project::findOrFail($id);
-        $selectedSuite = Suite::findOrFail($id);
+
+        $selectedSuite = Suite::with('sponsors', 'services', 'messages')->findOrFail($id);
         $user = auth()->user();
 
-        // Verifica se l'utente autenticato è lo stesso dell'appartamento
+        //Verifica se l'utente autenticato è lo stesso dell'appartamento
         if ($selectedSuite->user_id != $user->id) {
             // Se l'utente non è autorizzato, mostra la pagina 404
             abort(403);
         }
         $data = [
             "selectedSuite" => $selectedSuite,
-            'address' => explode(',', $selectedSuite->address)
+            'messages' => $selectedSuite->messages
+
         ];
-        //  // $selectedTech = Technology::findOrFail();
-        //  $data = [
-        //      "project" => $selectedProject,
-        //      "technology" => $selectedProject->technologies
-        //  ];
+
         return view('admin.suite.show', $data);
     }
 
