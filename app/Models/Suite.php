@@ -67,7 +67,7 @@ class Suite extends Model
     }
     public function services()
     {
-        return $this->belongsToMany(Service::class, 'suite_service')->withTimestamps();
+        return $this->belongsToMany(Service::class, 'suite_service')->withPivot('service_id')->withTimestamps();
         // return $this->belongsToMany('App\Models\Technology');
     }
 
