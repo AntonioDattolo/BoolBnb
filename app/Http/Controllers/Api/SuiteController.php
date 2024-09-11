@@ -57,9 +57,11 @@ class SuiteController extends Controller
         // $longitude_from_front = 14.2681244;
 
         $room_from_front = 0;
+        
         if(isset($data['room'])){
-
-            $bed_from_front = $data['room'];
+            
+            $room_from_front = $data['room'];
+            
         }
 
 
@@ -68,26 +70,27 @@ class SuiteController extends Controller
         
         if(isset($data['bed'])){
             $bed_from_front = $data['bed'];
+            
         };
-         $service_from_front = [1,2,3,4,5,6];
+        $service_from_front = [1,2,3,4,5,6];
         
-        if(isset($data['services']))
+        if(isset($data['service']))
         {
-            $service_from_front =  $data['services'];
+            $service_from_front =  $data['service'];
         };
         
-        function radiusSearch( $latitude_from_front, $longitude_from_front , $room_from_front, $bed_from_front, $service_from_front){
+        function radiusSearch( $latitude_from_front, $longitude_from_front , $room_from_front, $bed_from_front,$service_from_front){
             $radius = 20;
             return  Suite::with('sponsors', 'services')
             ->where(DB::raw('111.1111 * DEGREES(ACOS(COS(RADIANS(' . $latitude_from_front . ')) * COS(RADIANS(suites.latitude)) * COS(RADIANS(' . $longitude_from_front . ' -suites.longitude)) +
              SIN(RADIANS(' . $latitude_from_front . ')) * SIN(RADIANS(suites.latitude))))'), '<=', $radius)
-            ->where('room', '>=' , $room_from_front )
-            ->where('bed' , '>=',$bed_from_front) 
+            ->where('room','>',$room_from_front)
+            ->where('bed' ,'>',$bed_from_front) 
             ->whereHas('services', function($query) use ($service_from_front){$query->where('service_id', $service_from_front);})
             ->get();
         }
 
-        $data = radiusSearch($latitude_from_front, $longitude_from_front,$room_from_front,$bed_from_front, $service_from_front);
+        $data = radiusSearch($latitude_from_front, $longitude_from_front,$room_from_front,$bed_from_front,$service_from_front);
 
         return response()->json([
             'success' => true,
