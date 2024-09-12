@@ -30,7 +30,7 @@ class SuiteController extends Controller
 
     public function show($slug)
     {
-        $suite = Suite::where('slug', $slug)->first();
+        $suite = Suite::with('sponsors', 'services', 'messages')->where('slug', $slug)->first();
 
         if ($suite) {
             return response()->json([
