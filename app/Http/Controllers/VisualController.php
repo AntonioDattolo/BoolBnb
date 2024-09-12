@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Suite;
 use App\Models\Visual;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VisualController extends Controller
 {
@@ -12,7 +14,20 @@ class VisualController extends Controller
      */
     public function index()
     {
-        //
+        // $user_id = Auth::user()->id;
+        // $suite = Suite::all();
+        // // $room
+        // $visuals = Visual::with('suites')->where('suite_id', $suite->id)->get()
+        // // $data = [
+        // //     'visuals' => Suite::with('user', 'visuals',)->where('user_id', $user_id)->get(),
+
+        // // ];
+        // $data = [
+        //     'visuals' => Visual::all(),
+        // ];
+
+        // // dd($data);
+        // return view('admin.visuals.graph', $data);
     }
 
     /**
@@ -34,9 +49,23 @@ class VisualController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Visual $visual)
+    public function show(String $id)
     {
         //
+        // $user_id = Auth::user()->id;
+        // $suite = Suite::all();
+        // // $room
+        // $visuals = Visual::with('suites')->where('suite_id', $suite->id)->get();
+        // // $data = [
+        // //     'visuals' => Suite::with('user', 'visuals',)->where('user_id', $user_id)->get(),
+
+        // // ];
+        // $data = [
+        //     'visuals' => Visual::all(),
+        // ];
+
+        // // dd($data);
+        // return view('admin.visuals.show', $data);
     }
 
     /**
