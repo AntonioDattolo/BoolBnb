@@ -15,9 +15,11 @@ class MessageController extends Controller
     {
 
         $user_id = Auth::user()->id;
-
+        $suite = Suite::with('user', 'messages', 'sponsors')->where('user_id', $user_id)->get();
+        // $messages = Message::where('suite_id', $suite['id'])->get();
         $data = [
-            'suite' => Suite::with('user', 'messages',)->select()->where('user_id', $user_id)->get(),
+            'suite' => $suite,
+            // 'messages' => $messages
 
         ];
         return view('admin.messages.index', $data);
