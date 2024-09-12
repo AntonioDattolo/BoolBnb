@@ -8,12 +8,19 @@
 				<th>SUITE IMAGE</th>
 				<th>SUITE TITLE</th>
 				<th>MESSAGES</th>
+				<th>LAST MESSAGE</th>
 
 			</thead>
 			<tbody>
-				{{-- {{dd($suite[0]->sponsors[0]->id)}} --}}
+				{{-- @foreach ($suite as $item)
+					@foreach ($item->messages as $message)
+						{{ $message->text }}
+					@endforeach
+				@endforeach --}}
+
 				@foreach ($suite as $item)
 					<tr>
+
 						<td>
 							@if (Str::startsWith($item->img, 'http'))
 								<img class="rounded p-2" src="{{ $item['img'] }}">
@@ -30,6 +37,10 @@
 
 
 						</td>
+
+						<td>
+
+						</td>
 					</tr>
 				@endforeach
 			</tbody>
@@ -42,9 +53,7 @@
 		width: 5rem;
 	}
 
-	.my-div {
-		width: rem;
-	}
+
 
 	.styled-table {
 		border-collapse: collapse;

@@ -12,7 +12,13 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::user()->id;
+
+        $data = [
+            'suite' => Suite::with('user', 'messages',)->where('user_id', $user_id)->get(),
+
+        ];
+        return view('admin.messages.index', $data);
     }
 
     /**

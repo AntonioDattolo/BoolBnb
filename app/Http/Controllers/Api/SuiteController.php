@@ -15,7 +15,7 @@ class SuiteController extends Controller
         // $suites = Suite::all();
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsors', 'services')->paginate(70)
+            'results' => Suite::with('sponsors', 'services', 'messages')->paginate(70)
         ]);
     }
 
@@ -23,7 +23,7 @@ class SuiteController extends Controller
     {
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsors', 'services')->where('sponsor', 1)->get()
+            'results' => Suite::with('sponsors', 'services', 'messages')->where('sponsor', 1)->get()
         ]);
     } 
 
@@ -48,6 +48,18 @@ class SuiteController extends Controller
     public function search(Request $request, Suite $suite)
     {
         $data = $request->query->all();
+        // $data = $request->validate([
+        //     "latitude" => "nullable",
+        //     "longitude" => "nullable",
+        //     "room" => "min:1|between:1,20",
+        //     "bed" => "min:1|between:1,20",
+            
+            
+           
+        //     "services" => "array",
+        //     "services" => "exists:services,id",
+            
+        // ]);
         // dd($data);
          $latitude_from_front = $data['latitude'];
 
@@ -72,31 +84,39 @@ class SuiteController extends Controller
             $bed_from_front = $data['bed'];
             
         };
-        $service_from_front = [1,2,3,4,5,6];
+        $service_from_front = ['1','2','3','4','5','6'];
         
         if(isset($data['service']))
         {
-            $service_from_front =  $data['service'];
+            $service_from_front = $data['service'];
         };
-        
-        function radiusSearch( $latitude_from_front, $longitude_from_front , $room_from_front, $bed_from_front,$service_from_front){
+        // dd($service_from_front);
+          function radiusSearch( $latitude_from_front, $longitude_from_front , $room_from_front, $bed_from_front,$service_from_front)
+        // function radiusSearch( $latitude_from_front, $longitude_from_front , $room_from_front, $bed_from_front)
+        {
             $radius = 20;
             return  Suite::with('sponsors', 'services')
             ->where(DB::raw('111.1111 * DEGREES(ACOS(COS(RADIANS(' . $latitude_from_front . ')) * COS(RADIANS(suites.latitude)) * COS(RADIANS(' . $longitude_from_front . ' -suites.longitude)) +
              SIN(RADIANS(' . $latitude_from_front . ')) * SIN(RADIANS(suites.latitude))))'), '<=', $radius)
             ->where('room','>',$room_from_front)
             ->where('bed' ,'>',$bed_from_front) 
-            ->whereHas('services', function($query) use ($service_from_front){$query->where('service_id', $service_from_front);})
+            ->whereHas('services', function($query) use ($service_from_front){$query->whereIn('service_id', $service_from_front);})
             ->get();
         }
-
+        // $data = radiusSearch($latitude_from_front, $longitude_from_front,$room_from_front,$bed_from_front);
         $data = radiusSearch($latitude_from_front, $longitude_from_front,$room_from_front,$bed_from_front,$service_from_front);
 
         return response()->json([
             'success' => true,
-            'results' => 
-                
-                $data
+            'quanti' => count($data),
+            'results' => $data,
+            'params' => [    
+            'lat' =>  $latitude_from_front,
+            'long'=> $longitude_from_front,
+            'rom' => $room_from_front,
+            'bed' => $bed_from_front,
+            'service' => $service_from_front
+            ]
         ]);
     }
 }
