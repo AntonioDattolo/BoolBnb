@@ -14,7 +14,8 @@ class Message extends Model
         'email',
         'name',
         'date',
-        'suite_id'
+        'suite_id',
+        'suite'
     ];
 
     public function suite()

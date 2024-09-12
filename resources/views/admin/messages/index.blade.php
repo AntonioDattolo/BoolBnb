@@ -8,40 +8,37 @@
 				<th>SUITE IMAGE</th>
 				<th>SUITE TITLE</th>
 				<th>MESSAGES</th>
-				<th>LAST MESSAGE</th>
+				<th>ALL MESSAGES</th>
 
 			</thead>
 			<tbody>
-				{{-- @foreach ($suite as $item)
-					@foreach ($item->messages as $message)
-						{{ $message->text }}
-					@endforeach
-				@endforeach --}}
 
 				@foreach ($suite as $item)
-					<tr>
+					@if (count($item->messages) > 0)
+						<tr>
 
-						<td>
-							@if (Str::startsWith($item->img, 'http'))
-								<img class="rounded p-2" src="{{ $item['img'] }}">
-							@else
-								<img class="rounded p-2" src="{{ asset('/storage/' . $item->img) }}">
-							@endif
-						</td>
+							<td>
+								@if (Str::startsWith($item->img, 'http'))
+									<img class="rounded p-2" src="{{ $item['img'] }}">
+								@else
+									<img class="rounded p-2" src="{{ asset('/storage/' . $item->img) }}">
+								@endif
+							</td>
 
-						<td> {{ $item->title }} </td>
+							<td> {{ $item->title }} </td>
 
+							<td>
+								{{ count($item->messages) }}
 
+							</td>
 
-						<td>
+							<td>
+								<a class="btn btn-primary" href="{{ route('admin.messages.show', $item->id) }}"><i
+										class="fa-solid fa-magnifying-glass"></i></a>
 
-
-						</td>
-
-						<td>
-
-						</td>
-					</tr>
+							</td>
+						</tr>
+					@endif
 				@endforeach
 			</tbody>
 		</table>
@@ -73,6 +70,7 @@
 	.styled-table th,
 	.styled-table td {
 		padding: 12px 15px;
+		text-align: center
 	}
 
 	.styled-table tbody tr {
