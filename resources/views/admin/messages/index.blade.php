@@ -11,7 +11,12 @@
 
 			</thead>
 			<tbody>
-				{{-- {{dd($suite[0]->sponsors[0]->id)}} --}}
+				{{-- @foreach ($suite as $item)
+					@foreach ($item->messages as $message)
+						{{ $message->text }}
+					@endforeach
+				@endforeach --}}
+
 				@foreach ($suite as $item)
 					<tr>
 						<td>
