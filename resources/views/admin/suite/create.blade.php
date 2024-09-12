@@ -9,7 +9,7 @@
 
     <form action="{{ route('admin.suite.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_title" class="form-label">*Title:</label>
             <input type="text" class="form-control" id="suite_title" placeholder="Suite Title" name="title" oninput="disabledButton()"
                 value="{{ old('title') }}" required>
@@ -19,7 +19,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_room" class="form-label">*Rooms:</label>
             <input type="number" class="form-control" id="suite_room" placeholder="Number of rooms" name="room" oninput="disabledButton()"
                 min="1" max="20" value="{{ old('room') }}" required>
@@ -29,7 +29,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_bed" class="form-label">*Beds:</label>
             <input type="number" class="form-control" id="suite_bed" placeholder="Number of beds" name="bed" oninput="disabledButton()"
                 min="1" max="20"value="{{ old('bed') }}" required>
@@ -39,7 +39,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_bathroom" class="form-label">*Bathrooms:</label>
             <input type="number" class="form-control" id="suite_bathroom" placeholder="Number of bathrooms" name="bathroom" oninput="disabledButton()"
                 min="1" max="10"value="{{ old('bathroom') }}" required>
@@ -49,7 +49,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_squareM" class="form-label">*Square Meters:</label>
             <input type="number" class="form-control" id="suite_squareM" placeholder="Square meters" name="squareM" oninput="disabledButton()"
                 min="25"value="{{ old('squareM') }}" required>
@@ -59,7 +59,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_address" class="form-label">*Address:</label>
             <input type="text" class="form-control" id="suite_address" placeholder="Address" name="address" oninput="disabledButton()"
                 value="{{ old('address') }}" required>
@@ -69,8 +69,8 @@
                 </ul>
             </div>
         </div>
-        <div class="w-50 m-5">
-            <label for="suite_img" class="form-label">*Upload Suite Imagesa:</label>
+        <div class="my-width m-5">
+            <label for="suite_img" class="form-label">*Upload Suite Images:</label>
 
             <input type="file" accept=".png,.jpg,.jpeg,.webp,image/png" class="form-control" name="img"
                 id="Suite_img" required />
@@ -102,8 +102,8 @@
                 
             </div> --}}
 
-        <div class="mb-4 row">
-            <label class="col-md-2 col-form-label text-md-right">Service</label>
+        <div class="m-5 row d-flex flex-column">
+            <label class="col-md-2 col-form-label text-md-right">Services:</label>
             <div class="col-md-10">
                 @foreach ($service as $item)
                     <div class="form-check">
@@ -190,3 +190,14 @@
 
     </script>
 @endsection
+
+<style scoped>
+    .my-width{
+            width: 50%;
+        }   
+    @media only screen and (max-width: 992px) {
+        .my-width{
+            width: 80%;
+        }
+    }
+</style>

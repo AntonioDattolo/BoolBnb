@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="jumbotron px-5 pt-3 rounded-3">
-    <h3>Modify {{$suite->title}}:</h3>
+    <h3>Edit {{$suite->title}}:</h3>
 </div>
 
     <form action="{{ route('admin.suite.update', $suite->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_title" class="form-label">Title:</label>
             <input type="text" class="form-control" id="suite_title" value="{{$suite->title}}" name="title" required>
         </div>
@@ -17,7 +17,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_room" class="form-label">Rooms:</label>
             <input type="number" class="form-control" id="suite_room" value="{{$suite->room}}" name="room" min="1" max="20">
         </div>
@@ -26,7 +26,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_bed" class="form-label">Beds:</label>
             <input type="number" class="form-control" id="suite_bed" value="{{$suite->bed}}" name="bed" min="1" max="20">
         </div>
@@ -35,7 +35,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_bathroom" class="form-label">Bathrooms:</label>
             <input type="number" class="form-control" id="suite_bathroom" value="{{$suite->bathroom}}" name="bathroom" min="1" max="10">
         </div>
@@ -44,7 +44,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_squareM" class="form-label">Square Meters:</label>
             <input type="number" class="form-control" id="suite_squareM" value="{{$suite->squareM}}" name="squareM" min="25">
         </div>
@@ -53,7 +53,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <div class="w-50 m-5">
+        <div class="my-width m-5">
             <label for="suite_address" class="form-label">*Address:</label>
             <input type="text" class="form-control" id="suite_address" placeholder="Address" name="address"
                 value="{{ old('address') }}" required>
@@ -91,13 +91,13 @@
                 
             </div>
         </div> --}}
-        <div class="w-50 m-5">
+        <div class="my-width my-4">
             <div class="d-flex" style="width: 100px">
-                <span>Current IMG:</span>
+                <span >Current IMG:</span>
                 @if(Str::startsWith($suite->img, 'http'))
-                <img class="w-100 ms-3 mb-2" src="{{ $suite->img }}" alt="">
+                <img class="w-100 ms-3 mb-3" src="{{ $suite->img }}" alt="">
                 @else
-                <img class="w-100 ms-3 mb-2" src="{{ asset('/storage/' . $suite->img) }}" alt="">
+                <img class="w-100 ms-3 mb-3" src="{{ asset('/storage/' . $suite->img) }}" alt="">
                 @endif
             </div>
             <label for="suite_img" class="form-label mb-2">Update IMG:</label>
@@ -110,8 +110,8 @@
             </span>
         @enderror
 
-        <div class="mb-4 row">
-            <label class="col-md-2 col-form-label text-md-right">Service</label>
+        <div class="my-5 row d-flex flex-column">
+            <label class="col-md-2 col-form-label text-md-right">Services:</label>
             <div class="col-md-10">
                 @foreach ($service as $item)
                     <div class="form-check">
@@ -129,7 +129,7 @@
                 @enderror
             </div>
         </div>
-        <button  type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Modify Suit </button>
+        <button  type="submit" class="btn btn-primary fs-5 mx-5 mb-5"> Edit Suit </button>
     </form>
     <script>
         const input = document.getElementById("suite_address");
@@ -170,3 +170,14 @@
         }
     </script>
 @endsection
+
+<style scoped>
+    .my-width{
+            width: 50%;
+        }   
+    @media only screen and (max-width: 992px) {
+        .my-width{
+            width: 80%;
+        }
+    }
+</style>
