@@ -26,7 +26,7 @@
             <div class="my-div">
                 <a class="btn btn-warning text-dark {{ Route::currentRouteName() == 'admin.suite.create' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.suite.create') }}">
-									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi Suite
+									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi
 				</a>
             </div>
 
@@ -62,8 +62,8 @@
                         <th>SUITE IMAGE</th>
                         <th>SUITE TITLE</th>
                         {{-- <th>SUITE VISUALS</th> MANCANO LE VISUALIZZAZIONI --}}
-                        <th>SUITE SPONSOR</th>
-                        <th>SUITE VISIBILITY</th>
+                        <th class="sponsor">SUITE SPONSOR</th>
+                        <th class="visibility">SUITE VISIBILITY</th>
                         <th>ACTION</th>
                     </thead>
                     <tbody>
@@ -82,17 +82,17 @@
                             
                             
                             @if ($item->sponsor == 1)
-                            <td class=" my-bg-sponsorized"> Sponsorizzato <i class="fa-solid fa-coins text-warning"></i> </td> 
+                            <td class="sponsor my-bg-sponsorized"> Sponsorizzato <i class="fa-solid fa-coins text-warning"></i> </td> 
                             @else 
-                            <td> <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">sponsorizza <i class="fa-solid fa-coins text-warning"></i></a> </td>
+                            <td class="sponsor"> <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">sponsorizza <i class="fa-solid fa-coins text-warning"></i></a> </td>
                             @endif
                             
                             @if ($item->visible == 1)
-                            <td> <i class="fa fa-eye" aria-hidden="true"></i></td> 
+                            <td class="visibility"> <i class="fa fa-eye" aria-hidden="true"></i></td> 
                             @else
-                            <td> <i class="fa fa-eye-slash" aria-hidden="true"></i> </td>
+                            <td class="visibility"> <i class="fa fa-eye-slash" aria-hidden="true"></i> </td>
                             @endif
-                            <td>
+                            <td class="action">
                                 <a class="btn btn-warning" href="{{route('admin.suite.edit', $item->id)}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                 
                                 <a class="btn btn-primary" href="{{route('admin.suite.show', $item->id)}}"><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -157,15 +157,15 @@
     img{
         width: 5rem;
     }
-    .my-div{
+    /* .my-div{
         width: rem;
-    }
+    } */
     .styled-table {
         border-collapse: collapse;
         margin: 25px 0;
         font-size: 0.9em;
         font-family: sans-serif;
-        min-width: 400px;
+        min-width: 90%;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     }
 
@@ -189,7 +189,41 @@
     }
     tbody tr:last-of-type {
         border-bottom: 5px solid #009879;
-    } 
+    }
 
+    @media only screen and (max-width: 1232px) {
+        td .btn-warning{
+            display: none
+        }
+        .action{
+            display: flex;
+            gap: 1rem
+        }
+    }
+    @media only screen and (max-width: 992px) {
+        /* .action{
+            display: none;
+        } */
+        td .btn-danger{
+            display: none
+
+        }
+    }
+    @media only screen and (max-width: 576px) {
+        /* .action{
+            display: none;
+        } */
+       .sponsor{
+        display: none;
+       }
+    }
+    @media only screen and (max-width: 435px) {
+        /* .action{
+            display: none;
+        } */
+       .visibility{
+        display: none;
+       }
+    }
 
 </style>

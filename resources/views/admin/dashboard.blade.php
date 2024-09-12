@@ -30,3 +30,9 @@
         </div>
     </div>
 @endsection
+
+<style scoped>
+    .card{
+        z-index: 1;
+    }
+</style>
