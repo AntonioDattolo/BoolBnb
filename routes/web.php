@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\VisualController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 use App\Http\Controllers\SuiteController;
@@ -39,6 +40,7 @@ Route::middleware(['auth'])
         Route::resource('User', User::class);
         Route::resource('sponsor', SponsorController::class);
         Route::resource('messages', MessageController::class);
+        Route::resource('visuals', VisualController::class);
 
         // Route::get('/paymentSponsorship', [PaymentController::class , 'pay']);
         // **********************************
