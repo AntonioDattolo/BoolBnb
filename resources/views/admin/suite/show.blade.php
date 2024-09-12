@@ -56,6 +56,8 @@
 						@endif
 					</div>
 
+					<a href="{{route('admin.visuals.show', $selectedSuite->id)}}">grafico</a>
+
 					{{-- INIZIO SEZIONE MODALE --}}
 
 					<div class="modal fade" id="modal-{{ $selectedSuite->id }}" tabindex="-1" data-bs-backdrop="static"

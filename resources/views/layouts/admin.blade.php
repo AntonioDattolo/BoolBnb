@@ -56,21 +56,21 @@
 							<li class="nav-item">
 								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.suite.create' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.suite.create') }}">
-									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Create Suite
+									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Create
 								</a>
 							</li>
 
 							<li class="nav-item">
 								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.messages.index') }}">
-									<i class="fa-regular fa-message" aria-hidden="true"></i></i> Messages
+									<i class="fa-regular fa-message fa-lg fa-fw" aria-hidden="true"></i></i> Messages
 								</a>
 							</li>
 
 							{{-- <li class="nav-item">
-								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsor.index' ? 'bg-secondary' : '' }}"
-								href="{{ route('admin.sponsor.index') }}">
-									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Sponsorship
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.visuals.index' ? 'bg-secondary' : '' }}"
+								href="{{ route('admin.visuals.index') }}">
+									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Graphics
 								</a>
 							</li> --}}
 
@@ -172,6 +172,11 @@
 </html>
 
 <style scoped>
+
+	.nav-lg {
+		display: flex;
+		flex-direction: column;
+	}
 	.my-toggle{
 		display: none;
 	}
