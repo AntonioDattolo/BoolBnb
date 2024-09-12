@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Suite;
 use App\Models\Visual;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Validator;
@@ -12,32 +14,20 @@ use Validator;
 class VisualController extends Controller
 {
     //
-    // public function index() {
-    //     return response()->json([
-    //         'success' => true,
-    //         'results' => Visual::all(),
-    //     ]);
+    public function index() {
+        // return response([
+        //     'success' => true,
+        //     'results' => Visual::all(),
+        // ]);
+      
 
        
-    // }
+    }
 
     public function store(Request $request) {
         // 
-        // $suite = Suite::where('slug', $slug)->first();
          $data = $request->all();
          $data['date'] = now();
-
-        // $validator = FacadesValidator::make($data, [
-        //     'ip_address' => 'required',
-        //     'suite_id' => 'required',
-        //     // 'date' => 'nullable', 
-        // ]);
-        // if ($validator->fails()) {
-        //     return response()->json([
-        //         'success' => false,
-        //         'errors' => $validator->errors(),
-        //     ]);
-        // }
         
          $new_visual = new Visual();
         // $new_visual->fill($data);
@@ -46,31 +36,28 @@ class VisualController extends Controller
         $new_visual->date = $data['date'];
         // dd($new_visual);
         $new_visual->save();
-        // $new_visual = Visual::create([
-        //      'ip_address' => $data->visuals->ip_address,
-        //      'suite_id' => $data->visuals->suite_id,
-        //      'date' => now(),
-        //  ]) ;
-        //  $new_visual->save();
 
         return response()->json([
             'success' => true,
             'results' => $request->all()
         ]);
-    
-       
-        // return response()->json([
-        //     'success' => true,
-        //     'message' => "FATTO",
-        // ], 200);
+    }
+    public function show(String $id){
+        //
+        // $user_id = Auth::user()->id;
+        // $suite = Suite::where('id', $id)->first();
+        // $visuals = Visual::where('suite_id', $id)->get();
 
-        // if ($new_visual) {
-        //     # code...
-        // }else {
-            // return response()->json([
-            //     'status' => 500,
-            //     'message' => 'nadaaaa',
-            // ], 500);
-        // }
+        // $dati = [
+        //     'visuals' => $visuals,
+        //     'suite' => $suite,
+        // ];
+        $visuals = DB::table('visuals')->select(DB::raw('MONTH(date) as month'), 
+        DB::raw('COUNT(suite_id) as visuals'))->where('suite_id', $id)->groupBy('month')->get();
+
+
+        // dd($data);
+        return view('admin.visuals.show', compact('visuals'));
+
     }
 }
