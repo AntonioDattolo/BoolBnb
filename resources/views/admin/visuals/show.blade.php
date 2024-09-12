@@ -14,7 +14,7 @@
     const ctx = document.getElementById('myChart');
   
     new Chart(ctx, {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: <?php  echo json_encode($months); ?>,
 

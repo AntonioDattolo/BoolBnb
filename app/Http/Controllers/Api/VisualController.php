@@ -8,7 +8,6 @@ use App\Models\Visual;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Validator;
 
@@ -32,7 +31,10 @@ class VisualController extends Controller
         
          
          
-         if (DB::table('visuals')->where('ip_address', $data['ip'])->exists()) {
+         if (DB::table('visuals')->where('ip_address', $data['ip'])
+         ->where('suite_id', '=',  $data['suite_id'])
+
+         ->exists()) {
             return response()->json([
                 'success' => true,
                 'results' => 'esiste già'
@@ -58,10 +60,10 @@ class VisualController extends Controller
         //  ]) ;
         //  $new_visual->save();
 
-        return response()->json([
-            'success' => true,
-            'results' => $request->all()
-        ]);
+        // return response()->json([
+        //     'success' => true,
+        //     'results' => $request->all()
+        // ]);
     }
     public function show(String $id){
         //
