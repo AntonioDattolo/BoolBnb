@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Support\Facades\DB;
 use App\Models\Suite;
 
@@ -105,11 +106,11 @@ class SuiteController extends Controller
         }
         // $data = radiusSearch($latitude_from_front, $longitude_from_front,$room_from_front,$bed_from_front);
         $data = radiusSearch($latitude_from_front, $longitude_from_front,$room_from_front,$bed_from_front,$service_from_front);
-
+        $service = Service::all();
         return response()->json([
             'success' => true,
             'quanti' => count($data),
-            'results' => $data,
+            'results' => [$data,$service],
             'params' => [    
             'lat' =>  $latitude_from_front,
             'long'=> $longitude_from_front,
