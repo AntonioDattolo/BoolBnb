@@ -12,18 +12,15 @@
 
 			</thead>
 			<tbody>
-				{{-- {{dd($suite[0]->messages[0]->text)}} --}}
-				{{-- {{dd($suite[0]->sponsors[0]->id)}} --}}
-				{{-- @foreach ($suite->messages as $key => $item)
-					{{dd($item->messages->text)}}
-					{{$item->text}}
+				{{-- @foreach ($suite as $item)
+					@foreach ($item->messages as $message)
+						{{ $message->text }}
+					@endforeach
 				@endforeach --}}
-				{{-- @for ($i = 0; $i < count($suite); $i++)
-					{{$suite[$i]->messages}}
-				@endfor --}}
+
 				@foreach ($suite as $item)
 					<tr>
-						
+
 						<td>
 							@if (Str::startsWith($item->img, 'http'))
 								<img class="rounded p-2" src="{{ $item['img'] }}">
@@ -37,7 +34,7 @@
 
 
 						<td>
-							
+
 
 						</td>
 
@@ -56,7 +53,7 @@
 		width: 5rem;
 	}
 
-	
+
 
 	.styled-table {
 		border-collapse: collapse;

@@ -11,9 +11,7 @@ class Visual extends Model
     use HasFactory;
     protected $fillable = [
         'suite_id',
-        'suite_id',
         'ip_address',
-        'date'
     ];
 
     public function suite()
