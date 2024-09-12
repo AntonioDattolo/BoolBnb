@@ -8,62 +8,53 @@
 			<strong>{{ session('message') }}</strong>
 		</div>
 	@endif
-	<h1 class="card-title ms-4 mt-5">{{ $selectedSuite->title }}</h1>
+	<h1 class=" text-center card-title ms-4 mt-5">{{ $selectedSuite->title }}</h1>
 	<div class="jumbotron p-3 mb-4 rounded-3 ">
-		<div class="row">
+		<div class="vista col-12 ">
 			<div class="col-6">
 				@if (Str::startsWith($selectedSuite->img, 'http'))
-					<img class="card-img-top object-fit-contain rounded p-2" src="{{ $selectedSuite['img'] }}">
+					<img class="col-12 object-fit-contain rounded p-2" src="{{ $selectedSuite['img'] }}">
 				@else
-					<img class="card-img-top object-fit-contain rounded p-2" src="{{ asset('/storage/' . $selectedSuite->img) }}">
+					<img class="col-12 object-fit-contain rounded p-2" src="{{ asset('/storage/' . $selectedSuite->img) }}">
 				@endif
 			</div>
-			<div class="card-body col-6 px-5">
+			<div class="card-body col-lg-6 col-sm-12 px-5 align-self-start">
 
 				<h3 class="mb-5">Suite informations:</h3>
 				<h4>
 					<p>
-						Rooms: {{ $selectedSuite->room }}
+						Rooms <i class="fa-solid fa-person-shelter" aria-hidden="true"></i> {{ $selectedSuite->room }}
 					</p>
 					<p>
-						Bathrooms: {{ $selectedSuite->bathroom }}
+						Bathrooms <i class="fa fa-bath" aria-hidden="true"></i> {{ $selectedSuite->bathroom }}
 					</p>
 					<p>
-						Beds: {{ $selectedSuite->bed }}
+						Beds <i class="fa fa-bed" aria-hidden="true"></i> {{ $selectedSuite->bed }}
 					</p>
 					<p>
 						Address: {{ $selectedSuite->address }}
 					</p>
 
 					<a href=" {{ route('admin.suite.edit', $selectedSuite->id) }} " class="btn btn-primary my-2">EDIT</a>
-					<a href="http://localhost:8000/admin/payment" class="btn btn-success">Sponsorizza <i
-							class="fa-solid fa-coins text-warning"></i></a>
-
-					{{-- __________________________________________________________________ --}}
+					 
 					<button type="button" class="btn btn-danger" data-bs-toggle="modal"
 						data-bs-target="#modal-{{ $selectedSuite->id }}">
 						DELETE
 					</button>
-
-					{{-- INIZIO SEZIONE MESSAGGI --}}
-					@if ($selectedSuite->messages != [])
-						<div class="">
-							@foreach ($selectedSuite->messages as $message)
-								<div class="my-2 bg-warning p-2 border rounded">
-									@if ($message->name != null)
-										<span class="fs-6">
-											Da:{{ $message->name }}
-										</span>
-									@endif
-									<span class="fs-6">
-										Email:{{ $message->email }}
-									</span>
-									<p>{{ $message->text }}</p>
-								</div>
-							@endforeach
-						</div>
+					@if ($selectedSuite->sponsor == 1)
+					<h3 class="text-success"> Sponsorizzato <i class="fa-solid fa-coins text-warning"></i> </h3>
+					@else 
+					<a href="{{route('admin.payment', $selectedSuite->slug)}}" class="btn btn-success">sponsorizza <i class="fa-solid fa-coins text-warning"></i></a>
 					@endif
-					{{-- FINE SEZIONE MESSAGGI --}}
+					{{-- __________________________________________________________________ --}}
+
+					<div>
+						@if ($selectedSuite->visible == 1)
+							<h3 class="text-primary align-center">VISIBLE <a class="btn btn-primary" href="#"> <i class="fa fa-eye" aria-hidden="true"></i></a></h3> 
+						@else
+							<h3 class="text danger">NOT VISIBLE <a class="btn btn-primary" href="#"> <i class="fa fa-eye-slash" aria-hidden="true"></i></a></h3>
+						@endif
+					</div>
 
 					{{-- INIZIO SEZIONE MODALE --}}
 
@@ -130,3 +121,17 @@
 		</div>
 	</div>
 @endsection
+
+<style scoped>
+	.vista{
+		display: flex;
+		flex-direction: row
+	}
+	@media only screen and (max-width: 700px) {
+		.vista{
+		display: flex;
+		flex-direction: column;
+		align-items: center
+	}
+}
+</style>

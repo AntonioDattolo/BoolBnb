@@ -5,20 +5,12 @@
 <div class="jumbotron">
     <div class="img-container container">
         {{-- <img class="" src="{{asset('/img/' . 'BoolBnb.png')}}" alt=""> --}}
-        <div class="d-flex justify-content-start align-items-start h-100">
-            <img class="col-5 m-2 myImg" src="{{asset('/img/' . 'BoolBnb.png')}}" alt="">
+        <div id="breack" class="d-flex justify-content-start align-items-start h-100">
+            <img class="col-lg-5 col-md-4 col-3 m-2 myImg" src="{{asset('/img/' . 'BoolBnb.png')}}" alt="">
             <h1 class="col-7 display-5 fw-bold text-dark text-center m-5 nerko-one-regular">
                 Welcome to BoolBnB 
             </h1>
-            {{-- <div class="searchbar-container d-flex align-items-center">
-                <form class="d-flex col-6" role="search">
-                    <input class="searchbar me-3" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
-                </form>
-            </div> --}}
         </div>
-
-       
     </div>
     <div class="container pb-5">
         
@@ -68,30 +60,13 @@
   font-style: normal;
   font-size:85px;
 }
-
-/* .img-container{
-    height: 40rem;
+@media only screen and (max-width: 768px) {
+  .breack {
+    display: flex;
+    flex-direction: column;
+  }
+  img{
     width: 100%;
-    background-size: 100%;
-    background-position-y: left;
-    background-repeat: no-repeat;
-    background-image: url({{asset('/img/' . 'BoolBnb.png')}});
-} */
-
-.searchbar-container{
-    background-color: rgba(134, 134, 134, 0.815);
-    width: 80%;
-    border-radius: 80px;
-    margin-top: 2rem;
-    margin-bottom: 5rem;
-    padding: 1rem;
-}
-
-.searchbar{
-    border-radius: 80px;
-    height: 3rem;
-    background-color: rgba(240, 248, 255, 0);
-    border-color: white;
-    
+  }
 }
 </style>

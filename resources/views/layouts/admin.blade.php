@@ -29,9 +29,9 @@
 
 		<div class="container-fluid vh-100">
 			<div class="row h-100">
-				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
-					<div class="position-sticky pt-3">
-						<ul class="nav flex-column">
+				<nav id="sidebarMenu" class="col-lg-2 d-md-block bg-dark navbar-dark nav-bar-expand-lg ">
+					<div id="nav" class="position-sticky pt-3">
+						<ul class="nav nav-lg">
 
 							<li class="nav-item">
 								<a class="nav-link text-white" href="/">
@@ -63,7 +63,7 @@
 							<li class="nav-item">
 								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.messages.index') }}">
-									<i class="fa-solid fa-bars fa-lg fa-fw"></i> Messages
+									<i class="fa-regular fa-message" aria-hidden="true"></i></i> Messages
 								</a>
 							</li>
 
@@ -86,11 +86,81 @@
 							</li>
 
 						</ul>
+						<p class="d-inline-flex gap-1">
+							<button class="btn btn-primary my-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+								<i class="fa fa-navicon" aria-hidden="true"></i>
+							</button>
+						</p>
+						<div class="collapse" id="collapseExample">
+							<div class="card card-body">
+								<ul class="nav nav-breack">
+
+								<li class="nav-item">
+									<a class="nav-link text-dark" href="/">
+										<i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
+									</a>
+								</li>
+	
+								<li class="nav-item">
+									<a class="nav-link text-dark {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+										href="{{ route('admin.dashboard') }}">
+										<i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+									</a>
+								</li>
+	
+								<li class="nav-item">
+									<a class="nav-link text-dark {{ Route::currentRouteName() == 'admin.suite.index' ? 'bg-secondary' : '' }}"
+										href="{{ route('admin.suite.index') }}">
+										<i class="fa-solid fa-bars fa-lg fa-fw"></i> Suite's List
+									</a>
+								</li>
+	
+								<li class="nav-item">
+									<a class="nav-link text-dark {{ Route::currentRouteName() == 'admin.suite.create' ? 'bg-secondary' : '' }}"
+										href="{{ route('admin.suite.create') }}">
+										<i class="fa-solid fa-plus fa-lg fa-fw"></i> Create Suite
+									</a>
+								</li>
+	
+								<li class="nav-item">
+									<a class="nav-link text-dark {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-secondary' : '' }}"
+										href="{{ route('admin.messages.index') }}">
+										<i class="fa-solid fa-bars fa-lg fa-fw"></i> Messages
+									</a>
+								</li>
+	
+								{{-- <li class="nav-item">
+									<a class="nav-link text-dark {{ Route::currentRouteName() == 'admin.sponsor.index' ? 'bg-secondary' : '' }}"
+									href="{{ route('admin.sponsor.index') }}">
+										<i class="fa-solid fa-plus fa-lg fa-fw"></i> Sponsorship
+									</a>
+								</li> --}}
+	
+	
+								<li class="nav-item">
+									<a class="nav-link text-dark" href="{{ route('logout') }}"
+										onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+										<i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
+									</a>
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+										@csrf
+									</form>
+								</li>
+	
+								</ul>
+							</div>
+						</div>
+
+
+
+
+
+
 
 					</div>
 				</nav>
 
-				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<main class="col-md-12 col-lg-10 px-md-4">
 					@yield('content')
 				</main>
 			</div>
@@ -100,3 +170,41 @@
 </body>
 
 </html>
+
+<style scoped>
+	.my-toggle{
+		display: none;
+	}
+	@media only screen and (max-width: 1400px) {
+		.nav-lg{
+			display: flex;
+			flex-direction: column;
+		}
+}
+	@media only screen and (max-width: 992px) {
+		.nav-lg{
+			display: flex;
+			flex-direction: row;
+		}
+		nav{
+			height: fit-content;
+			padding: 1rem;
+		}
+}
+	@media only screen and (max-width: 796px) {
+
+		.my-toggle{
+			display: block;
+		}
+		.nav-breack{
+			display: flex;
+			flex-direction: column;
+		}
+		.nav-lg{
+			display: none;
+		}
+		.offcanvas-body{
+			z-index: 999999;
+		}
+}
+</style>
