@@ -41,6 +41,8 @@ Route::middleware(['auth'])
         Route::resource('sponsor', SponsorController::class);
         Route::resource('messages', MessageController::class);
         Route::resource('visuals', VisualController::class);
+        // Route::get('VisualChart', [chart])
+        // Route::resource('graph', \App\Http\Controllers\VisualController::class);
 
         // Route::get('/paymentSponsorship', [PaymentController::class , 'pay']);
         // **********************************
