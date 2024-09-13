@@ -7,23 +7,23 @@
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<img src="{{ asset('/img/' . 'Villa_St_Tropez_3729da2012.webp') }}" class="d-block " alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<h5>First slide label</h5>
-							<p>Some representative placeholder content for the first slide.</p>
+						<div class="carousel-caption d-none d-md-block my_bg ">
+							<h4>Enjoy every moment</h4>
+							<p>Home is not where we live, but wherever we are understood.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
 						<img src="{{ asset('/img/' . 'Villa.jpg') }}" class="d-block " alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<h5>Second slide label</h5>
-							<p>Some representative placeholder content for the second slide.</p>
+						<div class="carousel-caption d-none d-md-block my_bg ">
+							<h4>Find you're story</h4>
+							<p>Each House is a story that is not identical to any other.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
 						<img src="{{ asset('/img/' . 'ville-di-lusso.jpg') }}" class="d-block " alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<h5>Third slide label</h5>
-							<p>Some representative placeholder content for the third slide.</p>
+						<div class="carousel-caption d-none d-md-block my_bg ">
+							<h4>Feel at Home</h4>
+							<p>Home is that place where, when you go, they always welcome you.</p>
 						</div>
 					</div>
 				</div>
@@ -39,6 +39,12 @@
 		@endsection
 
 		<style scoped>
+			.my_bg {
+				background-color: rgba(128, 128, 128, 0.534);
+				width: 40%;
+				margin: 0 auto
+			}
+
 			.my_jumbotron {
 				height: calc(100vh - 4.5rem);
 				/* overflow: hidden */

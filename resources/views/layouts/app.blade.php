@@ -44,15 +44,17 @@
 					</div>
 
 					{{-- ***********************BOTTONE RESPONSIVE**************************** --}}
-					<button class="navbar-toggler align-self-center" type="button" data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-						aria-label="{{ __('Toggle navigation') }}">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+					<div class="align-self-center ms-auto">
+						<button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+							aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+					</div>
 
+
+					<!-- Right Side Of Navbar -->
 					<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
-						<!-- Right Side Of Navbar -->
 						<ul class="navbar-nav ml-auto">
 							{{-- ***********************RIGHT SIDE LINKS**************************** --}}
 							<li class="nav-item">
