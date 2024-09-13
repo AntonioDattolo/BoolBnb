@@ -7,10 +7,16 @@
         
 
         @if ( count($suite) == 0)
-            <h1>
-                You don't have any suites yet
-            </h1>
-            <a href="{{ route('admin.suite.create') }}" class="btn btn-warning btn-lg" type="button">Add a Suite</a>
+            <div class="d-flex justify-content-between">
+                <h1>
+                    Your Suites:
+                </h1>
+                <a href="{{ route('admin.suite.create') }}" class="btn btn-warning btn-lg" type="button">Add a Suite</a>
+            </div>
+            <div class="d-flex justify-content-center align-items-center h-50">
+                <h2>You don't have any suite yet</h2>
+                
+            </div>
         @else 
 
         @if(session('message'))
@@ -21,12 +27,12 @@
         @endif
              
          <div class="d-flex justify-content-between align-items-center">
-            <h1>My Suites: {{count($suite)}}
+            <h1>Your Suites: {{count($suite)}}
             </h1>
             <div class="my-div">
                 <a class="btn btn-warning text-dark {{ Route::currentRouteName() == 'admin.suite.create' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.suite.create') }}">
-									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi
+									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Add a Suite
 				</a>
             </div>
 
@@ -82,9 +88,9 @@
                             
                             
                             @if ($item->sponsor == 1)
-                            <td class="sponsor my-bg-sponsorized"> Sponsorizzato <i class="fa-solid fa-coins text-warning"></i> </td> 
+                            <td class="sponsor"><div class="my-bg-sponsored text-center p-2 fw-semibold"> Sponsored <i class="fa-solid fa-circle-check text-success"></i> </div></td> 
                             @else 
-                            <td class="sponsor"> <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">sponsorizza <i class="fa-solid fa-coins text-warning"></i></a> </td>
+                            <td class="sponsor"> <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">Sponsor this suite <i class="fa-solid fa-coins text-warning"></i></a> </td>
                             @endif
                             
                             @if ($item->visible == 1)
@@ -102,17 +108,17 @@
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                   </button>
                                 <div class="modal fade" id="modal-{{$item->id}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitle-{{$item->id}}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm " role="document">
+                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
                                         <div class="modal-content bg-dark">
                                             <div class="modal-header">
-                                                <h5 class="modal-title text-white" id="modalTitle-{{$item->id}}">
-                                                    Delete suite
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h3 class="modal-title text-white" id="modalTitle-{{$item->id}}">
+                                                    Delete suite "{{$item->title}}"
+                                                </h3>
+                                                <button type="button" class="btn-close"  data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                   
-                                            <div class="modal-body text-center">
-                                                <span class="text-white">
+                                            <div class="modal-body text-center m-3">
+                                                <span class="text-white fs-5">
                                                   Are you sure you want to delete
                                                   <br>
                                                   <strong>
@@ -120,8 +126,8 @@
                                                   </strong>
                                                 </span>
                                                 <br>
-                                                <span class="text-danger">
-                                                    Danger, you cannot undo this operation
+                                                <span class="text-danger fs-5">
+                                                    You cannot undo this operation
                                                 </span>
                                             </div>
                                             <div class="modal-footer">
@@ -134,7 +140,7 @@
                                                     @method('DELETE')
                                   
                                                     <button type="submit" class="btn btn-danger">
-                                                        Confirm
+                                                        Delete
                                                     </button>
                                   
                                                 </form>
@@ -154,6 +160,14 @@
 @endsection
 
 <style scoped>
+
+    .my-bg-sponsored{
+        background-color: rgb(0, 208, 255);
+        width: 65%;
+        border-radius: 5px;
+        font-size: 16px
+    }
+   
     img{
         width: 5rem;
     }
