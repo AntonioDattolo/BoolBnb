@@ -1,9 +1,9 @@
 <x-mail::message>
-	Hai ricevuto un nuovo messaggio, ecco qui i dettagli:<br>
+	You have received a new message, here are the details:<br>
 	Suite: {{ $message->suite->title }}<br>
-	Nome: {{ $message->name }}<br>
+	Name: {{ $message->name }}<br>
 	Email: {{ $message->email }}<br>
-	Messaggio:
+	Message:
 	{{ $message->text }}<br>
 	Data: {{ $message->date }}<br>
 
