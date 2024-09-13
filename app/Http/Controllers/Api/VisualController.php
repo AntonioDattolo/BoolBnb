@@ -32,7 +32,7 @@ class VisualController extends Controller
          
          
          if (DB::table('visuals')->where('ip_address', $data['ip'])
-         ->where('suite_id', '=',  $data['suite_id'])
+         ->where('suite_id', '=',  $data['suite'])
 
          ->exists()) {
             return response()->json([
