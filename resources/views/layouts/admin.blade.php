@@ -47,7 +47,7 @@
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.suite.index' ? 'bg-secondary' : '' }}"
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.suite.index' ? 'bg-secondary' : '' }} {{ Route::currentRouteName() == 'admin.payment' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.suite.index') }}">
 									<i class="fa-solid fa-bars fa-lg fa-fw"></i> Suite's List
 								</a>
