@@ -10,7 +10,7 @@
             <div class="mb-4 row">
                 <h2 class="col-12 mb-3 col-form-label text-md-right">You had chosen to sponsorship :</h2>
                 <h1 class="col-12 mb-3">{{ $suite[0]->title }} {{ $suite[0]->id }}</h1>
-                <h4 class="col-12 mb-5">Situato in via : {{ $suite[0]->address }}</h4>
+                <h4 class="col-12 mb-5">Situated in : {{ $suite[0]->address }}</h4>
                 <div class="col-md-10 d-flex gap-3 justify-content-center">
                     @foreach ($sponsor as $item)
                         <div class="card col-3 mr-2">
@@ -28,7 +28,7 @@
                                 <p class="card-text text-center">{{ str_replace(':00:00', '', $item->period) }} Hours in
                                     sponsorization </p>
                                     @if($item->id == 2)
-                                    <span style="width:100%px;position: relative;bottom:-15px; float :left;padding: 0 3px 0 5px; border-bottom: 35px solid red;border-right: 29px solid rgba(54, 13, 215, 0);">
+                                    <span class="" style="width:100%px;position: relative;bottom:-15px; float :left;padding: 0 3px 0 5px;border-radius:5px; border-bottom: 35px solid rgb(42, 66, 252);border-right: 29px solid rgba(77, 41, 223, 0); color:whitesmoke">
                                         <span style="display :block;position:relative;bottom: -22px ">Most Sailed</span>
                                       
                                     </span>
@@ -36,11 +36,11 @@
                             </div>
                         </div>
                     @endforeach
-                    @error('technologies')
+                    {{-- @error('spo')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                    @enderror --}}
                 </div>
             </div>
             @if (Route::has('login'))
@@ -71,7 +71,7 @@
                 </section>
 
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button id="pay" class="btn  btn-primary" type="submit"><span>Test Transaction</span></button>
+                <button id="pay" class="btn  btn-primary" type="submit"><span>Pay</span></button>
 
             </form>
             <div id="container_button"></div>
