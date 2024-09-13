@@ -28,7 +28,7 @@ class SuiteSeeder extends Seeder
         $newSuite1->latitude = 40.851775;
         $newSuite1->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite1->visible = true;
-        $newSuite1->sponsor = true;
+        $newSuite1->sponsor = false;
         $newSuite1->tot_visuals = 20;
         $newSuite1->user_id = rand(1,2);
         $newSuite1->save();
@@ -62,7 +62,7 @@ class SuiteSeeder extends Seeder
         $newSuite3->latitude = 41.890210;
         $newSuite3->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite3->visible = true;
-        $newSuite3->sponsor = true;
+        $newSuite3->sponsor = false;
         $newSuite3->tot_visuals = 50;
         $newSuite3->user_id = 1;
         $newSuite3->save();
@@ -96,7 +96,7 @@ class SuiteSeeder extends Seeder
         $newSuite5->latitude = 45.478111;
         $newSuite5->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite5->visible = true;
-        $newSuite5->sponsor = true;
+        $newSuite5->sponsor = false;
         $newSuite5->tot_visuals = 40;
         $newSuite5->user_id = 1;
         $newSuite5->save();
@@ -130,7 +130,7 @@ class SuiteSeeder extends Seeder
         $newSuite7->latitude = 43.318809;
         $newSuite7->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite7->visible = true;
-        $newSuite7->sponsor = true;
+        $newSuite7->sponsor = false;
         $newSuite7->tot_visuals = 70;
         $newSuite7->user_id = 1;
         $newSuite7->save();
@@ -164,7 +164,7 @@ class SuiteSeeder extends Seeder
         $newSuite9->latitude = 41.120186;
         $newSuite9->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite9->visible = true;
-        $newSuite9->sponsor = true;
+        $newSuite9->sponsor = false;
         $newSuite9->tot_visuals = 30;
         $newSuite9->user_id = 1;
         $newSuite9->save();
@@ -198,7 +198,7 @@ class SuiteSeeder extends Seeder
         $newSuite11->latitude = 37.502669;
         $newSuite11->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite11->visible = true;
-        $newSuite11->sponsor = true;
+        $newSuite11->sponsor = false;
         $newSuite11->tot_visuals = 45;
         $newSuite11->user_id = 1;
         $newSuite11->save();
@@ -232,7 +232,7 @@ class SuiteSeeder extends Seeder
         $newSuite13->latitude = 45.808059;
         $newSuite13->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite13->visible = true;
-        $newSuite13->sponsor = true;
+        $newSuite13->sponsor = false;
         $newSuite13->tot_visuals = 75;
         $newSuite13->user_id = 1;
         $newSuite13->save();
@@ -266,7 +266,7 @@ class SuiteSeeder extends Seeder
         $newSuite15->latitude = 44.801485;
         $newSuite15->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite15->visible = true;
-        $newSuite15->sponsor = true;
+        $newSuite15->sponsor = false;
         $newSuite15->tot_visuals = 65;
         $newSuite15->user_id = 1;
         $newSuite15->save();
@@ -300,7 +300,7 @@ class SuiteSeeder extends Seeder
         $newSuite17->latitude = 43.843017;
         $newSuite17->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite17->visible = true;
-        $newSuite17->sponsor = true;
+        $newSuite17->sponsor = false;
         $newSuite17->tot_visuals = 50;
         $newSuite17->user_id = 1;
         $newSuite17->save();
@@ -334,7 +334,7 @@ class SuiteSeeder extends Seeder
         $newSuite19->latitude = 45.454774;
         $newSuite19->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite19->visible = true;
-        $newSuite19->sponsor = true;
+        $newSuite19->sponsor = false;
         $newSuite19->tot_visuals = 80;
         $newSuite19->user_id = 1;
         $newSuite19->save();
@@ -368,7 +368,7 @@ class SuiteSeeder extends Seeder
         $newSuite21->latitude = 40.626292;
         $newSuite21->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite21->visible = true;
-        $newSuite21->sponsor = true;
+        $newSuite21->sponsor = false;
         $newSuite21->tot_visuals = 90;
         $newSuite21->user_id = 1;
         $newSuite21->save();
@@ -402,7 +402,7 @@ class SuiteSeeder extends Seeder
         $newSuite23->latitude = 40.923824;
         $newSuite23->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite23->visible = true;
-        $newSuite23->sponsor = true;
+        $newSuite23->sponsor = false;
         $newSuite23->tot_visuals = 85;
         $newSuite23->user_id = 1;
         $newSuite23->save();
@@ -436,7 +436,7 @@ class SuiteSeeder extends Seeder
         $newSuite25->latitude = 40.551575;
         $newSuite25->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite25->visible = true;
-        $newSuite25->sponsor = true;
+        $newSuite25->sponsor = false;
         $newSuite25->tot_visuals = 95;
         $newSuite25->user_id = 1;
         $newSuite25->save();
@@ -453,7 +453,7 @@ class SuiteSeeder extends Seeder
         $newSuite26->latitude = 40.546309;
         $newSuite26->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite26->visible = true;
-        $newSuite26->sponsor = true;
+        $newSuite26->sponsor = false;
         $newSuite26->tot_visuals = 120;
         $newSuite26->user_id = 1;
         $newSuite26->save();
@@ -487,7 +487,7 @@ class SuiteSeeder extends Seeder
         $newSuite28->latitude = 40.626292;
         $newSuite28->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite28->visible = true;
-        $newSuite28->sponsor = true;
+        $newSuite28->sponsor = false;
         $newSuite28->tot_visuals = 150;
         $newSuite28->user_id = 1;
         $newSuite28->save();
@@ -521,7 +521,7 @@ class SuiteSeeder extends Seeder
         $newSuite30->latitude = 38.115688;
         $newSuite30->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite30->visible = true;
-        $newSuite30->sponsor = true;
+        $newSuite30->sponsor = false;
         $newSuite30->tot_visuals = 80;
         $newSuite30->user_id = 1;
         $newSuite30->save();
@@ -555,7 +555,7 @@ class SuiteSeeder extends Seeder
         $newSuite32->latitude = 45.576760;
         $newSuite32->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite32->visible = true;
-        $newSuite32->sponsor = true;
+        $newSuite32->sponsor = false;
         $newSuite32->tot_visuals = 90;
         $newSuite32->user_id = 1;
         $newSuite32->save();
@@ -589,7 +589,7 @@ class SuiteSeeder extends Seeder
         $newSuite34->latitude = 45.443797;
         $newSuite34->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite34->visible = true;
-        $newSuite34->sponsor = true;
+        $newSuite34->sponsor = false;
         $newSuite34->tot_visuals = 95;
         $newSuite34->user_id = 1;
         $newSuite34->save();
@@ -623,7 +623,7 @@ class SuiteSeeder extends Seeder
         $newSuite36->latitude = 44.494887;
         $newSuite36->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite36->visible = true;
-        $newSuite36->sponsor = true;
+        $newSuite36->sponsor = false;
         $newSuite36->tot_visuals = 85;
         $newSuite36->user_id = 1;
         $newSuite36->save();
@@ -657,7 +657,7 @@ class SuiteSeeder extends Seeder
         $newSuite38->latitude = 43.588610;
         $newSuite38->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite38->visible = true;
-        $newSuite38->sponsor = true;
+        $newSuite38->sponsor = false;
         $newSuite38->tot_visuals = 130;
         $newSuite38->user_id = 1;
         $newSuite38->save();
@@ -691,7 +691,7 @@ class SuiteSeeder extends Seeder
         $newSuite40->latitude = 45.434092;
         $newSuite40->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite40->visible = true;
-        $newSuite40->sponsor = true;
+        $newSuite40->sponsor = false;
         $newSuite40->tot_visuals = 110;
         $newSuite40->user_id = 1;
         $newSuite40->save();
@@ -725,7 +725,7 @@ class SuiteSeeder extends Seeder
         $newSuite42->latitude = 40.352195;
         $newSuite42->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite42->visible = true;
-        $newSuite42->sponsor = true;
+        $newSuite42->sponsor = false;
         $newSuite42->tot_visuals = 115;
         $newSuite42->user_id = 1;
         $newSuite42->save();
@@ -759,7 +759,7 @@ class SuiteSeeder extends Seeder
         $newSuite44->latitude = 40.923165;
         $newSuite44->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite44->visible = true;
-        $newSuite44->sponsor = true;
+        $newSuite44->sponsor = false;
         $newSuite44->tot_visuals = 135;
         $newSuite44->user_id = 1;
         $newSuite44->save();
@@ -777,7 +777,7 @@ class SuiteSeeder extends Seeder
         $newSuite45->latitude = 40.846814;
         $newSuite45->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite45->visible = true;
-        $newSuite45->sponsor = true;
+        $newSuite45->sponsor = false;
         $newSuite45->tot_visuals = 20;
         $newSuite45->user_id = rand(1,2);
         $newSuite45->save();
@@ -795,7 +795,7 @@ class SuiteSeeder extends Seeder
         $newSuite46->latitude = 40.835933;
         $newSuite46->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite46->visible = true;
-        $newSuite46->sponsor = true;
+        $newSuite46->sponsor = false;
         $newSuite46->tot_visuals = 20;
         $newSuite46->user_id = rand(1,2);
         $newSuite46->save();
@@ -813,7 +813,7 @@ class SuiteSeeder extends Seeder
         $newSuite47->latitude = 40.826315;
         $newSuite47->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite47->visible = true;
-        $newSuite47->sponsor = true;
+        $newSuite47->sponsor = false;
         $newSuite47->tot_visuals = 20;
         $newSuite47->user_id = rand(1,2);
         $newSuite47->save();
@@ -831,7 +831,7 @@ class SuiteSeeder extends Seeder
         $newSuite48->latitude = 40.813982;
         $newSuite48->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite48->visible = true;
-        $newSuite48->sponsor = true;
+        $newSuite48->sponsor = false;
         $newSuite48->tot_visuals = 20;
         $newSuite48->user_id = rand(1,2);
         $newSuite48->save();
@@ -849,7 +849,7 @@ class SuiteSeeder extends Seeder
         $newSuite49->latitude = 40.835234;
         $newSuite49->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite49->visible = true;
-        $newSuite49->sponsor = true;
+        $newSuite49->sponsor = false;
         $newSuite49->tot_visuals = 20;
         $newSuite49->user_id = rand(1,2);
         $newSuite49->save();
@@ -867,7 +867,7 @@ class SuiteSeeder extends Seeder
         $newSuite50->latitude = 40.851588;
         $newSuite50->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite50->visible = true;
-        $newSuite50->sponsor = true;
+        $newSuite50->sponsor = false;
         $newSuite50->tot_visuals = 20;
         $newSuite50->user_id = rand(1,2);
         $newSuite50->save();
@@ -885,7 +885,7 @@ class SuiteSeeder extends Seeder
         $newSuite51->latitude = 40.853453;
         $newSuite51->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite51->visible = true;
-        $newSuite51->sponsor = true;
+        $newSuite51->sponsor = false;
         $newSuite51->tot_visuals = 20;
         $newSuite51->user_id = rand(1,2);
         $newSuite51->save();
@@ -903,7 +903,7 @@ class SuiteSeeder extends Seeder
         $newSuite52->latitude = 40.853007;
         $newSuite52->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite52->visible = true;
-        $newSuite52->sponsor = true;
+        $newSuite52->sponsor = false;
         $newSuite52->tot_visuals = 20;
         $newSuite52->user_id = rand(1,2);
         $newSuite52->save();
@@ -921,7 +921,7 @@ class SuiteSeeder extends Seeder
         $newSuite53->latitude = 40.852301;
         $newSuite53->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite53->visible = true;
-        $newSuite53->sponsor = true;
+        $newSuite53->sponsor = false;
         $newSuite53->tot_visuals = 20;
         $newSuite53->user_id = rand(1,2);
         $newSuite53->save();
@@ -939,7 +939,7 @@ class SuiteSeeder extends Seeder
         $newSuite54->latitude = 40.822344;
         $newSuite54->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite54->visible = true;
-        $newSuite54->sponsor = true;
+        $newSuite54->sponsor = false;
         $newSuite54->tot_visuals = 20;
         $newSuite54->user_id = rand(1,2);
         $newSuite54->save();
@@ -957,7 +957,7 @@ class SuiteSeeder extends Seeder
         $newSuite55->latitude = 40.826031;
         $newSuite55->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite55->visible = true;
-        $newSuite55->sponsor = true;
+        $newSuite55->sponsor = false;
         $newSuite55->tot_visuals = 20;
         $newSuite55->user_id = rand(1,2);
         $newSuite55->save();
@@ -975,7 +975,7 @@ class SuiteSeeder extends Seeder
         $newSuite56->latitude = 40.855522;
         $newSuite56->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite56->visible = true;
-        $newSuite56->sponsor = true;
+        $newSuite56->sponsor = false;
         $newSuite56->tot_visuals = 20;
         $newSuite56->user_id = rand(1,2);
         $newSuite56->save();
@@ -993,7 +993,7 @@ class SuiteSeeder extends Seeder
         $newSuite57->latitude = 40.839544;
         $newSuite57->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite57->visible = true;
-        $newSuite57->sponsor = true;
+        $newSuite57->sponsor = false;
         $newSuite57->tot_visuals = 20;
         $newSuite57->user_id = rand(1,2);
         $newSuite57->save();
@@ -1011,7 +1011,7 @@ class SuiteSeeder extends Seeder
         $newSuite58->latitude = 40.849942;
         $newSuite58->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite58->visible = true;
-        $newSuite58->sponsor = true;
+        $newSuite58->sponsor = false;
         $newSuite58->tot_visuals = 20;
         $newSuite58->user_id = rand(1,2);
         $newSuite58->save();
@@ -1029,7 +1029,7 @@ class SuiteSeeder extends Seeder
         $newSuite59->latitude = 40.831233;
         $newSuite59->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite59->visible = true;
-        $newSuite59->sponsor = true;
+        $newSuite59->sponsor = false;
         $newSuite59->tot_visuals = 20;
         $newSuite59->user_id = rand(1,2);
         $newSuite59->save();
@@ -1047,7 +1047,7 @@ class SuiteSeeder extends Seeder
         $newSuite60->latitude = 40.832844;
         $newSuite60->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite60->visible = true;
-        $newSuite60->sponsor = true;
+        $newSuite60->sponsor = false;
         $newSuite60->tot_visuals = 20;
         $newSuite60->user_id = rand(1,2);
         $newSuite60->save();
@@ -1065,7 +1065,7 @@ class SuiteSeeder extends Seeder
         $newSuite61->latitude = 40.841819;
         $newSuite61->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite61->visible = true;
-        $newSuite61->sponsor = true;
+        $newSuite61->sponsor = false;
         $newSuite61->tot_visuals = 20;
         $newSuite61->user_id = rand(1,2);
         $newSuite61->save();
@@ -1083,7 +1083,7 @@ class SuiteSeeder extends Seeder
         $newSuite62->latitude = 40.812922;
         $newSuite62->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite62->visible = true;
-        $newSuite62->sponsor = true;
+        $newSuite62->sponsor = false;
         $newSuite62->tot_visuals = 20;
         $newSuite62->user_id = rand(1,2);
         $newSuite62->save();
@@ -1101,7 +1101,7 @@ class SuiteSeeder extends Seeder
         $newSuite63->latitude = 40.849599;
         $newSuite63->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite63->visible = true;
-        $newSuite63->sponsor = true;
+        $newSuite63->sponsor = false;
         $newSuite63->tot_visuals = 20;
         $newSuite63->user_id = rand(1,2);
         $newSuite63->save();
@@ -1119,7 +1119,7 @@ class SuiteSeeder extends Seeder
         $newSuite64->latitude = 40.853611;
         $newSuite64->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite64->visible = true;
-        $newSuite64->sponsor = true;
+        $newSuite64->sponsor = false;
         $newSuite64->tot_visuals = 20;
         $newSuite64->user_id = rand(1,2);
         $newSuite64->save();
