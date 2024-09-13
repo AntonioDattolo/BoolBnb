@@ -2,14 +2,8 @@
 
 @section('content')
 	<div class="my_jumbotron">
-		<div class="container">
-			<div id="carouselExampleCaptions" class="carousel slide">
-				<div class="carousel-indicators">
-					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true"
-						aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-				</div>
+		<div class="container-fluid p-0">
+			<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<img src="{{ asset('/img/' . 'Villa_St_Tropez_3729da2012.webp') }}" class="d-block " alt="...">
@@ -19,14 +13,14 @@
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="{{ asset('/img/' . 'Unveiling_the_Splendor.webp') }}" class="d-block " alt="...">
+						<img src="{{ asset('/img/' . 'Villa.jpg') }}" class="d-block " alt="...">
 						<div class="carousel-caption d-none d-md-block">
 							<h5>Second slide label</h5>
 							<p>Some representative placeholder content for the second slide.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="{{ asset('/img/' . 'Location-villa-St-Martin.jpg') }}" class="d-block " alt="...">
+						<img src="{{ asset('/img/' . 'ville-di-lusso.jpg') }}" class="d-block " alt="...">
 						<div class="carousel-caption d-none d-md-block">
 							<h5>Third slide label</h5>
 							<p>Some representative placeholder content for the third slide.</p>
@@ -46,13 +40,14 @@
 
 		<style scoped>
 			.my_jumbotron {
-				height: calc(100vh - 4.6rem);
+				height: calc(100vh - 4.5rem);
 				/* overflow: hidden */
 			}
 
 			.my_jumbotron img {
 				width: 100%;
-				height: 90%;
+				height: 95%;
+				object-fit: cover;
 			}
 
 
@@ -71,7 +66,27 @@
 
 				.my_jumbotron img {
 					width: 100%;
-					height: 50%;
+					height: 10%;
+				}
+
+			}
+
+			@media only screen and (max-width: 992px) {
+
+
+				.my_jumbotron img {
+					width: 100%;
+					height: 30%;
+				}
+
+			}
+
+			@media only screen and (max-width:1200px) {
+
+
+				.my_jumbotron img {
+					width: 100%;
+					height: 75%;
 				}
 
 			}
