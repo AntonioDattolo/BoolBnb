@@ -27,8 +27,10 @@
         @endif
              
          <div class="d-flex justify-content-between align-items-center">
-            <h1>Your Suites: {{count($suite)}}
-            </h1>
+            <div>
+                <h1>Your Suites:</h1>
+                <div class="fs-5">You have <strong>{{count($suite)}}</strong> suites</div>
+            </div>
             <div class="my-div">
                 <a class="btn btn-warning text-dark {{ Route::currentRouteName() == 'admin.suite.create' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.suite.create') }}">
@@ -68,9 +70,9 @@
                         <th>SUITE IMAGE</th>
                         <th>SUITE TITLE</th>
                         {{-- <th>SUITE VISUALS</th> MANCANO LE VISUALIZZAZIONI --}}
-                        <th class="sponsor">SUITE SPONSOR</th>
-                        <th class="visibility">SUITE VISIBILITY</th>
-                        <th>ACTION</th>
+                        <th class="sponsor text-center">SUITE SPONSOR</th>
+                        <th class="visibility text-center">SUITE VISIBILITY</th>
+                        <th class="action-width text-end">ACTION</th>
                     </thead>
                     <tbody>
                         {{-- {{dd($suite[0]->sponsors[0]->id)}} --}}
@@ -88,17 +90,17 @@
                             
                             
                             @if ($item->sponsor == 1)
-                            <td class="sponsor"><div class="my-bg-sponsored text-center p-2 fw-semibold"> Sponsored <i class="fa-solid fa-circle-check text-success"></i> </div></td> 
+                            <td class="sponsor text-center"><div class="my-bg-sponsored m-auto p-2 fw-semibold"> Sponsored <i class="fa-solid fa-circle-check text-success"></i> </div></td> 
                             @else 
-                            <td class="sponsor"> <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">Sponsor this suite <i class="fa-solid fa-coins text-warning"></i></a> </td>
+                            <td class="sponsor text-center"> <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">Sponsor this suite <i class="fa-solid fa-coins text-warning"></i></a> </td>
                             @endif
                             
                             @if ($item->visible == 1)
-                            <td class="visibility"> <i class="fa fa-eye" aria-hidden="true"></i></td> 
+                            <td class="visibility text-center"> <i class="fa fa-eye" aria-hidden="true"></i></td> 
                             @else
                             <td class="visibility"> <i class="fa fa-eye-slash" aria-hidden="true"></i> </td>
                             @endif
-                            <td class="action">
+                            <td class="action text-end">
                                 <a class="btn btn-warning" href="{{route('admin.suite.edit', $item->id)}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                 
                                 <a class="btn btn-primary" href="{{route('admin.suite.show', $item->id)}}"><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -160,7 +162,10 @@
 @endsection
 
 <style scoped>
-
+    .action-width{
+        width: 13%;
+        
+    }
     .my-bg-sponsored{
         background-color: rgb(0, 208, 255);
         width: 65%;
@@ -213,6 +218,10 @@
             display: flex;
             gap: 1rem
         }
+
+        .my-bg-sponsored{
+        width: 75%;
+        }
     }
     @media only screen and (max-width: 992px) {
         /* .action{
@@ -221,6 +230,9 @@
         td .btn-danger{
             display: none
 
+        }
+        .my-bg-sponsored{
+        width: 95%;
         }
     }
     @media only screen and (max-width: 576px) {
