@@ -1,72 +1,78 @@
 @extends('layouts.app')
 
 @section('content')
+	<div class="my_jumbotron">
+		<div class="container">
+			<div id="carouselExampleCaptions" class="carousel slide">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true"
+						aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="{{ asset('/img/' . 'Villa_St_Tropez_3729da2012.webp') }}" class="d-block " alt="...">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>First slide label</h5>
+							<p>Some representative placeholder content for the first slide.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('/img/' . 'Unveiling_the_Splendor.webp') }}" class="d-block " alt="...">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Second slide label</h5>
+							<p>Some representative placeholder content for the second slide.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('/img/' . 'Location-villa-St-Martin.jpg') }}" class="d-block " alt="...">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Third slide label</h5>
+							<p>Some representative placeholder content for the third slide.</p>
+						</div>
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+					<span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		@endsection
 
-<div class="jumbotron">
-    <div class="img-container container">
-        {{-- <img class="" src="{{asset('/img/' . 'BoolBnb.png')}}" alt=""> --}}
-        <div id="breack" class="d-flex justify-content-start align-items-start h-100">
-            <img class="col-lg-5 col-md-4 col-3 m-2 myImg" src="{{asset('/img/' . 'BoolBnb.png')}}" alt="">
-            <h1 class="col-7 display-5 fw-bold text-dark text-center m-5 nerko-one-regular">
-                Welcome to BoolBnB 
-            </h1>
-        </div>
-    </div>
-    <div class="container pb-5">
-        
-        
+		<style scoped>
+			.my_jumbotron {
+				height: calc(100vh - 4.6rem);
+				/* overflow: hidden */
+			}
 
-        {{-- <p class="col-md-8 fs-4">This a preset package with Bootstrap 5 views for laravel projects including laravel breeze/blade. It works from laravel 9.x to the latest release 10.x</p> --}}
-        {{-- <a href="{{ route('register') }}" class="btn btn-primary btn-lg" type="button">{{ __('Register') }}</a> --}}
-        @guest
-        {{-- <a href="{{ route('register') }}" class="btn btn-primary btn-lg" type="button">{{ __('Register') }}</a> --}}
-        @if (Route::has('register'))
-        
-
-        @endif
-
-        @else
-
-        {{-- <a href="{{ route('admin.suite.create') }}" class="btn btn-warning btn-lg" type="button">Add a Suite</a>
-        <br>
-        <a href="{{ route('admin.suite.index') }}" class="btn btn-info btn-lg mt-4" type="button">My Suites</a> --}}
-        {{-- sono un admin  --}}
-         
-        
-
-        @endguest
-        <br>
-        {{-- <a href="/" class="btn btn-info btn-lg mt-3" type="button">Cerca appartamenti</a> --}}
-    </div>
-</div>
-
-<div class="content">
-    {{-- <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus, facilis illum rerum officiis accusamus dolores!</p>
-    </div> --}}
-</div>
-
-@endsection
-
-<style scoped> 
+			.my_jumbotron img {
+				width: 100%;
+				height: 90%;
+			}
 
 
-.jumbo-img{
-    width: 100%
-}
-.nerko-one-regular {
-  font-family: "Nerko One", cursive;
-  font-weight: 400;
-  font-style: normal;
-  font-size:85px;
-}
-@media only screen and (max-width: 768px) {
-  .breack {
-    display: flex;
-    flex-direction: column;
-  }
-  img{
-    width: 100%;
-  }
-}
-</style>
+			.nerko-one-regular {
+				font-family: "Nerko One", cursive;
+				font-weight: 400;
+				font-style: normal;
+				font-size: 85px;
+			}
+
+			@media only screen and (max-width: 768px) {
+				.breack {
+					display: flex;
+					flex-direction: column;
+				}
+
+				.my_jumbotron img {
+					width: 100%;
+					height: 50%;
+				}
+
+			}
+		</style>
