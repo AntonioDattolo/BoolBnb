@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use App\Models\Sponsor;
 use Illuminate\Support\Facades\DB;
 use App\Models\Suite;
 
@@ -21,10 +22,14 @@ class SuiteController extends Controller
     }
 
     public function latest()
-    {
+    { $dates = "2024-09-13";
         return response()->json([
             'success' => true,
-            'results' => Suite::with('sponsors', 'services', 'messages')->where('sponsor', 1)->get()
+            'results' => Suite::where('suites.sponsor', 1)->orderBy("updated_at", "DESC")
+            ->with(['sponsors' => function ($query) {
+                 $query->orderByRaw("DATE_FORMAT(suite_sponsor.created_at, '%p')DESC");
+            }])
+            ->get()
         ]);
     } 
 
@@ -49,41 +54,23 @@ class SuiteController extends Controller
     public function search(Request $request, Suite $suite)
     {
         $data = $request->query->all();
-        // $data = $request->validate([
-        //     "latitude" => "nullable",
-        //     "longitude" => "nullable",
-        //     "room" => "min:1|between:1,20",
-        //     "bed" => "min:1|between:1,20",
-            
-            
-           
-        //     "services" => "array",
-        //     "services" => "exists:services,id",
-            
-        // ]);
-        // dd($data);
-         $latitude_from_front = $data['latitude'];
+     
+        $latitude_from_front = $data['latitude'];
 
-         $longitude_from_front =  $data['longitude'];
-
-        // $latitude_from_front = 40.8517746;
-        // $longitude_from_front = 14.2681244;
+        $longitude_from_front =  $data['longitude'];
 
         $room_from_front = 0;
         
         if(isset($data['room'])){
             
             $room_from_front = $data['room'];
-            
+          
         }
-
 
         $bed_from_front = 0;
         
-        
         if(isset($data['bed'])){
-            $bed_from_front = $data['bed'];
-            
+            $bed_from_front = $data['bed'];   
         };
         $service_from_front = ['1','2','3','4','5','6'];
         
