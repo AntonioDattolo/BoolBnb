@@ -5,7 +5,7 @@
     <h3>Edit {{$suite->title}}:</h3>
 </div>
 
-    <form action="{{ route('admin.suite.update', $suite->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.suite.update', $suite->id) }}" method="POST" enctype="multipart/form-data" autocomplete="off">
         @method('PUT')
         @csrf
         <div class="my-width m-5">
@@ -101,7 +101,7 @@
                 @endif
             </div>
             <label for="suite_img" class="form-label mb-2">Update IMG:</label>
-            <input type="file" class="form-control" name="img" id="suite_img" value="{{$suite->img}}" accept=“.png,.jpg,.jpeg,.webp,image/png”/>
+            <input type="file" class="form-control" name="img" id="suite_img" value="{{$suite->img}}" accept=“.png,.jpg,.jpeg,.webp,image/png” />
         </div>
         
         @error('img')
@@ -115,7 +115,7 @@
             <div class="col-md-10">
                 @foreach ($service as $item)
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="services[]" value="{{ $item->id }}"
+                        <input class="form-check-input" type="checkbox" name="services[]" value="{{ $item->id }}" autocomplete=""
                             id="tech{{ $item->id }}">
 
 
@@ -167,7 +167,15 @@
                             risultati.append(address_suggest);
                         }
                     });
-        }
+        };
+
+        // ************************************************************************************
+
+        (function() {
+            var some_id = document.getElementById('suite_title');
+            some_id.type = 'text';
+            some_id.removeAttribute('autocomplete');
+        })();
     </script>
 @endsection
 
