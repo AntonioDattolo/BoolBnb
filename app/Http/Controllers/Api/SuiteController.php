@@ -25,7 +25,7 @@ class SuiteController extends Controller
     { $dates = "2024-09-13";
         return response()->json([
             'success' => true,
-            'results' => Suite::where('suites.sponsor', 1)->orderBy("updated_at", "DESC")
+            'results' => Suite::with('services')->where('suites.sponsor', 1)->orderBy("updated_at", "DESC")
             ->with(['sponsors' => function ($query) {
                  $query->orderByRaw("DATE_FORMAT(suite_sponsor.created_at, '%p')DESC");
             }])
