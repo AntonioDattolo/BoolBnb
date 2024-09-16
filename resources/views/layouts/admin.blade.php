@@ -28,7 +28,7 @@
 	<div id="app">
 
 		<div class="container-fluid vh-100">
-			<div class="row h-100">
+			<div class="row">
 				{{-- *****************************SIDE BAR NAV***************************** --}}
 
 				<nav id="sidebarMenu" class="col-lg-2 d-md-block bg-dark navbar-dark nav-bar-expand-lg ">
