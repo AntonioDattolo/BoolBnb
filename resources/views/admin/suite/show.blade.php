@@ -8,19 +8,19 @@
 			<strong>{{ session('message') }}</strong>
 		</div>
 	@endif
-	<h1 class=" text-center card-title ms-4 mt-5">{{ $selectedSuite->title }}</h1>
+	<h1 class=" text-center card-title ms-4 mt-5 mb-5">{{ $selectedSuite->title }}</h1>
 	<div class="jumbotron p-3 mb-4 rounded-3 ">
 		<div class="vista col-12 ">
-			<div class="col-6">
+			<div class="col-6 d-flex justify-content-center">
 				@if (Str::startsWith($selectedSuite->img, 'http'))
-					<img class="col-12 object-fit-contain rounded p-2" src="{{ $selectedSuite['img'] }}">
+					<img class="" src="{{ $selectedSuite['img'] }}">
 				@else
-					<img class="col-12 object-fit-contain rounded p-2" src="{{ asset('/storage/' . $selectedSuite->img) }}">
+					<img class="" src="{{ asset('/storage/' . $selectedSuite->img) }}">
 				@endif
 			</div>
 			<div class="card-body col-lg-6 col-sm-12 px-5 align-self-start">
 
-				<h3 class="mb-5">Suite informations:</h3>
+				<h3 class="my-5">Suite informations:</h3>
 				<h4>
 					<p>
 						Rooms <i class="fa-solid fa-person-shelter" aria-hidden="true"></i> {{ $selectedSuite->room }}
@@ -41,10 +41,11 @@
 						data-bs-target="#modal-{{ $selectedSuite->id }}">
 						DELETE
 					</button>
+					<br>
 					@if ($selectedSuite->sponsor == 1)
-					<h3 class="text-success"> Sponsored <i class="fa-solid fa-coins text-warning"></i> </h3>
+					<h3 style="color: rgb(255, 123, 0)"> Sponsored <i class="fa-solid fa-circle-check" style="color: whitesmoke"></i></h3>
 					@else 
-					<a href="{{route('admin.payment', $selectedSuite->slug)}}" class="btn btn-success my-2">Sponsor this suite <i class="fa-solid fa-coins text-warning"></i></a>
+					<a href="{{route('admin.payment', $selectedSuite->slug)}}" class="my-sponsor-btn my-2">Sponsor this suite &#128640;</a>
 					@endif
 					{{-- __________________________________________________________________ --}}
 
@@ -55,8 +56,8 @@
 							<h3 class="text danger">NOT VISIBLE <a class="btn btn-primary" href="#"> <i class="fa fa-eye-slash" aria-hidden="true"></i></a></h3>
 						@endif
 					</div> --}}
-
-					<a class="btn btn-outline-success my-2" href="{{route('admin.visuals.show', $selectedSuite->id)}}"> Analytics <i class="fa-solid fa-chart-line"></i></a>
+					<br>
+					<a class="my-sponsor-btn my-2" href="{{route('admin.visuals.show', $selectedSuite->id)}}"> Analytics <i class="fa-solid fa-chart-line"></i></a>
 
 					{{-- INIZIO SEZIONE MODALE --}}
 
@@ -125,10 +126,43 @@
 @endsection
 
 <style scoped>
+	img {
+    object-fit: cover;
+    width: 600px;
+    height: 600px;
+}
 	.vista{
 		display: flex;
 		flex-direction: row
 	}
+
+	.my-sponsor-btn {
+        box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.702);
+
+        background-color:#35bcbf;
+        border-radius:6px;
+        border:1px solid #057fd0;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:8px 8px;
+        text-decoration:none;
+        text-shadow:0px -1px 0px #5b6178;
+        transition: 0.3s;
+    }
+.my-sponsor-btn:hover {
+	
+	background: #35bdbf9c;
+    
+}
+.my-sponsor-btn:active {
+	position:relative;
+	top:1px;
+}
+
 	@media only screen and (max-width: 700px) {
 		.vista{
 		display: flex;

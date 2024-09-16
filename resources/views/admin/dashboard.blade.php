@@ -4,11 +4,11 @@
 	<section class="p-0">
 		<div class="container-fluid mt-4 h-100">
 			<div class="row justify-content-center align-items-center h-100">
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-header text-center">{{ __('Dashboard') }}</div>
+				<div class="col-md-6">
+					<div class="card" style="border: #263849 1px solid">
+						<div class="card-header text-center fs-5" style="background: #263849; color:whitesmoke">{{ __('Dashboard') }}</div>
 
-						<div class="card-body">
+						<div class="card-body" style="background: #41506b; color:whitesmoke">
 							@if (session('status'))
 								<div class="alert alert-success" role="alert">
 									{{ session('status') }}
@@ -40,8 +40,11 @@
 	}
 
 	section {
-		background-image: url('/img/interno.jpg');
-		background-size: contain;
-		height: 90%;
+		background-image: url('/img/sfondo_dashboard.jpg');
+		background-size: cover;
+		background-repeat: no-repeat; 
+		background-position: center;
+		height: 95%;
+
 	}
 </style>

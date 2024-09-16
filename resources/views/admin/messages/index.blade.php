@@ -53,38 +53,35 @@
 
 
 	.styled-table {
-		border-collapse: collapse;
-		margin: 25px 0;
-		font-size: 0.9em;
-		font-family: sans-serif;
-		min-width: 400px;
-		box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-	}
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 90%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
 
 	.styled-table thead tr {
-		background-color: #009879;
-		color: #ffffff;
-		text-align: left;
-	}
+        background: #35bcbf; 
+        color: #ffffff;
+        text-align: left;
+    }
 
 	.styled-table th,
-	.styled-table td {
-		padding: 12px 15px;
-		text-align: center
-	}
+    .styled-table td {
+        padding: 12px 15px;
+    }
+     .styled-table tbody tr {
+    /* border-bottom: 2px solid #8A9A5B; */
+    border-bottom: 1px solid #35bcbf;
+    }
+    tbody tr:nth-child(even) {
+        
+        color: whitesmoke;
+        background: #41506b; 
+    }
+    tbody tr:last-of-type {
+        border-bottom: 5px solid #35bcbf; 
+    }
 
-	.styled-table tbody tr {
-		/* border-bottom: 2px solid #8A9A5B; */
-		border-bottom: 1px solid #dddddd;
-	}
-
-	tbody tr:nth-child(even) {
-		font-weight: bold;
-		color: #009879;
-		background-color: #f3f3f3;
-	}
-
-	tbody tr:last-of-type {
-		border-bottom: 5px solid #009879;
-	}
 </style>

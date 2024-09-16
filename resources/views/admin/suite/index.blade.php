@@ -32,7 +32,7 @@
                 <div class="fs-5">You have <strong>{{count($suite)}}</strong> suites</div>
             </div>
             <div class="my-div">
-                <a class="btn btn-warning text-dark {{ Route::currentRouteName() == 'admin.suite.create' ? 'bg-secondary' : '' }}"
+                <a class="my-sponsor-btn {{ Route::currentRouteName() == 'admin.suite.create' ? 'bg-secondary' : '' }}"
 									href="{{ route('admin.suite.create') }}">
 									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Add a Suite
 				</a>
@@ -98,9 +98,9 @@
                             </td> 
                             @else 
                             <td class="sponsor text-center">
-                                <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">
-                                    Sponsor this suite 
-                                    <i class="fa-solid fa-coins text-warning"></i>
+                                <a href="{{route('admin.payment', $item->slug)}}" class="my-sponsor-btn">
+                                    Sponsor this suite &#128640;
+                                    {{-- <i class="fa-solid fa-coins text-warning"></i> --}}
                                 </a> 
                             </td>
                             @endif
@@ -182,6 +182,50 @@
         border-radius: 5px;
         font-size: 16px
     }
+
+    .my-sponsor-btn {
+        box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.702);
+
+        background-color:#35bcbf;
+        border-radius:6px;
+        border:1px solid #057fd0;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:8px 8px;
+        text-decoration:none;
+        text-shadow:0px -1px 0px #5b6178;
+        transition: 0.3s;
+    }
+.my-sponsor-btn:hover {
+	
+	background: #35bdbf9c;
+    
+}
+.my-sponsor-btn:active {
+	position:relative;
+	top:1px;
+}
+
+.my-add-btn {
+	box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.702);
+	background-color:#35bcbf;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 8px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+    transition: 0.3s;
+}
    
     img{
         width: 5rem;
@@ -199,7 +243,7 @@
     }
 
     .styled-table thead tr {
-        background-color: #009879;
+        background: #35bcbf; 
         color: #ffffff;
         text-align: left;
     }
@@ -209,15 +253,15 @@
     }
      .styled-table tbody tr {
     /* border-bottom: 2px solid #8A9A5B; */
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #35bcbf;
     }
     tbody tr:nth-child(even) {
-        font-weight: bold;
-        color: #009879;
-        background-color: #f3f3f3;
+        
+        color: whitesmoke;
+        background: #41506b; 
     }
     tbody tr:last-of-type {
-        border-bottom: 5px solid #009879;
+        border-bottom: 5px solid #35bcbf; 
     }
 
     @media only screen and (max-width: 1232px) {
