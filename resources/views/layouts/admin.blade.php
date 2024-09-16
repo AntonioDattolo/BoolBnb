@@ -128,7 +128,7 @@
 					</div>
 				</nav>
 
-				<main class="col-md-12 col-lg-10">
+				<main class="col-md-12 col-lg-10" style="background-color: #263849">
 					@yield('content')
 				</main>
 			</div>
