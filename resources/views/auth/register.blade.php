@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autofocus>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
 
                             <div class="col-md-6">
-                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" autocomplete="new-surname">
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" >
 
                                 @error('surname')
                                 <span class="invalid-feedback" role="alert">
@@ -52,7 +52,7 @@
                                 @enderror --}}
 
                                 
-                                <input id="birth_date" type="date" class="form-control" name="birth_date" value="{{ old('birth_date') }}" autocomplete="new-birth_date" oninput="getBirthDate(), getAbilited()">
+                                <input id="birth_date" type="date" class="form-control" name="birth_date" value="{{ old('birth_date') }}" oninput="getBirthDate(), getAbilited()">
                                 <span id="birthFeedback" style="color: red;"></span>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
 
                             <div class="col-md-6">
                                 {{-- <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"> --}}
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" id="emailInput" oninput="validateEmailInput(), getAbilited()">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required id="emailInput" oninput="validateEmailInput(), getAbilited()">
                                 <span id="emailFeedback" style="color: red;"></span>
 
                                 @error('email')
@@ -79,7 +79,7 @@
                             <label for="passwordInput" class="col-md-4 col-form-label text-md-right">{{ __('*Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="passwordInput" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" oninput="validatePassword(), getAbilited()">
+                                <input id="passwordInput" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required  oninput="validatePassword(), getAbilited()">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -93,7 +93,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('*Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" oninput="validatePassword()">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required oninput="validatePassword()">
                                 <span id="feedbackPassword" style="color: red;"></span>
                             </div>
                         </div>

@@ -194,7 +194,7 @@ class SuiteController extends Controller
      */
     public function edit(string $id)
     {
-        $suite = Suite::with('sponsors')->findOrFail($id);
+        $suite = Suite::with('sponsors','services')->findOrFail($id);
         $user = auth()->user();
         $sponsor = Sponsor::all();
         // Verifica se l'utente autenticato è lo stesso dell'appartamento
@@ -217,7 +217,7 @@ class SuiteController extends Controller
     public function update(Request $request, String $id)
     {
         // dd($request);
-        $suite = Suite::with('sponsors')->findOrFail($id);
+        $suite = Suite::with('sponsors','services')->findOrFail($id);
         // dd($suite);
         $user = auth()->user();
         if ($suite->user_id != $user->id) {

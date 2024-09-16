@@ -12,7 +12,7 @@
 
             <div class="mb-4 row col-12">
                 <h2 class="col-12 mb-3 col-form-label text-md-right">You are sponsoring :</h2>
-                <h1 class="col-12 mb-3">{{ $suite[0]->title }} {{ $suite[0]->id }}</h1>
+                <h1 class="col-12 mb-3">{{ $suite[0]->title }}</h1>
                 <h4 class="col-12 mb-5">Situated in : {{ $suite[0]->address }}</h4>
                 <div class="col-12 d-flex gap-3 justify-content-center flex-wrap">
                     @foreach ($sponsor as $item)

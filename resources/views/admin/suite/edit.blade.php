@@ -113,12 +113,17 @@
         <div class="my-5 row d-flex flex-column">
             <label class="col-md-2 col-form-label text-md-right">Services:</label>
             <div class="col-md-10">
-                @foreach ($service as $item)
+                {{-- {{dd($suite->services[0]->id)}} --}}
+                @foreach ($service as $i =>  $item)
                     <div class="form-check">
+                        @if($item->id == isset($suite->services[$i]->id) )
                         <input class="form-check-input" type="checkbox" name="services[]" value="{{ $item->id }}" autocomplete=""
-                            id="tech{{ $item->id }}">
+                        id="tech{{ $item->id }}" checked>
+                        @else
+                        <input class="form-check-input" type="checkbox" name="services[]" value="{{ $item->id }}" autocomplete=""
+                            id="tech{{ $item->id }}" >
 
-
+                        @endif
                         <label class="form-check-label" for="tech{{ $item->id }}"> {{ $item->name }}</label>
                     </div>
                 @endforeach

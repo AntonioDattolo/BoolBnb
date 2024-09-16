@@ -82,7 +82,7 @@ class MessageController extends Controller
         $new_message->fill($data);
         $new_message->save();
 
-        Mail::to('info@boolpress.com')->send(new NewMail($new_message, $suite));
+        Mail::to('info@boolbnb.com')->send(new NewMail($new_message, $suite));
 
         return response()->json([
             'success' => true,

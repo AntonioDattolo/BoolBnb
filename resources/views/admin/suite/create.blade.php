@@ -20,6 +20,17 @@
             </span>
         @enderror
         <div class="my-width m-5">
+            <label for="suite_img" class="form-label">*Upload Suite Images:</label>
+
+            <input type="file" accept=".png,.jpg,.jpeg,.webp,image/png" class="form-control" name="img"
+                id="Suite_img" required />
+        </div>
+        @error('img')
+            <span class="bg-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+        <div class="my-width m-5">
             <label for="suite_room" class="form-label">*Rooms:</label>
             <input type="number" class="form-control" id="suite_room" placeholder="Number of rooms" name="room" oninput="disabledButton()"
                 min="1" max="20" value="{{ old('room') }}" required>
@@ -69,17 +80,6 @@
                 </ul>
             </div>
         </div>
-        <div class="my-width m-5">
-            <label for="suite_img" class="form-label">*Upload Suite Images:</label>
-
-            <input type="file" accept=".png,.jpg,.jpeg,.webp,image/png" class="form-control" name="img"
-                id="Suite_img" required />
-        </div>
-        @error('img')
-            <span class="bg-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
 
         {{-- <div class="mb-4 row">
             <label class="col-md-2 col-form-label text-md-right">Sponsor</label>
