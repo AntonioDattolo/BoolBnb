@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container w-50 p-3">
+<div class="container col-12 col-lg-6 p-3">
   <h3 class="text-center">Your visuals statistics analizer</h3>
     <canvas id="myChart"></canvas>
   </div>
@@ -56,3 +56,11 @@ $monthsInLetters = array_map(function($months) use ($monthNames) {
   
 
 @endsection
+
+<style scoped>
+  #myChart{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+</style>
