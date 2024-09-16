@@ -48,15 +48,15 @@
 					@endif
 					{{-- __________________________________________________________________ --}}
 
-					<div>
+					{{-- <div>
 						@if ($selectedSuite->visible == 1)
 							<h3 class="text-primary align-center">VISIBLE <a class="btn btn-primary" href="#"> <i class="fa fa-eye" aria-hidden="true"></i></a></h3> 
 						@else
 							<h3 class="text danger">NOT VISIBLE <a class="btn btn-primary" href="#"> <i class="fa fa-eye-slash" aria-hidden="true"></i></a></h3>
 						@endif
-					</div>
+					</div> --}}
 
-					<a href="{{route('admin.visuals.show', $selectedSuite->id)}}">grafico</a>
+					<a class="btn btn-outline-success" href="{{route('admin.visuals.show', $selectedSuite->id)}}">Analytics <i class="fa-solid fa-chart-line"></i></a>
 
 					{{-- INIZIO SEZIONE MODALE --}}
 

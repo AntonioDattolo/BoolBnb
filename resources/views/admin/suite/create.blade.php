@@ -167,22 +167,22 @@
 
         // ***************************************Logica Dave's Button **********************************************************
 
-        // let btn = document.getElementById("my-btn");
-        // btn.classList.add("disabled");
-        // let title = document.getElementById("suite_title");
-        // let room = document.getElementById("suite_room");
-        // let bed = document.getElementById("suite_bed");
-        // let bathroom = document.getElementById("suite_bathroom");
-        // let address = document.getElementById("suite_address");
-        // let squareM = document.getElementById("suite_squareM");
+        let btn = document.getElementById("my-btn");
+        btn.classList.add("disabled");
+        let title = document.getElementById("suite_title");
+        let room = document.getElementById("suite_room");
+        let bed = document.getElementById("suite_bed");
+        let bathroom = document.getElementById("suite_bathroom");
+        let address = document.getElementById("suite_address");
+        let squareM = document.getElementById("suite_squareM");
 
-        // function disabledButton() {
-        //     if ( (title.value != "") && (room.value != "") && (bed.value != "") && (bathroom.value != "") && (squareM.value != "") && (address.value != "") ) {
-        //         btn.classList.remove("disabled");
-        //     }else {
-        //         btn.classList.add("disabled");
-        //     }
-        // }
+        function disabledButton() {
+            if ( (title.value != "") && (room.value != "") && (bed.value != "") && (bathroom.value != "") && (squareM.value != "") && (address.value != "") ) {
+                btn.classList.remove("disabled");
+            }else {
+                btn.classList.add("disabled");
+            }
+        }
 
         // *************************************************************************************************
 
