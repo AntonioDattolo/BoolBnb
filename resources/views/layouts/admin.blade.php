@@ -28,7 +28,7 @@
 	<div id="app">
 
 		<div class="container-fluid vh-100">
-			<div class="row">
+			<div id="dash" class="row">
 				{{-- *****************************SIDE BAR NAV***************************** --}}
 
 				<nav id="sidebarMenu" class="col-lg-2 d-md-block bg-dark navbar-dark nav-bar-expand-lg ">
@@ -149,21 +149,24 @@
 		display: none;
 	}
 
-	@media only screen and (max-width: 1400px) {
-		.nav-lg {
+	@media only screen and (min-width: 993px) {
+		/* .nav-lg {
 			display: flex;
 			flex-direction: column;
-		}
+		} */
+		 #dash{
+			height: 100%;
+		 }
 	}
 
 	@media only screen and (max-width: 992px) {
-		.nav-lg {
+		 .nav-lg {
 			display: flex;
 			flex-direction: row;
-		}
+		} 
 
 		nav {
-			height: fit-content;
+			/* height: fit-content; */
 			padding: 1rem;
 		}
 	}
@@ -172,12 +175,18 @@
 
 		.my-toggle {
 			display: block;
+			background-color: #131519;
+			border: 1px solid #131519;
+		}
+		.my-toggle:hover{
+			background-color: #6c7381;
+			border: 1px solid #6c7381;
 		}
 
-		.nav-breack {
+		/* .nav-breack {
 			display: flex;
 			flex-direction: column;
-		}
+		} */
 
 		.nav-lg {
 			display: none;
