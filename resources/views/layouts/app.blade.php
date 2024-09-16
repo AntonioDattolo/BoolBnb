@@ -44,7 +44,7 @@
 					</div>
 
 					{{-- ***********************BOTTONE RESPONSIVE**************************** --}}
-					<div class="align-self-center ms-auto">
+					<div class="align-self-center ms-auto mx-2">
 						<button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 							aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
 							<span class="navbar-toggler-icon"></span>
@@ -55,7 +55,7 @@
 					<!-- Right Side Of Navbar -->
 					<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
-						<ul class="navbar-nav ml-auto">
+						<ul class="navbar-nav ms-auto">
 							{{-- ***********************RIGHT SIDE LINKS**************************** --}}
 							<li class="nav-item">
 								<a class="nav-link" href="http://localhost:5173/">Homepage</a>

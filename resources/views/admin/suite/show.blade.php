@@ -56,7 +56,7 @@
 						@endif
 					</div> --}}
 
-					<a class="btn btn-outline-success my-2" href="{{route('admin.visuals.show', $selectedSuite->id)}}"> Analitics <i class="fa-solid fa-chart-line"></i></a>
+					<a class="btn btn-outline-success my-2" href="{{route('admin.visuals.show', $selectedSuite->id)}}"> Analytics <i class="fa-solid fa-chart-line"></i></a>
 
 					{{-- INIZIO SEZIONE MODALE --}}
 

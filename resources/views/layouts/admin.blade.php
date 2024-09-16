@@ -44,7 +44,7 @@
 
 							<li class="nav-item">
 								<a
-									class="nav-link text-white {{ Route::currentRouteName() == 'admin.suite.index' || Route::currentRouteName() == 'admin.suite.show' || Route::currentRouteName() == 'admin.suite.create' || Route::currentRouteName() == 'admin.suite.edit' ? 'bg-secondary' : '' }}"
+									class="nav-link text-white {{ Route::currentRouteName() == 'admin.suite.index' || Route::currentRouteName() == 'admin.suite.show' || Route::currentRouteName() == 'admin.suite.create' || Route::currentRouteName() == 'admin.suite.edit' || Route::currentRouteName() == 'admin.payment' ? 'bg-secondary' : ''}}"
 									href="{{ route('admin.suite.index') }}">
 									<i class="fa-solid fa-bars fa-lg fa-fw"></i> Suites
 								</a>
