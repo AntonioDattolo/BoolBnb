@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container col-12 col-lg-6 p-3">
-  <h3 class="text-center">Your visuals statistics analizer</h3>
+  <h3 class="pb-5">Your analyitics for {{$suite->title}}:</h3>
+  
     <canvas id="myChart"></canvas>
   </div>
   

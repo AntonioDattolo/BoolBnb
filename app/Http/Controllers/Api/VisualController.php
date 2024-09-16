@@ -75,12 +75,15 @@ class VisualController extends Controller
         //     'visuals' => $visuals,
         //     'suite' => $suite,
         // ];
+        $suite = Suite::with('sponsors', 'services', 'messages')->where('id', $id)->first();
         $visuals = DB::table('visuals')->select(DB::raw('MONTH(date) as month'), 
         DB::raw('COUNT(suite_id) as visuals'))->where('suite_id', $id)->groupBy('month')->get();
-
+        $data = [
+            'suite' => $suite,
+        ];
 
         // dd($data);
-        return view('admin.visuals.show', compact('visuals'));
+        return view('admin.visuals.show', compact('visuals'), $data);
 
     }
 }
