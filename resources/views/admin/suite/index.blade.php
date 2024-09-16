@@ -71,7 +71,7 @@
                         <th>SUITE TITLE</th>
                         {{-- <th>SUITE VISUALS</th> MANCANO LE VISUALIZZAZIONI --}}
                         <th class="sponsor text-center">SUITE SPONSOR</th>
-                        <th class="visibility text-center">SUITE VISIBILITY</th>
+                        {{-- <th class="visibility text-center">SUITE VISIBILITY</th> --}}
                         <th class="action-width text-end">ACTION</th>
                     </thead>
                     <tbody>
@@ -95,11 +95,11 @@
                             <td class="sponsor text-center"> <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">Sponsor this suite <i class="fa-solid fa-coins text-warning"></i></a> </td>
                             @endif
                             
-                            @if ($item->visible == 1)
+                            {{-- @if ($item->visible == 1)
                             <td class="visibility text-center"> <i class="fa fa-eye" aria-hidden="true"></i></td> 
                             @else
                             <td class="visibility"> <i class="fa fa-eye-slash" aria-hidden="true"></i> </td>
-                            @endif
+                            @endif --}}
                             <td class="action text-end">
                                 <a class="btn btn-warning" href="{{route('admin.suite.edit', $item->id)}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                 
