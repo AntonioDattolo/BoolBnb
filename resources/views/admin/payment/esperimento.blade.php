@@ -1,20 +1,25 @@
 @extends('layouts.admin')
 
 @section('content')
-    <form id="sponsorships_update" action="{{ route('admin.suite.update', $suite[0]->id) }}" method="POST"
+<section class="container d-flex justify-content-center flex-wrap">
+
+
+    <form id="sponsorships_update" action="{{ route('admin.suite.update', $suite[0]->id)}}" method="POST"
         enctype="multipart/form-data">
         @method('PUT')
         @csrf
-        <section class="container pt-5">
+        <section class="container pt-5 d-flex justify-content-center flex-wrap">
 
-            <div class="mb-4 row">
-                <h2 class="col-12 mb-3 col-form-label text-md-right">You had chosen to sponsorship :</h2>
+            <div class="mb-4 row col-12">
+                <h2 class="col-12 mb-3 col-form-label text-md-right">You are sponsoring :</h2>
                 <h1 class="col-12 mb-3">{{ $suite[0]->title }} {{ $suite[0]->id }}</h1>
                 <h4 class="col-12 mb-5">Situated in : {{ $suite[0]->address }}</h4>
-                <div class="col-md-10 d-flex gap-3 justify-content-center">
+                <div class="col-12 d-flex gap-3 justify-content-center flex-wrap">
                     @foreach ($sponsor as $item)
-                        <div class="card col-3 mr-2">
+                        <div class="card col-12 col-md-3">
+                            
                             <div class="card-body" style="position: relative">
+                                <div style="height: 2rem"></div>
                                 <div class="form-check text-center">
                                     <input class="form-check-input" type="radio" name="sponsorship" id="sponsor"
                                         value="{{ $item->id }}" style="border: 1.5px solid rgb(48, 48, 48)">
@@ -23,13 +28,12 @@
                                     </label>
                                 </div>
 
-                                <h6 class="card-subtitle mb-2 text-body-secondary">$ : {{ $item->price }} </h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"> {{ $item->price }} $ </h6>
                                 <p>FOR</p>
-                                <p class="card-text text-center">{{ str_replace(':00:00', '', $item->period) }} Hours in
-                                    sponsorization </p>
+                                <p class="card-text text-center">{{ str_replace(':00:00', '', $item->period) }} Hours in featured </p>
                                     @if($item->id == 2)
-                                    <span class="" style="width:100%px;position: relative;bottom:-15px; float :left;padding: 0 3px 0 5px;border-radius:5px; border-bottom: 35px solid rgb(42, 66, 252);border-right: 29px solid rgba(77, 41, 223, 0); color:whitesmoke">
-                                        <span style="display :block;position:relative;bottom: -22px ">Most Sailed</span>
+                                    <span class="" style="width:100%px;position: absolute;top: 0px; right:0;padding: 0 3px 0 5px;border-radius:5px; border-top: 35px solid rgb(42, 66, 252);border-left: 29px solid rgba(77, 41, 223, 0); color:whitesmoke">
+                                        <span style="display :block;position:relative;bottom: 22px ">Best seller</span>
                                       
                                     </span>
                                     @endif
@@ -56,13 +60,14 @@
                     @endauth
                 </div>
             @endif
-            {{-- <button type="submit">premi</button> --}}
+        </section>  {{-- <button type="submit">premi</button> --}}
+        
     </form>
 
-    <div class="content container justify-content-end">
-        <div class="col-6" style="margin-left: 10rem">
+    <div class="col-12 d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
 
-            <form method="post" id="payment-form" action="{{ url('/checkout') }}">
+            <form class="d-flex justify-content-center flex-wrap" method="post" id="payment-form" action="{{ url('/checkout') }}">
                 @csrf
                 <section class="w-100">
                     <div class="bt-drop-in-wrapper">
@@ -71,7 +76,7 @@
                 </section>
 
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button id="pay" class="btn  btn-primary" type="submit"><span>Pay</span></button>
+                <button id="pay" class="btn btn-primary" type="submit"><span>Take your BOOST &#128640; </span></button>
 
             </form>
             <div id="container_button"></div>
@@ -80,7 +85,7 @@
     </div>
     </div>
 
-    </section>
+</section>
     <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
     <script>
         var form = document.querySelector('#payment-form');
@@ -103,6 +108,7 @@
             braintree.dropin.create({
                 authorization: client_token,
                 selector: '#bt-dropin',
+                
             }, function(createErr, instance) {
                 if (createErr) {
                     console.log('Create Error', createErr);

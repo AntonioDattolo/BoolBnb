@@ -42,9 +42,9 @@
 						DELETE
 					</button>
 					@if ($selectedSuite->sponsor == 1)
-					<h3 class="text-success"> Sponsorizzato <i class="fa-solid fa-coins text-warning"></i> </h3>
+					<h3 class="text-success"> Sponsored <i class="fa-solid fa-coins text-warning"></i> </h3>
 					@else 
-					<a href="{{route('admin.payment', $selectedSuite->slug)}}" class="btn btn-success">sponsorizza <i class="fa-solid fa-coins text-warning"></i></a>
+					<a href="{{route('admin.payment', $selectedSuite->slug)}}" class="btn btn-success my-2">Sponsor this suite <i class="fa-solid fa-coins text-warning"></i></a>
 					@endif
 					{{-- __________________________________________________________________ --}}
 
@@ -56,7 +56,7 @@
 						@endif
 					</div> --}}
 
-					<a class="btn btn-outline-success" href="{{route('admin.visuals.show', $selectedSuite->id)}}">Analitics <i class="fa-solid fa-chart-line"></i></a>
+					<a class="btn btn-outline-success my-2" href="{{route('admin.visuals.show', $selectedSuite->id)}}"> Analitics <i class="fa-solid fa-chart-line"></i></a>
 
 					{{-- INIZIO SEZIONE MODALE --}}
 

@@ -56,7 +56,7 @@
         <div class="my-width m-5">
             <label for="suite_address" class="form-label">*Address:</label>
             <input type="text" class="form-control" id="suite_address" placeholder="Address" name="address"
-                value="{{ old('address') }}" required>
+                value="{{ $suite->address}}" required>
             <div class="position-relative">
                 <ul id="result" class="list-group position-absolute">
                     {{-- suggest here --}}

@@ -2,7 +2,8 @@
 
 @section('content')
 	<div class="my_jumbotron">
-		<div class="container-fluid p-0">
+		<div class="container-fluid p-0 position-relative">
+			<h1 id="welcome_message" class="text-center position-absolute">Welcome to BoolBnb</h1>
 			<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
@@ -39,6 +40,14 @@
 		@endsection
 
 		<style scoped>
+			#welcome_message{
+				top:15%;
+				width: 100%;
+				color: whitesmoke;
+				z-index: 999;
+				-webkit-text-stroke-width: 0.45px;
+				-webkit-text-stroke-color: rgb(0, 0, 0);
+			}
 			.my_bg {
 				background-color: rgba(128, 128, 128, 0.534);
 				width: 40%;

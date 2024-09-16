@@ -16,94 +16,94 @@ class SuiteService extends Seeder
     {
         for ($i = 1; $i <= 64; $i++) {
             $sql = 'insert into suite_service ( suite_id , service_id  ) values (?, ?)';
-            $project = $i;
+            $suite = $i;
 
             if ($i % 1 == 0) {
-                $tech = 1;
+                $service = 1;
 
                 DB::insert($sql, [
-                    $project,
-                    $tech,
+                    $suite,
+                    $service,
                 ]);
             }
         };
         for ($i = 1; $i <= 64; $i++) {
             $sql = 'insert into suite_service ( suite_id , service_id  ) values (?, ?)';
-            $project = $i;
+            $suite = $i;
 
             if ($i % 1 == 0 && $i % 7 == 0) {
-                $tech = 5;
+                $service = 5;
 
                 DB::insert($sql, [
-                    $project,
-                    $tech,
+                    $suite,
+                    $service,
                 ]);
             }
         };
 
         for ($i = 1; $i <= 64; $i++) {
             $sql = 'insert into suite_service ( suite_id , service_id  ) values (?, ?)';
-            $project = $i;
+            $suite = $i;
 
             if ($i % 2 == 0) {
-                $tech = 2;
+                $service = 2;
 
                 DB::insert($sql, [
-                    $project,
-                    $tech,
+                    $suite,
+                    $service,
                 ]);
             };
         }
         for ($i = 1; $i <= 64; $i++) {
             $sql = 'insert into suite_service ( suite_id , service_id  ) values (?, ?)';
-            $project = $i;
+            $suite = $i;
 
             if ($i % 3 == 0) {
-                $tech = 3;
+                $service = 3;
                 DB::insert($sql, [
-                    $project,
-                    $tech,
+                    $suite,
+                    $service,
                 ]);
             }
         };
 
         for ($i = 1; $i <= 64; $i++) {
             $sql = 'insert into suite_service ( suite_id , service_id  ) values (?, ?)';
-            $project = $i;
+            $suite = $i;
 
             if ($i % 5 == 0) {
-                $tech = 5;
+                $service = 5;
                 DB::insert($sql, [
-                    $project,
-                    $tech,
+                    $suite,
+                    $service,
                 ]);
             }
         };
 
         for ($i = 1; $i <= 64; $i++) {
             $sql = 'insert into suite_service ( suite_id , service_id  ) values (?, ?)';
-            $project = $i;
+            $suite = $i;
 
             if ($i % 4 == 0) {
-                $tech = 4;
+                $service = 4;
 
                 DB::insert($sql, [
-                    $project,
-                    $tech,
+                    $suite,
+                    $service,
                 ]);
             }
         };
 
         for ($i = 1; $i <= 64; $i++) {
             $sql = 'insert into suite_service ( suite_id , service_id  ) values (?, ?)';
-            $project = $i;
+            $suite = $i;
 
             if ($i % 6 == 0) {
-                $tech = 6;
+                $service = 6;
 
                 DB::insert($sql, [
-                    $project,
-                    $tech,
+                    $suite,
+                    $service,
                 ]);
             }
         };

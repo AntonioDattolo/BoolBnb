@@ -162,7 +162,7 @@ class SuiteController extends Controller
             return redirect()->route('admin.suite.show', $newSuite->id);
         } else {
         }
-        return redirect()->route('admin.suite.show', $newSuite->id)->with('message', 'Project Created');
+        return redirect()->route('admin.suite.show', $newSuite->id)->with('message', 'Suite Created');
     }
 
     /**
@@ -299,7 +299,7 @@ class SuiteController extends Controller
 
         $suite->update($data);
 
-        return redirect()->route('admin.suite.show', $suite->id)->with('message', 'Project Updated');
+        return redirect()->route('admin.suite.show', $suite->id)->with('message', 'Suite Updated');
     }
 
     /**

@@ -90,9 +90,19 @@
                             
                             
                             @if ($item->sponsor == 1)
-                            <td class="sponsor text-center"><div class="my-bg-sponsored m-auto p-2 fw-semibold"> Sponsored <i class="fa-solid fa-circle-check text-success"></i> </div></td> 
+                            <td class="sponsor text-center">
+                                <span class="my-bg-sponsored m-auto p-2 fw-semibold" style="color: whitesmoke; background-color: rgb(255, 123, 0)">
+                                    Sponsored 
+                                    <i class="fa-solid fa-circle-check" style="color: whitesmoke"></i> 
+                                </span>
+                            </td> 
                             @else 
-                            <td class="sponsor text-center"> <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">Sponsor this suite <i class="fa-solid fa-coins text-warning"></i></a> </td>
+                            <td class="sponsor text-center">
+                                <a href="{{route('admin.payment', $item->slug)}}" class="btn btn-success">
+                                    Sponsor this suite 
+                                    <i class="fa-solid fa-coins text-warning"></i>
+                                </a> 
+                            </td>
                             @endif
                             
                             {{-- @if ($item->visible == 1)

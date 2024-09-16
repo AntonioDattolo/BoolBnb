@@ -17,9 +17,10 @@
 
 							<p class="fs-4 fw-semibold text-center">{{ __('Welcome') }} {{ Auth::user()->name }}</p>
 
-							<div class="text-center">
+							<div class="text-center mt-1">
 								<a href="{{ route('admin.suite.create') }}" class="btn btn-warning btn-lg" type="button">Add a Suite</a>
-
+							</div>
+							<div class="text-center mt-1">
 								<a href="{{ route('admin.suite.index') }}" class="btn btn-info btn-lg " type="button">My Suites</a>
 							</div>
 
