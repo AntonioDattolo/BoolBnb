@@ -45,7 +45,7 @@ class SuiteSeeder extends Seeder
         $newSuite2->latitude = 45.440847;
         $newSuite2->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite2->visible = true;
-        $newSuite2->sponsor = false;
+        $newSuite2->sponsor = true;
         $newSuite2->tot_visuals = 35;
         $newSuite2->user_id = 1;
         $newSuite2->save();
@@ -113,7 +113,7 @@ class SuiteSeeder extends Seeder
         $newSuite6->latitude = 45.070312;
         $newSuite6->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite6->visible = true;
-        $newSuite6->sponsor = false;
+        $newSuite6->sponsor = true;
         $newSuite6->tot_visuals = 60;
         $newSuite6->user_id = 1;
         $newSuite6->save();
@@ -164,7 +164,7 @@ class SuiteSeeder extends Seeder
         $newSuite9->latitude = 41.120186;
         $newSuite9->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite9->visible = true;
-        $newSuite9->sponsor = false;
+        $newSuite9->sponsor = true;
         $newSuite9->tot_visuals = 30;
         $newSuite9->user_id = 1;
         $newSuite9->save();
@@ -232,7 +232,7 @@ class SuiteSeeder extends Seeder
         $newSuite13->latitude = 45.808059;
         $newSuite13->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite13->visible = true;
-        $newSuite13->sponsor = false;
+        $newSuite13->sponsor = true;
         $newSuite13->tot_visuals = 75;
         $newSuite13->user_id = 1;
         $newSuite13->save();
@@ -300,7 +300,7 @@ class SuiteSeeder extends Seeder
         $newSuite17->latitude = 43.843017;
         $newSuite17->img = "https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ";
         $newSuite17->visible = true;
-        $newSuite17->sponsor = false;
+        $newSuite17->sponsor = true;
         $newSuite17->tot_visuals = 50;
         $newSuite17->user_id = 1;
         $newSuite17->save();
